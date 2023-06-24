@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <main class="body">
     <div class="contenedor">
         <div class="imagen">
             <img src="images/Attention-Danger.png" alt="error-404">
@@ -25,7 +26,7 @@
             <a href="index.php">Regresar</a>
         </div>
     </div>
-
+    </main>
 </body>
 
 </html>

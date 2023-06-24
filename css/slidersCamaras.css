@@ -18,10 +18,10 @@
   background: linear-gradient(to left top, #031A9A, #8B53FF);
 }
 .wrapper {
-  max-width: 1200px;
+  max-width: 1000px;
   width: 100%;
   position: relative;
-  margin: auto;
+  margin: 0 auto;
 }
 .wrapper i {
   top: 50%;
@@ -104,8 +104,10 @@
   color: #001a49;
 }
 .carousel .card span {
+  text-align: center;
   color: #6A6D78;
   font-size: 12px;
+  line-height: 1;
   color: #001a49;
 }
 @media screen and (max-width: 900px) {
@@ -113,8 +115,8 @@
     grid-auto-columns: calc((100% / 2) - 9px);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 300px) {
   .wrapper .carousel {
-    grid-auto-columns: 100%;
+    grid-auto-columns: 90%;
   }
 }
