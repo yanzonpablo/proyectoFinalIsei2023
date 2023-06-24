@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+p{
+    padding: 5px;
+}
+/*contenido*/
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.columna1 {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 30%;
+}
+.columna1 img {
+    width: 200px;
+    border-radius: 50%;
+}
+.columna2 {
+    display: flex;
+    align-self: center;
+    width: 60%;
+    padding-left: 25px;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+}
+.title {
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #001a49;
+    font-family: sans-serif;
+}
+.linea {
+    margin-left: 50px;
+    width: 80%;
+    padding-top: 20px;
+    border-bottom: 1px solid rgb(197, 197, 197);
+}
+.encontra {
+    text-align: center;
+    color: aliceblue;
+    padding-top: 10px;
+    font-size: 34px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+.caja {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    height: 10rem;
+    background-color: #001a49;
+}
+.cursosrelacionados {
+    margin: auto;
+}
+.btncursos {
+    margin: 20px 0;
+    text-align: center;
+}
+.btncursos button {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 3px 3px 5px rgb(191, 191, 191); 
+}
+.btncursos button:hover {
+    cursor: pointer;
+}
+.btncursos button:focus {
+    box-shadow: none;
+    cursor: pointer;
+}
+@media (max-width: 920px){
+    .container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    }
+    .caja {
+        height: 120px;
+    }
+    .title {
+    padding-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2em;
+    }
+    .columna1 {
+        width: 70%;
+    }
+    .columna2 {
+        padding: 0 10px;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .cursosrelacionados {
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+    .encontra {
+        padding-top: 10px;
+        font-size: 20px;
+    }
+    .btncursos {
+        text-align: center;
+    }
+    .btncursos button {
+    padding: 5px;
+    }
+    .encontra {
+        padding: 0;
+        
+    }
+    .linea {
+        margin: auto;
+    }
+}

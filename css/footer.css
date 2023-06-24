@@ -1,0 +1,72 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 5px 0;
+    background-color: #000;
+    color: #fff;
+}
+.footer-item {
+    width: 250px;
+}
+.footer-title {
+    font-family: 'Raleway', sans-serif !important;
+    color: #e65b00;
+    font-size: 20px;
+    margin: 5px 0;
+}
+.footer ul li {
+    font-family: 'Raleway', sans-serif !important;
+    list-style: none;
+    margin: 5px 0;
+    font-size: 12px;
+}
+.input-news {
+    border: none;
+    border-radius: 3px;
+    padding: 5px 0;
+}
+input.input-news {
+    padding-left: 5px;
+    width: 100%;
+}
+.input-news:focus{
+    outline: none;
+}
+.redes {
+    text-align: center;
+    cursor: pointer;
+}
+.redes ul li:hover {
+    color: #e65b00;
+}
+.contactanos {
+    text-align: center;
+}
+.web {
+    text-decoration: none;
+    color: #fff;
+}
+.btnNews {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px;
+    background: #ffffff;
+    border-radius: 5px;
+    margin-top: 3px;
+    float: right;
+}
+
+.btnNews:hover {
+    background: #aeaeae;
+}
+@media (max-width: 920px){
+    .redes {
+        text-align: start;
+        cursor: pointer;
+    }
+    .news-input{
+        padding-bottom: 25px;
+    }
+}

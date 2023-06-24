@@ -1,0 +1,260 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.imgcabecera{
+  width: 100%;
+  height: 350px;
+}
+.formacion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 60%;
+  font-size: 24px;
+  margin: auto;
+  color: #001a49;;
+}
+.parrafoFormacion {
+  text-align: center;
+  font-size: 16px;
+  color: #001a49;
+}
+h3 {
+  font-size: 20px;
+}
+.separacion {
+  margin: 30px 0 ;
+  border-top: 1px solid gainsboro;
+}
+.encontracursos {
+  text-align: center;
+  font-size: 16px;
+}
+.btn-curso {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  background-color: #029ee0;
+  color: #ffffff;
+  border: 2px solid #029ee0;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.btn-curso:hover {
+  color: #029ee0;
+  background-color: #ffffff;
+  border: 2px solid #029ee0;
+  transition: 1s all;
+}
+.titulos {
+  font-size: 28px;
+  font-weight: 700;
+}
+/* preguntas */
+.limited-container {
+  width: 60%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.preguntas {
+  text-align: center;
+}
+.subtitle {
+font-size: 30px;
+}
+.preguntas_paragraph {
+  padding-bottom: 10px;
+}
+.preguntas_container {
+  display: grid;
+  gap: 10px;
+  padding: 10px 0 30px 0;
+}
+.preguntas_padding {
+  padding: 0;
+  transition: padding 0.5s;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+.preguntas_padding--add {
+  padding-bottom: 10px;
+}
+.preguntas_answer {
+  padding: 0 20px ;
+  overflow: hidden;
+}
+.preguntas_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 0;
+  font-size: 18px;
+  color: #001a49;
+}
+.preguntas_arrow {
+  border-radius: 50%;
+  background-color: #001a49;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  transition: transform .5s;
+}
+.preguntas_arrow--rotate {
+  transform: rotate(180deg);
+}
+.preguntas_show {
+  text-align: justify;
+  height: 0;
+  transition: height 0.5s;
+}
+.preguntas_copy {
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+/* cards */
+.table-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.table-item {
+  display: inline-block;
+  position:relative; 
+  border: 1px solid rgb(184, 171, 171);
+  border-radius: 10px;
+  margin: 20px 10px;
+  width: 250px;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  justify-content: center;
+  transition: all 0.4s;
+}
+a{
+  color: rgb(50, 50, 50);
+  text-decoration: none;
+  text-transform: none;
+}
+.table-item:before{
+  content:"INGRESAR";
+  font-size:30px;
+  font-weight: 800;
+  color:#ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  border-radius: 9px;
+  position: absolute;
+  top:0;
+  left:0;
+  background-color:rgba(48, 48, 48, 0.8);
+  opacity:0;
+  visibility: hidden;
+  transform-origin: top center;
+  transform: scale3d(1, 0, 1);
+  transition: .6s;
+}
+.table-item:hover::before{
+  opacity:1;
+  transform: scale3d(1, 1, 1);
+  visibility: visible;
+}
+.table-plan {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 400;
+  border-radius: 9px 9px 0 0;
+  background-color: #029ee0;
+  font-size: 20px;
+  padding: 10px 10px 5px 10px;
+  border-bottom: 1px solid rgb(205, 203, 203);
+}
+.table-p {
+  padding-top: 10px;
+  margin: 0 5px;
+  text-align: center;
+}
+/* fin card */
+@media (max-width: 920px) {
+  .preguntas_answer {
+    padding: 0 14px;
+  }
+  .preguntas_title {
+    font-size: 12px;
+    text-align: left;
+  }
+  .preguntas_arrow {
+    display: none;
+  }
+  .preguntas_container {
+    gap: 7px;
+  }
+  .limited-container {
+    width: 80%;
+  }
+  .formacion {
+    width: 90%;
+  }
+  .formacion h1{
+    font-size: 20px;
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+  }
+  .titulos {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .parrafoFormacion {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    text-align: center;
+  }
+  .subtitle {
+  font-size: 20px;
+  }
+  .preguntas_paragraph {
+  display: none;
+  }
+  .table-plan {
+    font-size: 14px;
+  }
+  .table-p {
+    font-size: 12px;
+  }
+  .separacion {
+    margin: 10px 0;
+  }
+  .encontracursos {
+    padding-top: 5px;
+    font-size: 14px;
+  }
+  .btn-curso {
+    font-size: 16px;
+  }
+  .publi-p, .publi-plan {
+    padding: 0px 10px;
+  }
+  .imgcabecera {
+    width: 100%;
+    height: 250px;
+}
+}
