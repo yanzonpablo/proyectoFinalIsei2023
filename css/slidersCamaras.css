@@ -18,8 +18,8 @@
   background: linear-gradient(to left top, #031A9A, #8B53FF);
 }
 .wrapper {
-  max-width: 1000px;
-  width: 100%;
+  max-width: 1200px;
+  width: 90%;
   position: relative;
   margin: 0 auto;
 }
@@ -112,11 +112,17 @@
 }
 @media screen and (max-width: 900px) {
   .wrapper .carousel {
-    grid-auto-columns: calc((100% / 2) - 9px);
+    grid-auto-columns: calc((90% / 3) - 9px);
   }
 }
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 400px) {
   .wrapper .carousel {
-    grid-auto-columns: 90%;
+    grid-auto-columns: calc((90% / 2) - 9px);
+    grid-auto-columns: 100%;
   }
+  .wrapper {
+
+    width: 80%;
+  }
+
 }

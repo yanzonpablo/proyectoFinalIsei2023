@@ -120,7 +120,7 @@
         <!-- --------------- CARDS INICIO-------------- -->
         <div class="formacion">
             <p class="titulos">ENCONTRÁ TU CURSO ACÁ</p>
-            <p class="encontracursos">*Todos los cursos son <strong>"sin costo"</strong> para aportantes y asociados a las cámara adheridas. </p>
+            <p class="encontracursos">*Todos los cursos son <strong>"sin costo"</strong> para aportantes y asociados a las <strong>Cámaras adheridas.</strong> </p>
         </div>
         <div class="table-container" id="listaCursos">
             <a href="#" class="table-item">
