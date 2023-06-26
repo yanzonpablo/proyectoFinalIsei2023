@@ -1,7 +1,7 @@
 <?php
-require_once ('./validacionFunction.php');
-require_once ('./varErrorCamara.php');
-require_once ('bd/conexion.php');
+// require_once ('./validacionFunction.php');
+require_once ('../varErrorCamara.php');
+require_once ('../bd/conexion.php');
 
 if (isset($_POST['aceptar'])) {
       $nombre = $_POST['nombre'];
@@ -58,7 +58,7 @@ if (isset($_POST['aceptar'])) {
     ?>
 <?php
       // ---------------provincias-----------------
-require_once ('bd/conexion.php');
+require_once ('../bd/conexion.php');
 
 $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC");
 ?>
@@ -71,11 +71,11 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="dash.css">
+    <link rel="stylesheet" href="../varios/dash.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="css/formularioCamara.css">
+    <link rel="stylesheet" href="../css/formularioCamara.css">
     <title>Admin Dashboard Panel</title>
 </head>
 <body>
@@ -94,7 +94,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Inicio</span>
                 </a></li>
-                <li><a href="FormularioCamara.php">
+                <li><a href="../FormularioCamara.php">
                     <i class="uil uil-files-landscapes"></i>
                     <span class="link-name">Registro de cámaras</span>
                 </a></li>
@@ -112,7 +112,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-share"></i>
-                    <span class="link-name">Share</span>
+                    <span class="link-name">Newsletters</span>
                 </a></li>
             </ul>
             

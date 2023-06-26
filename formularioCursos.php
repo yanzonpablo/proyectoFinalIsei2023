@@ -1,17 +1,17 @@
 <?php
-require_once ('./validacionFunction.php');
-require_once ('./varErrorCamara.php');
+require_once ('varErrorCursos.php');
 require_once ('bd/conexion.php');
 
 if (isset($_POST['aceptar'])) {
       $nombre = $_POST['nombre'];
+      $nivel_curso = $_POST['nivel_curso'];
       $descripcion = $_POST['descripcion'];
 
       // ---------------logo-----------------
-      $nombre_imagen = $_FILES['logo_camara']['name'];
-      $tamano_imagen = $_FILES['logo_camara']['size'];
-      $tmp_imagen = $_FILES['logo_camara']['tmp_name'];
-      $error_imagen = $_FILES['logo_camara']['error'];
+      $nombre_imagen = $_FILES['logo_curso']['name'];
+      $tamano_imagen = $_FILES['logo_curso']['size'];
+      $tmp_imagen = $_FILES['logo_curso']['tmp_name'];
+      $error_imagen = $_FILES['logo_curso']['error'];
 
       if ($error_imagen == 0) {
         if($tamano_imagen > 2000000) {
@@ -23,10 +23,10 @@ if (isset($_POST['aceptar'])) {
 
           $imagenPermitida = array('png', 'jpg', 'jpeg', 'gif');
 
-          if (isset($_FILES['logo_camara'])) { 
+          if (isset($_FILES['logo_curso'])) { 
             if (in_array($imagen_extension, $imagenPermitida)) {
               $nombreNuevaImagen = uniqid("IMG-", true).".".$imagen_extension_1;
-              $imagen_subida = "images/logosCamaras/". $nombreNuevaImagen;
+              $imagen_subida = "images/cursos/". $nombreNuevaImagen;
               move_uploaded_file($tmp_imagen, $imagen_subida);
             }
           }
@@ -34,34 +34,39 @@ if (isset($_POST['aceptar'])) {
       }
       // ---------------fin logo-----------------
 
-      $telefono = $_POST['telefono'];
-      $direccion = $_POST['direccion'];
-      $codigoPostal = $_POST['codigoPostal'];
-      $provincia = $_POST['provincia'];
-      $email = $_POST['email'];
-      $web = $_POST['web'];
+      $carga_horaria = $_POST['carga_horaria'];
+      $fecha_inicio = $_POST['fecha_inicio'];
+      $fecha_fin = $_POST['fecha_fin'];
+      $modalidad = $_POST['modalidad'];
       
-      $query = $pdo->prepare('INSERT INTO camaras (nombre, descripcion, logo_camara, telefono, direccion, codigo_postal, provincia, email, web) VALUES (:nombre, :descripcion, :logo_camara, :telefono, :direccion, :codigo_postal, :provincia, :email, :web)');
+      $query = $pdo->prepare('INSERT INTO cursos (nombre, nivel_curso, descripcion, carga_horaria, logo_curso, fecha_inicio, fecha_fin, modalidad) VALUES (:nombre, :nivel_curso, :descripcion, :carga_horaria, :logo_curso, :fecha_inicio, :fecha_fin, :modalidad)');
       
       $query->bindParam(':nombre', $nombre);
+      $query->bindParam(':nivel_curso', $nivel_curso);
       $query->bindParam(':descripcion', $descripcion);
-      $query->bindParam(':logo_camara', $nombreNuevaImagen);
-      $query->bindParam(':telefono', $telefono);
-      $query->bindParam(':direccion', $direccion);
-      $query->bindParam(':codigo_postal', $codigoPostal);
-      $query->bindParam(':provincia', $provincia);
-      $query->bindParam(':email', $email);
-      $query->bindParam(':web', $web);
-      
-      $query->execute();
-  }
-    ?>
-<?php
-      // ---------------provincias-----------------
-require_once ('bd/conexion.php');
+      $query->bindParam(':carga_horaria', $carga_horaria);
+      $query->bindParam(':logo_curso', $logo_curso);
+      $query->bindParam(':fecha_inicio', $fecha_inicio);
+      $query->bindParam(':fecha_fin', $fecha_fin);
 
-$consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre DESC");
-?>
+      $query->execute();
+    }
+    ?>
+
+  <?php
+  $consulta = $pdo -> prepare("SELECT * FROM modalidades ORDER BY modalidad ASC");
+  $consulta -> execute();
+  ?>
+
+  <?php
+  $niveles = $pdo -> prepare("SELECT nivel, carga_horaria FROM niveles_cursos ORDER BY nivel ASC");
+  $niveles -> execute();
+  ?>
+  <?php
+  
+  $carga = $pdo -> prepare("SELECT DISTINCT carga_horaria FROM niveles_cursos");
+  $carga -> execute();
+  ?>
 
 <!DOCTYPE html>
 <html>
@@ -82,63 +87,73 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre DESC"
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
     <!-- fin iconos -->
     <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/formularioCamara.css">
+  <link rel="stylesheet" href="css/formularioCurso.css">
 </head>
 
 <body>
   <?php require_once ('nav.php') ?>
   <section>
   <div class="container">
-    <h1 class="form-title">REGISTRO DE CAMARA</h1>
+    <h1 class="form-title">REGISTRO DE CURSOS</h1>
     <form action="" method="POST" enctype="multipart/form-data">
+      <div>
       <div class="main-user-info">
         <div class="user-input-box">
-          <input type="text" name="nombre" value="<?php if (isset($nombre)) echo $nombre ?>" placeholder="Ingrese nombre" />
-          <?=$nombreError?>
-        </div>
+          <input type="text" name="nombre" value="<?php if (isset($nombre)) echo $nombre ?>" placeholder="Ingrese nombre del curso" />
+          <?=$nombreError?></div>
         <div class="user-input-box">
-          <input type="text" id="descripcion" name="descripcion" value="<?php if (isset($descripcion)) echo $descripcion ?>" placeholder="Ingrese descripción" />
-          <?=$descripcionError?>
-        </div>
-    <label for="logo_curso" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
-        <div class="user-input-boxFile">
-          <input type="file" id="logo_curso" name="logo_curso"/>
-        </div></label>
-        <div class="user-input-box">
-          <input type="nivel_curso" id="nivel_curso" name="nivel_curso" value="<?php if (isset($telefono)) echo $telefono ?>" placeholder="Ingrese teléfono" />
-          <span for="teléfono" class="error"></span>
-          <?=$telefonoError?>
-        </div>
-        <div class="user-input-box">
-          <input type="text" id="direccion" name="direccion" value="<?php if (isset($direccion)) echo $direccion ?>" placeholder="Ingrese dirección" />
-          <?=$direccionError?>
-        </div>
-        <div class="user-input-box">
-          <input type="text" id="codigoPostal" name="codigoPostal" value="<?php if (isset($codigoPostal)) echo $codigoPostal ?>" placeholder="Ingrese código postal" />
-          <?=$codigoPostalError?>
-        </div>
-        <div class="user-input-box">
-          <select name="provincia" id="provincia" class="style-select">
+          <select name="nivel_curso" id="nivel_curso" class="style-select">
+            <option value="0" selected disabled>* Seleccione tipo de curso</option>
             <?php
-            while($provincias = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
-            <option value="<?= $provincias['nombre'] ?>" selected="<?$provincias['id'=25]?>" name="provincia" ><?= $provincias['nombre'] ?></option>
+            while($nivel = $niveles->fetch(PDO::FETCH_ASSOC)){ ?>
+            <option value="<?= $nivel['nivel'] ?>" name="nivel_curso" ><?= $nivel['nivel'] ?></option>
               <?php } ?>
               </select>
-              <?= $provinciaError?>
+              <?= $nivel_cursoError?>
             </div>
-          <div class="user-input-box">
-            <input type="email" id="email" name="email" value="<?php if (isset($email)) echo $email ?>" placeholder="Ingrese e-mail" />
-            <?=$emailError?>
+
+            <div class="user-input-box">
+              <select name="carga_horaria" id="carga_horaria" class="style-select">
+                <option value="0" selected disabled>* Seleccione carga horaria</option>
+                <?php
+            while($hs = $carga->fetch(PDO::FETCH_ASSOC)) { ?>
+            <option value="<?= $hs['carga_horaria'] ?>" name="carga_horaria">
+              <?= $hs['carga_horaria'] ?></option>
+              <?php } ?>
+            </select>
+            <?= $carga_horariaError?>
           </div>
+          
+        <div class="user-input-box">
+          <input type="date" id="fecha_inicio" name="fecha" value="" placeholder="Ingrese fecha inicio" />
+          <span for="fecha_inicio" class="error"></span>
+          <?=$fecha_inicioError?></div>
+          
+          <label for="logo_curso" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
+          <div class="user-input-boxFile">
+            <input type="file" id="logo_curso" name="logo_curso"/>
+          </div></label>
+          
           <div class="user-input-box">
-          <input type="text" id="web" name="web" value="<?php if (isset($web)) echo $web ?>" placeholder="Ingrese web" />
-          <?=$webError?>
-        </div>
-      </div>
-      <div class="form-submit-btn">
-        <button type="submit" name="aceptar" value="aceptar">Registrar
-      </div>
+            <select name="modalidad" id="modalidad" class="style-select">
+              <option value="0" selected disabled>* Seleccione una modalidad</option>
+              <?php while($modalidad = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
+                <option value="<?= $modalidad['modalidad'] ?>" name="modalidad" ><?=  $modalidad['modalidad'] ?></option>
+                <?php } ?>
+              </select><?= $modalidadError?></div>
+            </div>
+            </div>
+          <div class="user-input-box2">
+            <label for="descripcion">Ingrese descripción:</label>
+            <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="<?php if (isset($descripcion)) echo $descripcion ?>" class="textareaCurso"> </textarea>
+            <?=$descripcionError?>
+          </div>
+
+            <div class="form-submit-btn">
+              <button type="submit" name="aceptar" value="aceptar">Registrar
+                </div>
     </form>
+    
 
   </div>
 </section>

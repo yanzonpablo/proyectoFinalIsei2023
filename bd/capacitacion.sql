@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2023 a las 03:19:57
+-- Tiempo de generación: 26-06-2023 a las 04:25:34
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -154,7 +154,7 @@ CREATE TABLE `cursos` (
 CREATE TABLE `cursos_ofrecidos` (
   `id` int(10) NOT NULL,
   `id_curso` int(10) NOT NULL,
-  `id camara` int(10) NOT NULL,
+  `id_camara` int(10) NOT NULL,
   `id_capacitador` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -195,6 +195,15 @@ CREATE TABLE `modalidades` (
   `id_curso` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `modalidades`
+--
+
+INSERT INTO `modalidades` (`id`, `modalidad`, `id_curso`) VALUES
+(4, 'On-line', 0),
+(5, 'Mixta', 0),
+(7, 'Presencial', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -214,6 +223,31 @@ CREATE TABLE `newsletters` (
 
 INSERT INTO `newsletters` (`id`, `email`, `baja`, `fecha_alta`) VALUES
 (3, 'pablo@algo.com', 0, '2023-06-19');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `niveles_cursos`
+--
+
+CREATE TABLE `niveles_cursos` (
+  `id` int(10) NOT NULL,
+  `nivel` varchar(60) NOT NULL,
+  `carga_horaria` varchar(20) NOT NULL,
+  `sub_indice` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `niveles_cursos`
+--
+
+INSERT INTO `niveles_cursos` (`id`, `nivel`, `carga_horaria`, `sub_indice`) VALUES
+(1, 'Perfeccionamiento profesional', '12 Horas', 2),
+(2, 'Perfeccionamiento no profesional', '12 Horas', 2),
+(3, 'Charla Técnica', '3 Horas', 3),
+(4, 'Presentación comercial', '3 Horas', 3),
+(5, 'Curso Base', '60 Horas', 1),
+(6, 'Inclusión social', '60 Horas', 1);
 
 -- --------------------------------------------------------
 
@@ -326,7 +360,7 @@ ALTER TABLE `cursos`
 ALTER TABLE `cursos_ofrecidos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_curso` (`id_curso`),
-  ADD KEY `id camara` (`id camara`),
+  ADD KEY `id camara` (`id_camara`),
   ADD KEY `id_capacitador` (`id_capacitador`);
 
 --
@@ -355,6 +389,12 @@ ALTER TABLE `modalidades`
 -- Indices de la tabla `newsletters`
 --
 ALTER TABLE `newsletters`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `niveles_cursos`
+--
+ALTER TABLE `niveles_cursos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -429,13 +469,19 @@ ALTER TABLE `inscripciones`
 -- AUTO_INCREMENT de la tabla `modalidades`
 --
 ALTER TABLE `modalidades`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `newsletters`
 --
 ALTER TABLE `newsletters`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `niveles_cursos`
+--
+ALTER TABLE `niveles_cursos`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `provincias`
@@ -499,12 +545,6 @@ ALTER TABLE `entidades`
 --
 ALTER TABLE `inscripciones`
   ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `modalidades`
---
-ALTER TABLE `modalidades`
-  ADD CONSTRAINT `modalidades_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuarios`

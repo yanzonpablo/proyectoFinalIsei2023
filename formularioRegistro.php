@@ -11,7 +11,7 @@ if (isset($_POST['aceptar'])) {
     }
 ?>
 <?php
-$consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre DESC");
+$consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC");
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,14 +73,15 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre DESC"
           <?=$codigoPostalError?>
         </div>
         <div class="user-input-box">
-        <select name="provincia" id="provincia" class="style-select">
+          <select name="provincia" id="provincia" class="style-select">
+            <option value="0" selected disabled>* Seleccione una provincia</option>
             <?php
             while($provincias = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
-            <option value="<?= $provincias['nombre'] ?>" selected="<?$provincias['id'=25]?>" name="provincia" ><?= $provincias['nombre'] ?></option>
+            <option value="<?= $provincias['nombre'] ?>" name="provincia" ><?= $provincias['nombre'] ?></option>
               <?php } ?>
               </select>
-                        <?= $provinciaError?>
-                      </div>
+              <?= $provinciaError?>
+            </div>
           <div class="user-input-box">
               <input type="text" id="ciudad" name="ciudad" value="<?php if (isset($ciudad)) echo $ciudad ?>" placeholder="Ingrese ciudad" />
               <?=$ciudadError?>
