@@ -114,8 +114,20 @@ if (isset($_POST['aceptar'])) {
               <input type="text" id="telefono" name="telefono" value="" placeholder="Ingrese número de teléfono" />
               <span for="teléfono" class="error"></span>
               <?=$telefonoError?></div>
+              
+            <div class="user-input-box">
+            <input type="text" name="email" value="<?php if (isset($email)) echo $email ?>" placeholder="Ingrese apellido del capacitador" />
+            <?=$emailError?></div>
+            
+            <div class="user-input-box">
+            <input type="text" name="direccion" value="<?php if (isset($direccion)) echo $codigoPostal ?>" placeholder="Ingrese apellido del capacitador" />
+            <?=$direccionError?></div>
 
-          <div class="user-input-box">
+            <div class="user-input-box">
+            <input type="text" name="codigoPostal" value="<?php if (isset($codigoPostal)) echo $codigoPostal ?>" placeholder="Ingrese apellido del capacitador" />
+            <?=$codigoPostalError?></div>
+
+              <div class="user-input-box">
           <select name="provincia" id="provincia" class="style-select">
             <option value="0" selected disabled>* Seleccione una provincia</option>
             <?php
@@ -127,33 +139,13 @@ if (isset($_POST['aceptar'])) {
             </div>
             
             <div class="user-input-box">
-            <input type="text" name="email" value="<?php if (isset($email)) echo $email ?>" placeholder="Ingrese apellido del capacitador" />
-            <?=$codigoPostalError?></div>
-            
-            <div class="user-input-box">
-            <input type="text" name="codigoPostal" value="<?php if (isset($codigoPostal)) echo $codigoPostal ?>" placeholder="Ingrese apellido del capacitador" />
-            <?=$codigoPostalError?></div>
-
-            <div class="user-input-box">
             <input type="text" name="empresa" value="<?php if (isset($empresa)) echo $empresa ?>" placeholder="Ingrese apellido del capacitador" />
-            <?=$empresaError?></div>
+            <?=$empresaError?>
+          </div>
+         
+        
+            </div>
 
-          
-          
-          <label for="logo_curso" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
-          <div class="user-input-boxFile">
-            <input type="file" id="logo_curso" name="logo_curso"/>
-          </div></label>
-          
-          <div class="user-input-box">
-            <select name="modalidad" id="modalidad" class="style-select">
-              <option value="0" selected disabled>* Seleccione una modalidad</option>
-              <?php while($modalidad = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
-                <option value="<?= $modalidad['modalidad'] ?>" name="modalidad" ><?=  $modalidad['modalidad'] ?></option>
-                <?php } ?>
-              </select><?= $modalidadError?></div>
-            </div>
-            </div>
           <div class="user-input-box2">
             <label for="descripcion">Ingrese descripción:</label>
             <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="<?php if (isset($descripcion)) echo $descripcion ?>" class="textareaCurso"> </textarea>

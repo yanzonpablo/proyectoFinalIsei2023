@@ -2,15 +2,14 @@
 // --------Declaracion variables error formulario registro----------
 $nombreError = '';
 $apellidoError = '';
-$nivel_cursoError = '';
+$cuilCuitError = '';
+$telefonoError = '';
+$provinciaError = '';
+$codigoPostalError = '';
+$empresaError = '';
+$emailError = '';
+$direccionError = '';
 $descripcionError = '';
-$carga_horariaError = '';
-$nombreNuevaImagenError = '';
-$fecha_inicioError = '';
-$fecha_finError = '';
-$modalidadError = '';
-$nivel_cursoError = '';
-$carga_horariaError = '';
 
 
 //-----------Al inicio es $error = false ------no hay error
