@@ -39,7 +39,7 @@
                                         <a href="FormularioCurso.php">Formulario Curso</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="varios/dash.php">Panel de control</a>
+                                        <a href="dash.php">Panel de control</a>
                                     </li>
                                     <!-- <li class="dropdown-link">
                                         <a href="#">Link 3<i class="fas fa-caret-down"></i></a>
