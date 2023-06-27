@@ -21,9 +21,71 @@
             <div class="nav-btn">
                 <div class="nav-links">
                     <ul>
+                        <!-- -----------------boton temp-------------------------- -->
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">Pantallas<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="newsletter.php">Newsletters</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="formularioCapacitador.php">Formulario Capacitador</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="FormularioCamara.php">Formulario Cámara</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="FormularioCurso.php">Formulario Curso</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="varios/dash.php">Panel de control</a>
+                                    </li>
+                                    <!-- <li class="dropdown-link">
+                                        <a href="#">Link 3<i class="fas fa-caret-down"></i></a>
+                                        <div class="dropdown second">
+                                            <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 1</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 2</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 3</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">More<i class="fas fa-caret-down"></i></a>
+                                                    <div class="dropdown second">
+                                                        <ul>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 1</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 2</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 3</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <div class="arrow"></div>
+                                            </ul>
+                                        </div>
+                                    </li> -->
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- -----------------boton temp-------------------------- -->  
+
                         <li class="nav-link" style="--i: .6s">
                             <a href="index.php">Inicio</a>
                         </li>
+                        
                         <li class="nav-link" style="--i: .85s">
                             <a href="#">Cursos<i class="fas fa-caret-down"></i></a>
                             <div class="dropdown">
@@ -133,6 +195,7 @@
                             <a href="contacto.php">Contacto</a>
                         </li>
                     </ul>
+                    
                     </div>
                         <div class="buttons" style="--i: 1.8s">
                             <a href="formularioRegistro.php" class="btn btnRegistrese transparent">Registrarse</a>

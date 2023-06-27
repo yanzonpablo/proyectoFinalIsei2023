@@ -79,6 +79,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
     <title>Admin Dashboard Panel</title>
 </head>
 <body>
+  <?php require_once("../nav.php") ?>
     <nav>
         <div class="logo-name">
             <div class="logo-image">
@@ -125,7 +126,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
                 <li class="mode">
                     <a href="#">
                         <i class="uil uil-moon"></i>
-                    <span class="link-name">Dark Mode</span>
+                    <span class="link-name">Modo Noche</span>
                 </a>
 
                 <div class="mode-toggle">
@@ -150,61 +151,8 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
 
         <div class="dash-content">
         <section>
-  <div class="container">
-    <h1 class="form-title">REGISTRO DE CAMARA</h1>
-    <form action="" method="POST" enctype="multipart/form-data">
-      <div class="main-user-info">
-        <div class="user-input-box">
-          <input type="text" name="nombre" value="<?php if (isset($nombre)) echo $nombre ?>" placeholder="Ingrese nombre" />
-          <?=$nombreError?>
-        </div>
-        <div class="user-input-box">
-          <input type="text" id="descripcion" name="descripcion" value="<?php if (isset($descripcion)) echo $descripcion ?>" placeholder="Ingrese descripción" />
-          <?=$descripcionError?>
-        </div>
-    <label for="logo_camara" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
-        <div class="user-input-boxFile">
-          <input type="file" id="logo_camara" name="logo_camara"/>
-        </div></label>
-        <div class="user-input-box">
-          <input type="tel" id="telefono" name="telefono" value="<?php if (isset($telefono)) echo $telefono ?>" placeholder="Ingrese teléfono" />
-          <span for="teléfono" class="error"></span>
-          <?=$telefonoError?>
-        </div>
-        <div class="user-input-box">
-          <input type="text" id="direccion" name="direccion" value="<?php if (isset($direccion)) echo $direccion ?>" placeholder="Ingrese dirección" />
-          <?=$direccionError?>
-        </div>
-        <div class="user-input-box">
-          <input type="text" id="codigoPostal" name="codigoPostal" value="<?php if (isset($codigoPostal)) echo $codigoPostal ?>" placeholder="Ingrese código postal" />
-          <?=$codigoPostalError?>
-        </div>
-        <div class="user-input-box">
-          <select name="provincia" id="provincia" class="style-select">
-            <option value="0" selected disabled>* Seleccione una provincia</option>
-            <?php
-            while($provincias = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
-            <option value="<?= $provincias['nombre'] ?>" name="provincia" ><?= $provincias['nombre'] ?></option>
-              <?php } ?>
-              </select>
-              <?= $provinciaError?>
-            </div>
-          <div class="user-input-box">
-            <input type="email" id="email" name="email" value="<?php if (isset($email)) echo $email ?>" placeholder="Ingrese e-mail" />
-            <?=$emailError?>
-          </div>
-          <div class="user-input-box">
-          <input type="text" id="web" name="web" value="<?php if (isset($web)) echo $web ?>" placeholder="Ingrese web" />
-          <?=$webError?>
-        </div>
-      </div>
-      <div class="form-submit-btn">
-        <button type="submit" name="aceptar" value="aceptar">Registrar
-      </div>
-    </form>
-
-  </div>
-</section>
+  
+        </section>
             
         </div>
     </section>
