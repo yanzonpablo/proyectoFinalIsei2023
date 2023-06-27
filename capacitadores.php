@@ -44,9 +44,9 @@ $consulta->execute();
       <div class="container-capacitadores" id="lista-capacitadores">
           <?php while ($capacitador = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
           <div class="card">
-            <img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
+            <a href="capacitador.php" class="linkCapacitador"><img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
             <h4><?= $capacitador['nombre']?> <?= $capacitador['apellido']?></h4>
-            <p><?= $capacitador['especialidad']?></p>
+            <p><?= $capacitador['especialidad']?></p></a>
             <a href="capacitador.php" class="button agregar-carrito">CONOCELO</a>
           </div>
           <?php } ?>
