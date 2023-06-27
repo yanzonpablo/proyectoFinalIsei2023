@@ -18,7 +18,7 @@
         </div>
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li><a href="index.php">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Inicio</span>
                 </a></li>
@@ -26,7 +26,7 @@
                     <i class="uil uil-files-landscapes"></i>
                     <span class="link-name">Registro de cámaras</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="formulariocurso.php">
                     <i class="uil uil-chart"></i>
                     <span class="link-name">Registro de cursos</span>
                 </a></li>
@@ -34,11 +34,11 @@
                     <i class="uil uil-thumbs-up"></i>
                     <span class="link-name">Registro de usuarios</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="formulariocapacitador.php">
                     <i class="uil uil-comments"></i>
-                    <span class="link-name">Registro de docentes</span>
+                    <span class="link-name">Registro de capacitador</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="newsletter.php">
                     <i class="uil uil-share"></i>
                     <span class="link-name">Newsletters</span>
                 </a></li>
