@@ -59,6 +59,18 @@ section {
     font-size: 13px;
     font-family: 'Raleway', sans-serif !important;
 }
+.textoLogo {    
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    font-size: 12px;
+    height: 40px;
+    border-radius: 7px; 
+    border: 1px solid grey;
+    padding-left: 10px;
+    color: gray;
+}
 .textareaCurso {
     display: flex;
     flex-wrap: wrap;
@@ -73,7 +85,7 @@ section {
     width: 20%;
     padding-bottom: 15px;
 }
-label i {
+.label i {
     margin-right: 15px;
 }
 input[type="file"] {
@@ -81,7 +93,11 @@ input[type="file"] {
     width: 10px;
 }
 label.textoLogo{
+    width: 100%;
     justify-content: start;
+}
+.main-user-info label {
+    width: 25%;
 }
 .textoLogo {    
     width: 25%;
@@ -95,7 +111,6 @@ label.textoLogo{
     padding-left: 10px;
     color: gray;
 }
-
 .user-input-box input {
     height: 40px;
     width: 95%;
@@ -204,6 +219,11 @@ label.textoLogo{
         padding: 0;
         margin: 0;
         width: 100%;
+    }
+    .main-user-info label {
+        margin: auto;
+        width: 35%;
+        
     }
 
 }

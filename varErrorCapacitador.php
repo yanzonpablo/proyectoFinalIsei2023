@@ -4,11 +4,10 @@ $nombreError = '';
 $apellidoError = '';
 $cuilCuitError = '';
 $telefonoError = '';
-$provinciaError = '';
-$codigoPostalError = '';
-$empresaError = '';
 $emailError = '';
 $direccionError = '';
+$codigo_postalError = '';
+$empresaError = '';
 $descripcionError = '';
 
 
