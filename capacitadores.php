@@ -1,13 +1,12 @@
 <?php
 require_once('bd/conexion.php');
 
-$consulta = $pdo->prepare('SELECT nombre, imagen, empresa FROM capacitadores');
+$consulta = $pdo->prepare('SELECT nombre, apellido, imagen, especialidad FROM capacitadores');
 
 $consulta->execute();
-
-
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -46,8 +45,8 @@ $consulta->execute();
           <?php while ($capacitador = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
           <div class="card">
             <img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
-            <h4><?= $capacitador['nombre']?></h4>
-            <p><?= $capacitador['empresa']?></p>
+            <h4><?= $capacitador['nombre']?> <?= $capacitador['apellido']?></h4>
+            <p><?= $capacitador['especialidad']?></p>
             <a href="capacitador.php" class="button agregar-carrito">CONOCELO</a>
           </div>
           <?php } ?>

@@ -2,9 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-p{
-    padding: 5px;
+    font-family: 'Roboto', sans-serif;
 }
 /*contenido*/
 .container {
@@ -28,6 +26,7 @@ p{
 }
 .columna2 {
     display: flex;
+    flex-direction: column;
     align-self: center;
     width: 60%;
     padding-left: 25px;
@@ -39,8 +38,20 @@ p{
     margin-top: 20px;
     font-size: 50px;
     font-weight: bold;
+    text-transform: uppercase;
     color: #001a49;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+.especialidad {
+    display: block;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 5px;
+    padding-bottom: 20px;
+}
+.parrafo-esecialidad{
+    padding: 5px;
+    display: block;
 }
 .linea {
     margin-left: 50px;
@@ -53,37 +64,39 @@ p{
     color: aliceblue;
     padding-top: 10px;
     font-size: 34px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
 }
 .caja {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-self: center;
     width: 100%;
-    height: 10rem;
     background-color: #001a49;
 }
-.cursosrelacionados {
-    margin: auto;
-}
+
 .btncursos {
     margin: 20px 0;
     text-align: center;
 }
-.btncursos button {
-    padding: 10px;
+.btncursos .button {
+    padding: 5px;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
     border: none;
+    background-color: #ffffff;
     box-shadow: 3px 3px 5px rgb(191, 191, 191); 
+    text-decoration: none;
+    text-transform: none;
+    color: #001a49;
 }
-.btncursos button:hover {
+.btncursos .button:hover {
     cursor: pointer;
+    box-shadow: none;
 }
-.btncursos button:focus {
+.btncursos .button:focus {
     box-shadow: none;
     cursor: pointer;
 }
