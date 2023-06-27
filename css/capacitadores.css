@@ -34,6 +34,9 @@ label {
 .buscador:hover {
     cursor: pointer;
 }
+.card {
+    padding: 10px;
+}
 .input-buscador {
     height: 30px;
     width: 30%;
@@ -143,14 +146,14 @@ button {
 }
 .container-capacitadores .card img {
     width: 140px;
-    height: 180px;
+    height: 170px;
     margin: 10px;
     border-radius: 5px;
     cursor: pointer;
 }
 .container-capacitadores .card h4 {
     font-weight: 600;
-    padding: 5px;
+    padding: 2px;
     font-family: 'Raleway', sans-serif !important;
 }
 .container-capacitadores .card p {

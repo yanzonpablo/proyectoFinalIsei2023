@@ -1,3 +1,14 @@
+<?php
+require_once('bd/conexion.php');
+
+$consulta = $pdo->prepare('SELECT nombre, imagen, empresa FROM capacitadores');
+
+$consulta->execute();
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,64 +33,24 @@
     <button type="buscador" name="buscador" class="buscador"><i class="fas fa-search"></i></button>
   </div>
     <main>
-        <div class="modal" id="modal">
-          <div class="modal-content">
-            <img src="" alt="" class="modal-img" id="modal-img">
-          </div>
-          <div class="modal-boton" id="modal-boton">X</div>
+      <div class="modal" id="modal">
+        <div class="modal-content">
+          <img src="" alt="" class="modal-img" id="modal-img">
         </div>
-        <div>
+        <div class="modal-boton" id="modal-boton">X</div>
+      </div>
+      <div>
         <p class="title">NUESTROS CAPACITADORES</p>
-        </div>
-        <div class="container-capacitadores" id="lista-capacitadores">
+      </div>
+      <div class="container-capacitadores" id="lista-capacitadores">
+          <?php while ($capacitador = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
           <div class="card">
-            <img src="images/capacitadores/user-1658264382872.jpg" class="card-img">
-            <h4>Guillermo Perez</h4>
-            <p>CAPACITADOR</p>
+            <img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
+            <h4><?= $capacitador['nombre']?></h4>
+            <p><?= $capacitador['empresa']?></p>
             <a href="capacitador.php" class="button agregar-carrito">CONOCELO</a>
           </div>
-          <div class="card">
-            <img src="images/capacitadores/user-1658188615419.jpg" class="card-img">
-            <h4>Ramon Suarez</h4>
-            <p>CAPACITADOR</p>
-            <a href="#" class="button agregar-carrito">CONOCELO</a>
-          </div>
-          <div class="card">
-            <img src="images/capacitadores/user-1658264382872.jpg" class="card-img">
-            <h4>Guillermo Perez</h4>
-            <p>CAPACITADOR</p>
-            <a href="#" class="button agregar-carrito">CONOCELO</a>
-          </div>
-          <div class="card">
-            <img src="images/capacitadores/user-1658188615419.jpg" class="card-img">
-            <h4>Ramon Suarez</h4>
-            <p>CAPACITADOR</p>
-            <a href="#" class="button agregar-carrito">CONOCELO</a>
-          </div>
-          <div class="card">
-            <img src="images/capacitadores/user-1658264382872.jpg" class="card-img">
-            <h4>Guillermo Perez</h4>
-            <p>CAPACITADOR</p>
-            <a href="#" class="button agregar-carrito">CONOCELO</a>
-          </div>
-          <div class="card">
-            <img src="images/capacitadores/user-1658188615419.jpg" class="card-img">
-            <h4>Ramon Suarez</h4>
-            <p>CAPACITADOR</p>
-            <a href="#" class="button agregar-carrito">CONOCELO</a>
-          </div>
-          <div class="card">
-            <img src="images/capacitadores/user-1658264382872.jpg" class="card-img">
-            <h4>Guillermo Perez</h4>
-            <p>CAPACITADOR</p>
-            <a href="#" class="button agregar-carrito">CONOCELO</a>
-          </div>
-          <div class="card">
-            <img src="images/capacitadores/user-1658188615419.jpg" class="card-img">
-            <h4>Ramon Suarez</h4>
-            <p>CAPACITADOR</p>
-            <a href="#" class="button agregar-carrito">CONOCELO</a>
-          </div>
+          <?php } ?>
         </div>
 </main>
 <?php include_once "footer.php" ?>

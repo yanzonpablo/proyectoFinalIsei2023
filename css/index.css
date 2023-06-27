@@ -191,6 +191,9 @@ a{
   margin: 0 5px;
   text-align: center;
 }
+.btnCursos {
+  display: none
+}
 /* fin card */
 @media (max-width: 920px) {
   .preguntas_answer {

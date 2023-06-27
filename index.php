@@ -130,6 +130,7 @@
                         desempleados y publico en gral. (a través de las cámaras cabecera de la región F.A.A.T.R.A.).
                     </p>
                 </article>
+                <a href="#" class="btnCursos">INGRESAR</a>
             </a>
             <a href="#" class="table-item">
                 <h3 class="table-plan"> PERFECCIONAMIENTO PROFESIONAL </h3>
@@ -137,7 +138,8 @@
                     <p class="table-p">Cursos sobre funcionamiento de componentes, interpretación de circuitos
                         eléctricos, conexionados, análisis y diagnóstico de fallas en los sistemas del automotor.
                         Requiere conocimientos base.</p>
-                </article>
+                    </article>
+                    <a href="#" class="btnCursos">INGRESAR</a>
             </a>
             <a href="#" class="table-item">
                 <h3 class="table-plan"> PERFECCIONAMIENTO NO PROFESIONAL </h3>
@@ -145,7 +147,8 @@
                     <p class="table-p">Cursos para el desempeño organizacional de la empresa Automotriz, identificación
                         de las falencias de la empresa, metodologías de trabajo, calculo de costos, seguridad e higiene,
                         etc.</p>
-                </article>
+                    </article>
+                    <a href="#" class="btnCursos">INGRESAR</a>
             </a>
             <a href="#" class="table-item">
                 <h3 class="table-plan"> CHARLAS TECNICAS Y COMERCIALES</h3>
@@ -154,6 +157,7 @@
                         líneas de productos, realizando recomendaciones y demostraciones prácticas en vivo.</p>
                 </article>
             </a>
+            <a href="#" class="btnCursos">INGRESAR</a>
         </div>
         <!-- --------------- CARDS FIN-------------- -->
         <div class="separacion"></div>
