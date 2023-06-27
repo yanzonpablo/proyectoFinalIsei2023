@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-06-2023 a las 15:41:43
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.9
+-- Tiempo de generación: 27-06-2023 a las 05:14:18
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,18 +27,24 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `afiliados`
 --
 
-CREATE TABLE `afiliados` (
-  `id` int(10) NOT NULL,
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
+CREATE TABLE IF NOT EXISTS `afiliados` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `telefono` varchar(12) NOT NULL,
   `dni` int(10) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
-  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `direccion` varchar(120) NOT NULL,
   `codigo_postal` int(10) NOT NULL,
   `id_provincia` int(10) NOT NULL,
   `fecha_alta` date NOT NULL,
   `afiliado_activo` int(1) NOT NULL,
   `id_camara` int(10) NOT NULL,
-  `id_ciudad` int(10) NOT NULL
+  `id_ciudad` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_camara` (`id_camara`),
+  KEY `id_ciudad` (`id_ciudad`),
+  KEY `id_ciudad_2` (`id_ciudad`),
+  KEY `id_provincia` (`id_provincia`),
+  KEY `id_ciudad_3` (`id_ciudad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -47,20 +53,21 @@ CREATE TABLE `afiliados` (
 -- Estructura de tabla para la tabla `camaras`
 --
 
-CREATE TABLE `camaras` (
-  `id` int(10) NOT NULL,
-  `nombre` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `logo_camara` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `direccion` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigo_postal` varchar(10) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `provincia` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `web` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+CREATE TABLE IF NOT EXISTS `camaras` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `logo_camara` varchar(255) NOT NULL,
+  `telefono` varchar(12) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
+  `codigo_postal` varchar(10) NOT NULL,
+  `provincia` varchar(30) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `web` varchar(120) NOT NULL,
   `camara_cancelada` int(1) NOT NULL DEFAULT 0,
-  `fecha_alta` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+  `fecha_alta` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `camaras`
@@ -94,23 +101,23 @@ INSERT INTO `camaras` (`id`, `nombre`, `descripcion`, `logo_camara`, `telefono`,
 -- Estructura de tabla para la tabla `capacitadores`
 --
 
-CREATE TABLE `capacitadores` (
-  `id` int(10) NOT NULL,
-  `nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellido` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `foto` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(1000) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `cuil_cuit` int(10) NOT NULL,
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigo_postal` varchar(10) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `empresa` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `fecha_alta` date NOT NULL,
+CREATE TABLE IF NOT EXISTS `capacitadores` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(120) NOT NULL,
+  `apellido` varchar(120) NOT NULL,
+  `cuil_cuit` int(11) NOT NULL,
+  `imagen` varchar(255) NOT NULL,
+  `telefono` varchar(12) NOT NULL,
+  `direccion` varchar(120) NOT NULL,
+  `codigo_postal` varchar(10) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `empresa` varchar(255) NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
+  `provincia` varchar(60) NOT NULL,
+  `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
   `fecha_baja` date NOT NULL,
-  `id_camara` int(10) NOT NULL,
-  `id_provincia` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -118,12 +125,15 @@ CREATE TABLE `capacitadores` (
 -- Estructura de tabla para la tabla `certificados`
 --
 
-CREATE TABLE `certificados` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `certificados` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `asistencia` int(10) NOT NULL,
   `aprobado` int(10) NOT NULL,
   `id_curso` int(10) NOT NULL,
-  `id_usuario` int(10) NOT NULL
+  `id_usuario` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_curso` (`id_curso`),
+  KEY `id_usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -132,11 +142,11 @@ CREATE TABLE `certificados` (
 -- Estructura de tabla para la tabla `cursos`
 --
 
-CREATE TABLE `cursos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+CREATE TABLE IF NOT EXISTS `cursos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(120) NOT NULL,
   `nivel_curso` int(1) NOT NULL,
-  `descripcion` varchar(1000) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
   `carga_horaria` int(10) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
@@ -144,7 +154,12 @@ CREATE TABLE `cursos` (
   `id_usuario` int(10) NOT NULL,
   `id_capacitador` int(10) NOT NULL,
   `id_inscripcion` int(10) NOT NULL,
-  `id_modalidad` int(10) NOT NULL
+  `id_modalidad` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_usuario` (`id_usuario`),
+  KEY `id_capacitador` (`id_capacitador`),
+  KEY `id_inscripcion` (`id_inscripcion`),
+  KEY `id_modalidad` (`id_modalidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -153,11 +168,15 @@ CREATE TABLE `cursos` (
 -- Estructura de tabla para la tabla `cursos_ofrecidos`
 --
 
-CREATE TABLE `cursos_ofrecidos` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cursos_ofrecidos` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_curso` int(10) NOT NULL,
   `id_camara` int(10) NOT NULL,
-  `id_capacitador` int(10) NOT NULL
+  `id_capacitador` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_curso` (`id_curso`),
+  KEY `id camara` (`id_camara`),
+  KEY `id_capacitador` (`id_capacitador`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -166,11 +185,14 @@ CREATE TABLE `cursos_ofrecidos` (
 -- Estructura de tabla para la tabla `entidades`
 --
 
-CREATE TABLE `entidades` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `entidades` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `fecha_alta` date NOT NULL,
   `id_curso` int(10) NOT NULL,
-  `id_afiliado` int(10) NOT NULL
+  `id_afiliado` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_curso` (`id_curso`),
+  KEY `id_afiliado` (`id_afiliado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -179,10 +201,12 @@ CREATE TABLE `entidades` (
 -- Estructura de tabla para la tabla `inscripciones`
 --
 
-CREATE TABLE `inscripciones` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `inscripciones` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `fecha_inscripcion` date NOT NULL,
-  `id_usuario` int(10) NOT NULL
+  `id_usuario` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -191,11 +215,13 @@ CREATE TABLE `inscripciones` (
 -- Estructura de tabla para la tabla `modalidades`
 --
 
-CREATE TABLE `modalidades` (
-  `id` int(10) NOT NULL,
-  `modalidad` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `id_curso` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+CREATE TABLE IF NOT EXISTS `modalidades` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `modalidad` varchar(20) NOT NULL,
+  `id_curso` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_curso` (`id_curso`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `modalidades`
@@ -212,12 +238,13 @@ INSERT INTO `modalidades` (`id`, `modalidad`, `id_curso`) VALUES
 -- Estructura de tabla para la tabla `newsletters`
 --
 
-CREATE TABLE `newsletters` (
-  `id` int(10) NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+CREATE TABLE IF NOT EXISTS `newsletters` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `email` varchar(120) NOT NULL,
   `baja` int(1) NOT NULL,
-  `fecha_alta` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+  `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `newsletters`
@@ -232,12 +259,13 @@ INSERT INTO `newsletters` (`id`, `email`, `baja`, `fecha_alta`) VALUES
 -- Estructura de tabla para la tabla `niveles_cursos`
 --
 
-CREATE TABLE `niveles_cursos` (
-  `id` int(10) NOT NULL,
-  `nivel` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
-  `carga_horaria` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `sub_indice` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+CREATE TABLE IF NOT EXISTS `niveles_cursos` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `nivel` varchar(60) NOT NULL,
+  `carga_horaria` varchar(20) NOT NULL,
+  `sub_indice` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `niveles_cursos`
@@ -257,10 +285,11 @@ INSERT INTO `niveles_cursos` (`id`, `nivel`, `carga_horaria`, `sub_indice`) VALU
 -- Estructura de tabla para la tabla `provincias`
 --
 
-CREATE TABLE `provincias` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+CREATE TABLE IF NOT EXISTS `provincias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `provincias`
@@ -298,204 +327,21 @@ INSERT INTO `provincias` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `id` int(10) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellido` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(20) NOT NULL,
   `fecha_alta` date NOT NULL,
   `rol_usuario` int(1) NOT NULL,
-  `id_afiliados` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `afiliados`
---
-ALTER TABLE `afiliados`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_camara` (`id_camara`),
-  ADD KEY `id_ciudad` (`id_ciudad`),
-  ADD KEY `id_ciudad_2` (`id_ciudad`),
-  ADD KEY `id_provincia` (`id_provincia`),
-  ADD KEY `id_ciudad_3` (`id_ciudad`);
-
---
--- Indices de la tabla `camaras`
---
-ALTER TABLE `camaras`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `capacitadores`
---
-ALTER TABLE `capacitadores`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_camara` (`id_camara`),
-  ADD KEY `id_provincia` (`id_provincia`);
-
---
--- Indices de la tabla `certificados`
---
-ALTER TABLE `certificados`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_curso` (`id_curso`),
-  ADD KEY `id_usuario` (`id_usuario`);
-
---
--- Indices de la tabla `cursos`
---
-ALTER TABLE `cursos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_capacitador` (`id_capacitador`),
-  ADD KEY `id_inscripcion` (`id_inscripcion`),
-  ADD KEY `id_modalidad` (`id_modalidad`);
-
---
--- Indices de la tabla `cursos_ofrecidos`
---
-ALTER TABLE `cursos_ofrecidos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_curso` (`id_curso`),
-  ADD KEY `id camara` (`id_camara`),
-  ADD KEY `id_capacitador` (`id_capacitador`);
-
---
--- Indices de la tabla `entidades`
---
-ALTER TABLE `entidades`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_curso` (`id_curso`),
-  ADD KEY `id_afiliado` (`id_afiliado`);
-
---
--- Indices de la tabla `inscripciones`
---
-ALTER TABLE `inscripciones`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`);
-
---
--- Indices de la tabla `modalidades`
---
-ALTER TABLE `modalidades`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_curso` (`id_curso`);
-
---
--- Indices de la tabla `newsletters`
---
-ALTER TABLE `newsletters`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `niveles_cursos`
---
-ALTER TABLE `niveles_cursos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `provincias`
---
-ALTER TABLE `provincias`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_inscripto` (`id_afiliados`),
-  ADD KEY `id_inscripto_2` (`id_afiliados`),
-  ADD KEY `id_afiliados` (`id_afiliados`),
-  ADD KEY `id_afiliados_2` (`id_afiliados`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `afiliados`
---
-ALTER TABLE `afiliados`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `camaras`
---
-ALTER TABLE `camaras`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
-
---
--- AUTO_INCREMENT de la tabla `capacitadores`
---
-ALTER TABLE `capacitadores`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `certificados`
---
-ALTER TABLE `certificados`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `cursos`
---
-ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `cursos_ofrecidos`
---
-ALTER TABLE `cursos_ofrecidos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `entidades`
---
-ALTER TABLE `entidades`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `inscripciones`
---
-ALTER TABLE `inscripciones`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `modalidades`
---
-ALTER TABLE `modalidades`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `newsletters`
---
-ALTER TABLE `newsletters`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `niveles_cursos`
---
-ALTER TABLE `niveles_cursos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de la tabla `provincias`
---
-ALTER TABLE `provincias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  `id_afiliados` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_inscripto` (`id_afiliados`),
+  KEY `id_inscripto_2` (`id_afiliados`),
+  KEY `id_afiliados` (`id_afiliados`),
+  KEY `id_afiliados_2` (`id_afiliados`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Restricciones para tablas volcadas
@@ -506,12 +352,6 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `afiliados`
   ADD CONSTRAINT `afiliados_ibfk_2` FOREIGN KEY (`id_provincia`) REFERENCES `provincias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `capacitadores`
---
-ALTER TABLE `capacitadores`
-  ADD CONSTRAINT `capacitadores_ibfk_2` FOREIGN KEY (`id_provincia`) REFERENCES `provincias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `certificados`

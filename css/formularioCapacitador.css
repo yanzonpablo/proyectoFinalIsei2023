@@ -223,6 +223,7 @@ label.textoLogo{
     .main-user-info label {
         margin: auto;
         width: 35%;
+        margin-bottom: 10px;
         
     }
 
