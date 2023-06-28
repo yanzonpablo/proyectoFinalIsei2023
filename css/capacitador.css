@@ -5,12 +5,9 @@
     font-family: 'Roboto', sans-serif;
 }
 /*contenido*/
-main {
-}
 .container {
     display: flex;
     flex-wrap: wrap;
-    height: 50vh;
     max-width: 1200px;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -24,14 +21,14 @@ main {
 }
 .columna1 img {
     object-fit: cover;
-    height: 65%;
+    height: 85%;
     width: 20%;
     border-radius: 50%;
 }
+
 .parrafo-especialidad{
     display: flex;
     align-content: center;
-    
     letter-spacing: 0.03em;
     line-height: 1.3;
     padding: 5px;
@@ -39,8 +36,6 @@ main {
 }
 /* .columna2 {
     width: 60%;
-
-
 } */
 .title {
     margin-left: 50px;
@@ -123,13 +118,25 @@ main {
     font-size: 2em;
     }
     .columna1 {
-        width: 70%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
-    .columna2 {
+    p{
+        display: block;
+    }
+    .columna1 img {
+        display: block;
+        width: 50%;
+        height: 50%;
+        margin-bottom: 30px;
+
+    }
+    /* .columna2 {
         padding: 0 10px;
         margin-top: 20px;
         width: 100%;
-    }
+    } */
     .cursosrelacionados {
         display: flex;
         flex-direction: column;
@@ -147,7 +154,6 @@ main {
     }
     .encontra {
         padding: 0;
-        
     }
     .linea {
         margin: auto;
