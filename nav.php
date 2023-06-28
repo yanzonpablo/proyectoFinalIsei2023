@@ -39,42 +39,19 @@
                                         <a href="FormularioCurso.php">Formulario Curso</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="dash.php">Panel de control</a>
-                                    </li>
-                                    <!-- <li class="dropdown-link">
-                                        <a href="#">Link 3<i class="fas fa-caret-down"></i></a>
+                                        <a href="#">Panel de control<i class="fas fa-caret-down"></i></a>
                                         <div class="dropdown second">
                                             <ul>
                                                 <li class="dropdown-link">
-                                                    <a href="#">Link 1</a>
+                                                    <a href="dash.php">Dashboard</a>
                                                 </li>
                                                 <li class="dropdown-link">
-                                                    <a href="#">Link 2</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="#">Link 3</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="#">More<i class="fas fa-caret-down"></i></a>
-                                                    <div class="dropdown second">
-                                                        <ul>
-                                                            <li class="dropdown-link">
-                                                                <a href="#">Link 1</a>
-                                                            </li>
-                                                            <li class="dropdown-link">
-                                                                <a href="#">Link 2</a>
-                                                            </li>
-                                                            <li class="dropdown-link">
-                                                                <a href="#">Link 3</a>
-                                                            </li>
-                                                            <div class="arrow"></div>
-                                                        </ul>
-                                                    </div>
+                                                    <a href="abm.php">A.B.M.</a>
                                                 </li>
                                                 <div class="arrow"></div>
                                             </ul>
                                         </div>
-                                    </li> -->
+                                    </li>
                                     <div class="arrow"></div>
                                 </ul>
                             </div>

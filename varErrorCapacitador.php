@@ -7,7 +7,7 @@ $telefonoError = '';
 $emailError = '';
 $direccionError = '';
 $codigo_postalError = '';
-$empresaError = '';
+$especialidadError = '';
 $descripcionError = '';
 
 
