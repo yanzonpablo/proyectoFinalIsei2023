@@ -51,7 +51,7 @@ $consulta -> execute();
 					<td class="imagen" data-label="Imagen"><img width="10%" src="images/capacitadores/<?= $datos['imagen'] ?>" alt=""></td>
 					<td class="nombreApellido" data-label="Nombre y Apellido"><?= $datos['nombre'].' '.$datos['apellido'] ?></td>
 					<td class="Editar"><a href="<?= 'editCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit"></i></a></td>
-					<td class="Borrar"><a href=""><i class="fas fa-trash-alt"></i></a></td>
+					<td class="Borrar"><a href="<?= 'deleteCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt"></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
