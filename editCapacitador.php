@@ -147,9 +147,9 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
     </div>
     
     <label for="imagen" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
-    <div class="user-input-boxFile">
+    <div class="user-input-boxFile2">
       <input type="file" id="imagen" name="imagen"/>
-      <img class="imagencapacitador" width="100%"src="images/capacitadores/<?= $res['imagen'] ?>" alt="<? $res['nombre'] ?>">
+      <img class="imagencapacitador" width="50%"src="images/capacitadores/<?= $res['imagen'] ?>" alt="<? $res['nombre'] ?>">
     </div></label>
     
     <div class="user-input-box">

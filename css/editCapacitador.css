@@ -100,7 +100,7 @@ label.textoLogo{
     width: 25%;
 }
 .textoLogo {    
-    width: 25%;
+    width: 100%;
     display: flex;
     cursor: pointer;
     align-items: center;
@@ -110,6 +110,17 @@ label.textoLogo{
     border: 1px solid grey;
     padding-left: 10px;
     color: gray;
+}
+.user-input-boxFile2 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+}
+.textoLogo img {
+    justify-content: center;
+    align-content: center;
 }
 .user-input-box input {
     height: 40px;
