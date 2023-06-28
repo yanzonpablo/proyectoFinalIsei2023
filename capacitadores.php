@@ -1,7 +1,7 @@
 <?php
 require_once('bd/conexion.php');
 
-$consulta = $pdo->prepare('SELECT nombre, apellido, imagen, especialidad FROM capacitadores');
+$consulta = $pdo->prepare('SELECT id, nombre, apellido, imagen, especialidad FROM capacitadores');
 
 $consulta->execute();
 ?>
@@ -44,10 +44,10 @@ $consulta->execute();
       <div class="container-capacitadores" id="lista-capacitadores">
           <?php while ($capacitador = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
           <div class="card">
-            <a href="capacitador.php" class="linkCapacitador"><img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
-            <h4><?= $capacitador['nombre']?> <?= $capacitador['apellido']?></h4>
+            <a href="<?= 'capacitador.php?id='.$capacitador['id'] ?>" class="linkCapacitador"><img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
+            <h4><?= $capacitador['nombre']?>.<?= $capacitador['apellido']?></h4>
             <p><?= $capacitador['especialidad']?></p></a>
-            <a href="capacitador.php" class="button agregar-carrito">CONOCELO</a>
+            <a href="<?= 'capacitador.php?id='.$capacitador['id'] ?>" class="button agregar-carrito">CONOCELO</a> 
           </div>
           <?php } ?>
         </div>

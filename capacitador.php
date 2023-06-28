@@ -1,12 +1,10 @@
 <?php
 require_once('bd/conexion.php');
-
-$consulta = $pdo->prepare('SELECT nombre, apellido, especialidad, imagen, descripcion FROM capacitadores');
+$id = $_GET['id'];
+$consulta = $pdo->prepare("SELECT id, nombre, apellido, especialidad, imagen, descripcion FROM capacitadores where id = $id");
 
 $consulta->execute();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,16 +22,16 @@ $consulta->execute();
 </header>
 <main>
       <?php while($datos = $consulta->fetch(PDO::FETCH_ASSOC)) {?>
-      <p class="title"><?= $datos['nombre'] ?></p>
+      <p class="title"><?= $datos['nombre'] .' '. $datos['apellido'] ?></p>
+      <p class="especialidad">Especialidad: <?= $datos['especialidad'] ?></p>
       <div class="linea"></div>
         <div class="container">
           <div class="columna1">
             <img src="images/capacitadores/<?= $datos['imagen'] ?>">
+            <p class="parrafo-especialidad"><?= $datos['descripcion'] ?></p>
           </div>
-          <div class="columna2">
-              <p class="especialidad">Especialidad:<?= $datos['especialidad'] ?></p>
-              <p class="parrafo-esecialidad"><?= $datos['descripcion'] ?></p>
-          </div>
+          <!-- <div class="columna2">
+          </div> -->
           </div>
             <?php } ?>
 <div class="caja">

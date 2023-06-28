@@ -8,11 +8,11 @@ main{
 }
 .title {
     text-align: center;
-    font-size: 30px;
+    font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
     color: #001a49;
-    font-family: sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 p{
     padding: 5px 0px;
