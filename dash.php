@@ -22,7 +22,7 @@
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Inicio</span>
                 </a></li>
-                <li><a href="../FormularioCamara.php">
+                <li><a href="FormularioCamara.php">
                     <i class="uil uil-files-landscapes"></i>
                     <span class="link-name">Registro de cámaras</span>
                 </a></li>

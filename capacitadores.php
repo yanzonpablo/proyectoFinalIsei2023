@@ -25,7 +25,7 @@ $consulta->execute();
 </head>
 <body>
   <header>
-    <?php include_once "nav.php" ?>
+    <?php require_once "nav.php" ?>
   </header>
   <div class="header-content">
       <input type="text" class="input-buscador" placeholder="Buscar Capacitador">

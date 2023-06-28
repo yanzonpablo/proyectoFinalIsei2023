@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-<header>
-  <?php require_once ('nav.php'); ?>
-</header>
+  <header>
+      <?php require_once('nav.php') ?>
+  </header>
 <div class="linea"></div>
   <section id="contact">
       <div class="contact">

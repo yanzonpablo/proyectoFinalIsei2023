@@ -66,7 +66,6 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
 <!DOCTYPE html>
 <html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
