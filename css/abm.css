@@ -109,19 +109,16 @@ table th {
 	font-size: 20PX;
 }
 /*//////////////////////////////////////////////*/
-
 @media screen and (max-width: 480px) {
 	table {
 		border:0;
 	}
-
 	table tr {
 		margin-bottom: 10px;
 		display: block;
 		border-bottom: 2px solid #ddd;
 
 	}
-
 	table td {
 		display: block;
 		text-align: right;
@@ -132,14 +129,15 @@ table th {
 	table td:last-child {
 		border-bottom: 0;
 	}
-
 	table td:before {
 		content: attr(data-label);
 		float: left;
 		text-transform: uppercase;
 		font-weight: 600;
 	}
-
+	.imagen {
+		display: none;
+	}
 	table thead {
 		display: none;
 	}
