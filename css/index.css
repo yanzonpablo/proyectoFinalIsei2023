@@ -261,5 +261,14 @@ a{
   .imgcabecera {
     width: 100%;
     height: 250px;
-}
+  }
+  .btnCursos {
+    display: block;
+    color: #fff;
+    text-align: center;
+    background-color: #001a49;
+    border-radius: 0 0 10px 10px;
+
+
+  }
 }
