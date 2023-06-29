@@ -66,10 +66,12 @@ if (isset($_POST['aceptar'])) {
   echo $e->getMessage();
   }
   header('location: abm.php');
-} else {
-  if (isset($_POST['cancelar'])) {
-    heder('location: abm.php');
-}
+  } else {
+    
+    if (isset($_POST['cancelar'])) {
+
+      heder('location: abm.php');
+  }
 }
 ?>
 

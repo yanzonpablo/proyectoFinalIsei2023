@@ -1,11 +1,21 @@
 <?php
 require_once('bd/conexion.php');
 
-$consulta = $pdo->prepare('SELECT id, nombre, apellido, imagen, especialidad FROM capacitadores');
+// try {
 
-$consulta->execute();
+if (isset($_POST['buscador']) || (isset($_POST['input-buscar']))) {
+
+  $consulta = prepare("SELECT * FROM capacitadores WHERE nombre = '%like%' OR apellido = '%like%'");
+
+  $consulta->execute();
+  
+  // } catch(PDOException $e) {
+
+  //   echo $e->getMessage();
+  // }
+}
+
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +36,7 @@ $consulta->execute();
     <?php require_once "nav.php" ?>
   </header>
   <div class="header-content">
-      <input type="text" class="input-buscador" placeholder="Buscar Capacitador">
+      <input type="text" class="input-buscador" placeholder="Buscar capacitador">
     <button type="buscador" name="buscador" class="buscador"><i class="fas fa-search"></i></button>
   </div>
     <main>
@@ -40,14 +50,15 @@ $consulta->execute();
         <p class="title">NUESTROS CAPACITADORES</p>
       </div>
       <div class="container-capacitadores" id="lista-capacitadores">
+        <div class="card">
           <?php while ($capacitador = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
-          <div class="card">
-            <a href="<?= 'capacitador.php?id='.$capacitador['id'] ?>" class="linkCapacitador"><img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
+            <a href="<?= 'capacitador.php?id='.$capacitador['id'] ?>" class="linkCapacitador">
+            <img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
             <h4><?= $capacitador['nombre']?>.<?= $capacitador['apellido']?></h4>
             <p><?= $capacitador['especialidad']?></p></a>
+            <?php } ?>
             <a href="<?= 'capacitador.php?id='.$capacitador['id'] ?>" class="button agregar-carrito">CONOCELO</a> 
           </div>
-          <?php } ?>
         </div>
 </main>
 <?php include_once "footer.php" ?>

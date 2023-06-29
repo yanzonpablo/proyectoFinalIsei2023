@@ -2,9 +2,15 @@
 
 require_once('bd/conexion.php');
 
+try {
 $consulta = $pdo->prepare('SELECT * FROM newsletters');
 
 $consulta -> execute();
+
+} catch (PDOException $e) {
+
+	echo $e->getMessage();
+}
 
 ?>
 
@@ -15,6 +21,8 @@ $consulta -> execute();
 	<title>Listado Newsletter</title>
 	<meta charset="utf-8" />
 	<link rel="shortcut icon" href="images/logoCapacitacion.png" />
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js">
+	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
@@ -23,16 +31,17 @@ $consulta -> execute();
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/newsletter.css">
 </head>
-</body>
-<body>
-	<?php require_once("nav.php") ?>
 
+<body>
+	<header>
+		<?php require_once("nav.php") ?>
+	</header>
 		<div class="cont_title">
 			<p>LISTA E-MAILS ACTIVOS A NEWSLETTERS</p>
 		</div>
 	<div class="contenedor">
-	<a href="varios/excel.php" class="btnDescarga">DESCARGAR LISTA</a>
-		<table border="1">
+	<a href="" class="btnDescarga" id="download_xls" download="filename.xls">DESCARGAR LISTA</a>
+		<table border="1" id="datatable" >
 			<thead>
 				<tr>
 					<th>Correo Electrónica</th>
@@ -50,5 +59,9 @@ $consulta -> execute();
 		</table>
 	</div>
 </body>
+
+
+
+<script src="js/descargaExcel.js"></script>
 
 </html>
