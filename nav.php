@@ -30,9 +30,6 @@
                                         <a href="newsletter.php">Newsletters</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="formularioCapacitador.php">Formulario Capacitador</a>
-                                    </li>
-                                    <li class="dropdown-link">
                                         <a href="FormularioCamara.php">Formulario Cámara</a>
                                     </li>
                                     <li class="dropdown-link">
@@ -46,7 +43,7 @@
                                                     <a href="dash.php">Dashboard</a>
                                                 </li>
                                                 <li class="dropdown-link">
-                                                    <a href="abm.php">A.B.M.</a>
+                                                    <a href="abm.php">A.B.M. Capacitador</a>
                                                 </li>
                                                 <div class="arrow"></div>
                                             </ul>

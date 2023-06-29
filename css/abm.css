@@ -1,12 +1,11 @@
 *{
-	margin: 0;
-	box-sizing: border-box;
 	font-family: 'Raleway', sans-serif !important;
 	font-size: 16px;
+	
 }
 .cont_title {
-	display: flex;
 	text-align: center;
+	display: flex;
 	justify-content: center;
 	font-family: 'Raleway', sans-serif !important;
 }
@@ -22,68 +21,117 @@
 	padding: 5px;
 	margin: 20px 10px 10px 10px;
 }
+.btnAlta {
+	display: block;
+	background-color: #029ee0;
+	width: 200px;
+	border: none;
+	color: #ffffff;
+	font-weight: 500;
+	padding: 12px 10px;
+	text-decoration: none;
+	font-size: 20px;
+	border-radius: 5px;
+	margin: 20px 0 0 0;
+	text-align: center;
+}
+.btnAlta:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	transition: all 0.5s;
+}
 .contenedor {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 }
+.btnAlta {
+	background-color: #029ee0;
+	width: 350px;
+	border: none;
+	color: white;
+	font-weight: 500;
+	padding: 15px 12px;
+	text-decoration: none;
+	font-size: 16px;
+	border-radius: 5px;
+	margin: 20px  0 20px 0;
+	text-align: center;
+}
+.btnAlta:hover {
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+		transition: all 0.5s;
+	}
 table {
-
+	max-width: 1200px;
 	border: 1px solid #ccc; 
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 table tr {
 	border: 1px solid #ddd;
 	padding: 5px;
 }
+
 table tr:nth-child(even) {
 	background-color: #b6b6b6;
 	color: white;
 }
+
 table td, table th {
-	width: 100px;
-	padding: 10px;
 	text-align: center;
+	padding: 10px;
 }
+.id {
+	width: 10%;
+}
+
 table th {
 	text-transform: uppercase;
 	font-family: 18px;
 	letter-spacing: 1px;
 	background-color: #000000;
-	color: #fff;
+	color: #fff
 }
-.nombreApellido {
-	align-self: center;
+.imagen {
+	width: 20%;
 }
 
 /*//////////////////////////////////////////////*/
+
 @media screen and (max-width: 480px) {
 	table {
 		border:0;
 	}
+
 	table tr {
 		margin-bottom: 10px;
 		display: block;
 		border-bottom: 2px solid #ddd;
+
 	}
+
 	table td {
 		display: block;
 		text-align: right;
 		font-size: 16px;
 		border-bottom: 1px dotted #ccc;
 	}
+
 	table td:last-child {
 		border-bottom: 0;
 	}
+
 	table td:before {
 		content: attr(data-label);
 		float: left;
 		text-transform: uppercase;
 		font-weight: 600;
 	}
+
 	table thead {
 		display: none;
 	}

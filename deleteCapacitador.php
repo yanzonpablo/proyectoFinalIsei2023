@@ -7,9 +7,9 @@ if(isset($_GET['id'])) {
     $id = $_GET['id'];
 
     try {
-    $consulta = $pdo->query('DELETE FROM capacitadores WHERE id = $id');
+    $consulta = $pdo->query("DELETE FROM capacitadores WHERE id = $id");
     
-    $consulta -> execute([$id]);
+    $consulta -> execute();
     
     } catch(PDOException $e) {
 
@@ -17,7 +17,7 @@ if(isset($_GET['id'])) {
     }
 }
 
-// header('location: abm.php');
+header('location: abm.php');
 ?>
 
 
