@@ -3,7 +3,7 @@ require_once('bd/conexion.php');
 
 $id = $_GET['id'];
 
-$con = $pdo->prepare("SELECT * FROM capacitadores where id = $id");
+$con = $pdo->prepare("SELECT * FROM capacitadores WHERE id = $id");
 
 $con->execute();
 ?>
@@ -13,6 +13,8 @@ require_once ('varErrorCapacitador.php');
 require_once ('bd/conexion.php');
 
 if (isset($_POST['aceptar'])) {
+
+  try {
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
   $cuil_cuit = $_POST['cuil_cuit'];
@@ -51,8 +53,8 @@ if (isset($_POST['aceptar'])) {
   $especialidad = $_POST['especialidad'];
   $descripcion = $_POST['descripcion'];
   $provincia = $_POST['provincia'];
- 
-  $consulta = $pdo->prepare('INSERT INTO capacitadores (nombre, apellido, cuil_cuit, imagen, telefono, direccion, codigo_postal, email, especialidad, descripcion, provincia) VALUES (:nombre, :apellido, :cuil_cuit, :imagen, :telefono, :direccion, :codigo_postal, :email, :especialidad, :descripcion, :provincia)');
+
+  $consulta = $pdo->prepare("UPDATE capacitadores SET nombre = :nombre, apellido = :apellido, cuil_cuit = :cuil_cuit, imagen = :imagen, telefono = :telefono, direccion = :direccion, codigo_postal = :codigo_postal, email = :email, especialidad = :especialidad, descripcion = :descripcion, provincia = :provincia WHERE id = $id");
   
   $consulta->bindParam(':nombre', $nombre);
   $consulta->bindParam(':apellido', $apellido);
@@ -67,8 +69,12 @@ if (isset($_POST['aceptar'])) {
   $consulta->bindParam(':provincia', $provincia);
 
   $consulta->execute();
+    } catch(PDOException $e) {
 
-} 
+      echo $e->getMessage();
+    }
+}
+
 ?>
 
 <?php
@@ -149,7 +155,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
     <label for="imagen" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
     <div class="user-input-boxFile2">
       <input type="file" id="imagen" name="imagen"/>
-      <img class="imagencapacitador" width="50%"src="images/capacitadores/<?= $res['imagen'] ?>" alt="<? $res['nombre'] ?>">
+      <img class="imagencapacitador" width="50%"src="images/capacitadores/<?= $res['imagen'] ?>" alt="">
     </div></label>
     
     <div class="user-input-box">
