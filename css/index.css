@@ -39,20 +39,21 @@ h3 {
   font-size: 16px;
 }
 .btn-curso {
-  margin-top: 30px;
-  margin-bottom: 5px;
-  padding: 5px 10px;
-  background-color: #029ee0;
-  color: #ffffff;
-  border: 2px solid #029ee0;
-  font-weight: 600;
-  border-radius: 10px;
+	background-color: #029ee0;
+	width: 200px;
+	border: none;
+	color: #ffffff;
+	font-weight: 500;
+	padding: 12px 10px;
+	text-decoration: none;
+	font-size: 20px;
+	border-radius: 5px;
+	margin: 20px 0 0 0;
+	text-align: center;
 }
 .btn-curso:hover {
-  color: #029ee0;
-  background-color: #ffffff;
-  border: 2px solid #029ee0;
-  transition: 1s all;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: all 0.5s;
 }
 .titulos {
   font-size: 28px;

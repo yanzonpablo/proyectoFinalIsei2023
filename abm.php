@@ -28,12 +28,10 @@ $consulta -> execute();
 	<header>
 		<?php require_once("nav.php") ?>
 	</header>
-
 		<div class="cont_title">
-			<p>CAPACITACION</p>
+			<p>CAPACITACION ABM</p>
 		</div>
 	<div class="contenedor">
-	<a href="varios/excel.php" class="btnDescarga">DESCARGAR LISTA</a>
 		<table border="1">
 			<thead>
 				<tr>

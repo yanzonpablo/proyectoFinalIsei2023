@@ -31,7 +31,7 @@
             <p class="parrafoFormacion">Capacitate con profesionales de excelencia. No te pierdas la oportunidad de
                 aprender de la mano de técnicos e ingenieros que han perfeccionado sus conocimientos hasta volverse
                 referentes en sus rubros. Comenzá a perfeccionar hoy tu trabajo de mañana.</p>
-            <a href="#listaCursos" class="btn-curso">VER CURSOS</a>
+            <a href="#listaCursos" class="btn-curso">VER CURSOS AQUÍ</a>
         </div>
         <!-- <div class="separacion" id="listaCursos"></div> -->
         <div class="iconospantalla">

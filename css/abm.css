@@ -27,23 +27,6 @@
 	flex-wrap: wrap;
 	justify-content: center;
 }
-.btnDescarga {
-	background-color: #029ee0;
-	width: 200px;
-	border: none;
-	color: white;
-	font-weight: 500;
-	padding: 15px 12px;
-	text-decoration: none;
-	font-size: 16px;
-	border-radius: 5px;
-	margin: 20px  0 20px 0;
-	text-align: center;
-}
-.btnDescarga:hover {
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-		transition: all 0.5s;
-}
 table {
 
 	border: 1px solid #ccc; 
