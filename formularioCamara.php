@@ -4,6 +4,9 @@ require_once ('./varErrorCamara.php');
 require_once ('bd/conexion.php');
 
 if (isset($_POST['aceptar'])) {
+  
+  try {
+    
       $nombre = $_POST['nombre'];
       $descripcion = $_POST['descripcion'];
 
@@ -54,7 +57,14 @@ if (isset($_POST['aceptar'])) {
       $query->bindParam(':web', $web);
       
       $query->execute();
-  }
+
+    } catch(PDOException $e) {
+
+      echo $e->getMessage();
+    }
+    
+    header('location: index.php');
+}
     ?>
 <?php
       // ---------------provincias-----------------

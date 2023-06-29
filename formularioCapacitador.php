@@ -3,6 +3,8 @@ require_once ('varErrorCapacitador.php');
 require_once ('bd/conexion.php');
 
 if (isset($_POST['aceptar'])) {
+
+  try {
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
   $cuil_cuit = $_POST['cuil_cuit'];
@@ -57,9 +59,13 @@ if (isset($_POST['aceptar'])) {
   $consulta->bindParam(':descripcion', $descripcion);
   $consulta->bindParam(':provincia', $provincia);
 
-
   $consulta->execute();
+  
+    } catch(PDOException $e) {
 
+  echo $e->getMessage();
+  }
+  header('location: abm.php');
 }
 ?>
 
@@ -162,5 +168,4 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
   </div>
 </section>
 </body>
-
 </html>

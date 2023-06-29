@@ -73,6 +73,7 @@ if (isset($_POST['aceptar'])) {
 
       echo $e->getMessage();
     }
+    header('location: abm.php');
 }
 
 ?>
@@ -144,7 +145,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
           
           <div class="user-input-box">
             <select name="provincia" id="provincia" class="style-select">
-              <option value="0" selected disabled>* Seleccione una provincia</option>
+              <option value="<?= $res['provincia'] ?>" selected ><?= $res['provincia'] ?></option>
               <?php
         while($provincias = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
         <option value="<?= $provincias['nombre'] ?>" name="provincia" id="provincia"><?= $provincias['nombre'] ?></option>
@@ -154,8 +155,8 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
     
     <label for="imagen" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
     <div class="user-input-boxFile2">
-      <input type="file" id="imagen" name="imagen"/>
-      <img class="imagencapacitador" width="50%"src="images/capacitadores/<?= $res['imagen'] ?>" alt="">
+      <input type="file" id="imagen" name="imagen" value="<?= 'images/capacitadores/'.$res['imagen'] ?>"/><? $res['imagen'] ?>
+      <img class="imagencapacitador" width="50%" src="images/capacitadores/<?= $res['imagen'] ?>" alt="">
     </div></label>
     
     <div class="user-input-box">
