@@ -1,7 +1,6 @@
 *{
 	font-family: 'Raleway', sans-serif !important;
 	font-size: 16px;
-	
 }
 .cont_title {
 	text-align: center;
@@ -99,7 +98,16 @@ table th {
 .imagen {
 	width: 20%;
 }
-
+.edit {
+	text-decoration: none;
+	color: #001a49;
+	font-size: 20PX;
+}
+.borrar {
+	text-decoration: none;
+	color: red;
+	font-size: 20PX;
+}
 /*//////////////////////////////////////////////*/
 
 @media screen and (max-width: 480px) {

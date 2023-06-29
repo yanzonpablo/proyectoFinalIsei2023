@@ -41,11 +41,10 @@ if (isset($_POST['aceptar'])) {
           $imagen_subida = "images/capacitadores/". $nombreNuevaImagen;
           move_uploaded_file($tmp_imagen, $imagen_subida);
         }
-      }
+      } 
     }
   }
   // ---------------fin logo-----------------
-
   $telefono = $_POST['telefono'];
   $direccion = $_POST['direccion'];
   $codigo_postal = $_POST['codigo_postal'];
@@ -53,7 +52,11 @@ if (isset($_POST['aceptar'])) {
   $especialidad = $_POST['especialidad'];
   $descripcion = $_POST['descripcion'];
   $provincia = $_POST['provincia'];
+  $imagen = "";
 
+    if($_FILES['imagen']['tmp_name'] != null){
+        $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+    }
   $consulta = $pdo->prepare("UPDATE capacitadores SET nombre = :nombre, apellido = :apellido, cuil_cuit = :cuil_cuit, imagen = :imagen, telefono = :telefono, direccion = :direccion, codigo_postal = :codigo_postal, email = :email, especialidad = :especialidad, descripcion = :descripcion, provincia = :provincia WHERE id = $id");
   
   $consulta->bindParam(':nombre', $nombre);
@@ -74,8 +77,14 @@ if (isset($_POST['aceptar'])) {
       echo $e->getMessage();
     }
     header('location: abm.php');
-}
 
+} else {
+
+  if (isset($_POST['cancelar'])) {
+
+    heder('location: abm.php');
+  }
+}
 ?>
 
 <?php
@@ -155,7 +164,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
     
     <label for="imagen" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
     <div class="user-input-boxFile2">
-      <input type="file" id="imagen" name="imagen" value="<?= 'images/capacitadores/'.$res['imagen'] ?>"/><? $res['imagen'] ?>
+      <input type="file" id="imagen" name="imagen" value="images/capacitadores/<?= $res['imagen'] ?>"/>
       <img class="imagencapacitador" width="50%" src="images/capacitadores/<?= $res['imagen'] ?>" alt="">
     </div></label>
     
@@ -171,8 +180,13 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
       <?=$descripcionError?>
     </div>
     <?php } ?>
-    <div class="form-submit-btn">
-      <button type="submit" name="aceptar" value="aceptar">Registrar
+    <div class="contenedorBtn">
+          <div class="form-submit-btn">
+            <button type="submit" name="aceptar" value="aceptar">Cancelar
+            </div>
+            <div class="form-submit-btn">
+              <button type="submit" name="aceptar" value="aceptar">Registrar
+          </div>
         </div>
           </form>
   </div>

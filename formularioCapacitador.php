@@ -66,6 +66,10 @@ if (isset($_POST['aceptar'])) {
   echo $e->getMessage();
   }
   header('location: abm.php');
+} else {
+  if (isset($_POST['cancelar'])) {
+    heder('location: abm.php');
+}
 }
 ?>
 
@@ -147,7 +151,8 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
         <label for="imagen" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
         <div class="user-input-boxFile">
           <input type="file" id="imagen" name="imagen"/>
-        </div></label>
+        </div>
+        </label>
 
         <div class="user-input-box">
         <input type="text" name="especialidad" value="<?php if (isset($especialidad)) echo $especialidad ?>" placeholder="Ingrese especialidad capacitadora" />
@@ -160,9 +165,13 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
         <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="<?php if (isset($descripcion)) echo $descripcion ?>" class="textareaCurso"> </textarea>
         <?=$descripcionError?>
         </div>
-
-        <div class="form-submit-btn">
-        <button type="submit" name="aceptar" value="aceptar">Registrar
+        <div class="contenedorBtn">
+          <div class="form-submit-btn">
+            <button type="submit" name="aceptar" value="aceptar">Cancelar
+            </div>
+            <div class="form-submit-btn">
+              <button type="submit" name="aceptar" value="aceptar">Registrar
+          </div>
         </div>
     </form>
   </div>

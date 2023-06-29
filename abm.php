@@ -47,15 +47,15 @@ $consulta -> execute();
 				<tr>
 				<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
 					<td class="id" data-label="id"><?= $datos['id'] ?></td>
-					<td class="imagen" data-label="Imagen"><img width="20%" src="images/capacitadores/<?= $datos['imagen'] ?>" alt=""></td>
+					<td class="imagen" ><img width="20%" src="images/capacitadores/<?= $datos['imagen'] ?>" alt=""></td>
 					<td class="nombreApellido" data-label="Nombre y Apellido"><?= $datos['nombre'].' '.$datos['apellido'] ?></td>
-					<td class="Editar"><a href="<?= 'editCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit"></i></a></td>
-					<td class="Borrar"><a href="<?= 'deleteCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt"></i></a></td>
+					<td class="Editar"><a href="<?= 'editCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
+					<td class="Borrar"><a onclick="return confirma()" href="<?= 'deleteCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
 		</table>
 	</div>
 </body>
-
+<script src="js/confirma.js"></script>
 </html>

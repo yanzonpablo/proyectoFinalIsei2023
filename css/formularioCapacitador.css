@@ -140,8 +140,10 @@ label.textoLogo{
     padding-left: 5px;
     padding-top: 3px;
 }
-.form-submit-btn button {
-    cursor: pointer;
+
+.contenedorBtn {
+    display: flex;
+    justify-content: space-around;
 }
 .form-submit-btn button {
     display: block;
@@ -151,6 +153,7 @@ label.textoLogo{
     letter-spacing: 1px;
     font-weight: 500;
     padding: 10px;
+    cursor: pointer;
     border:none;
     border-radius: 3px;
     color: rgb(255, 255, 255);
@@ -224,7 +227,9 @@ label.textoLogo{
         margin: auto;
         width: 35%;
         margin-bottom: 10px;
-        
+    }
+    .contenedorBtn {
+        flex-direction: column;
     }
 
 }
