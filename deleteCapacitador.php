@@ -18,7 +18,7 @@ if(isset($_GET['id'])) {
     }
 }
 
-header('location: abm.php');
+header('location: abmCapacitadores.php');
 ?>
 
 

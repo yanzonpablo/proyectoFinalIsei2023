@@ -27,9 +27,6 @@
                             <div class="dropdown">
                                 <ul>
                                     <li class="dropdown-link">
-                                        <a href="newsletter.php">Newsletters</a>
-                                    </li>
-                                    <li class="dropdown-link">
                                         <a href="FormularioCamara.php">Formulario Cámara</a>
                                     </li>
                                     <li class="dropdown-link">
@@ -40,7 +37,10 @@
                                         <div class="dropdown second">
                                             <ul>
                                                 <li class="dropdown-link">
-                                                    <a href="abm.php">A.B.M. Capacitador</a>
+                                                    <a href="abmCapacitadores.php">A.B.M. Capacitador</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="newsletter.php">Newsletters</a>
                                                 </li>
                                                 <li class="dropdown-link">
                                                     <a href="dash.php">Dashboard</a>

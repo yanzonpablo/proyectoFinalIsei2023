@@ -8,6 +8,8 @@ $codigoPostalError = '';
 $provinciaError = '';
 $emailError = '';
 $webError = '';
+$facebookError = '';
+$instagramError = '';
 
 //-----------Al inicio es $error = false ------no hay error
 $error = false; 

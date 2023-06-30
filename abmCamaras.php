@@ -2,10 +2,16 @@
 
 require_once('bd/conexion.php');
 
-$consulta = $pdo->prepare('SELECT id, imagen, nombre, apellido FROM capacitadores');
+try {
+
+$consulta = $pdo->prepare('SELECT id, logo_camara, nombre, descripcion FROM camaras');
 
 $consulta -> execute();
+  
+  } catch(PDOException $e) {
 
+    echo $e->getMessage();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -29,16 +35,17 @@ $consulta -> execute();
 		<?php require_once("nav.php") ?>
 	</header>
 		<div class="cont_title">
-			<p>CAPACITACION ABM</p>
+			<p>CAMARAS ABM</p>
 		</div>
 			<div class="contenedor">
-			<a href="formularioCapacitador.php" class="btnAlta">ALTA CAPACITADOR</a>
+			<a href="formularioCamara.php" class="btnAlta">ALTA CAMARA</a>
 		<table border="1">
 			<thead>
 				<tr>
-					<th class="id">Id</th>
-					<th class="imagen">Imagen</th>
-					<th class="nombreApellido">Nombre y apellido</th>
+					<th class="Id">Id</th>
+					<th class="Imagen">Imagen</th>
+					<th class="Nombre">Nombre</th>
+					<th class="Descripción">Nombre</th>
 					<th class="Borrar">Modificar</th>
 					<th class="Editar">Borrar</th>
 				</tr>
@@ -47,10 +54,11 @@ $consulta -> execute();
 				<tr>
 				<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
 					<td class="id" data-label="id"><?= $datos['id'] ?></td>
-					<td class="imagen" ><img width="20%" src="images/capacitadores/<?= $datos['imagen'] ?>" alt=""></td>
-					<td class="nombreApellido" data-label="Nombre y Apellido"><?= $datos['nombre'].' '.$datos['apellido'] ?></td>
-					<td class="Editar"><a href="<?= 'editCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
-					<td class="Borrar"><a onclick="return confirma()" href="<?= 'deleteCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
+					<td class="imagen" ><img width="20%" src="images/logosCamaras/<?= $datos['logo_camara'] ?>" alt=""></td>
+					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?></td>
+					<td class="descripcion" data-label="descripcion"><?= $datos['descripcion']?></td>
+					<td class="Editar"><a href="<?= 'editCamara.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
+					<td class="Borrar"><a onclick="return confirma()" href="<?= 'deleteCamara.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>

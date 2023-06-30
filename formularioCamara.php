@@ -43,8 +43,10 @@ if (isset($_POST['aceptar'])) {
       $provincia = $_POST['provincia'];
       $email = $_POST['email'];
       $web = $_POST['web'];
-      
-      $query = $pdo->prepare('INSERT INTO camaras (nombre, descripcion, logo_camara, telefono, direccion, codigo_postal, provincia, email, web) VALUES (:nombre, :descripcion, :logo_camara, :telefono, :direccion, :codigo_postal, :provincia, :email, :web)');
+      $facebook = $_POST['facebook'];
+      $instagram = $_POST['instagram'];
+
+      $query = $pdo->prepare('INSERT INTO camaras (nombre, descripcion, logo_camara, telefono, direccion, codigo_postal, provincia, email, web, facebook, instagram) VALUES (:nombre, :descripcion, :logo_camara, :telefono, :direccion, :codigo_postal, :provincia, :email, :web, :facebook, :instagram)');
       
       $query->bindParam(':nombre', $nombre);
       $query->bindParam(':descripcion', $descripcion);
@@ -55,7 +57,9 @@ if (isset($_POST['aceptar'])) {
       $query->bindParam(':provincia', $provincia);
       $query->bindParam(':email', $email);
       $query->bindParam(':web', $web);
-      
+      $query->bindParam(':facebook', $facebook);
+      $query->bindParam(':instagram', $instagram);
+
       $query->execute();
 
     } catch(PDOException $e) {
@@ -65,7 +69,7 @@ if (isset($_POST['aceptar'])) {
     
     header('location: index.php');
 }
-    ?>
+?>
 <?php
       // ---------------provincias-----------------
 require_once ('bd/conexion.php');
@@ -143,6 +147,14 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
           <div class="user-input-box">
           <input type="text" id="web" name="web" value="<?php if (isset($web)) echo $web ?>" placeholder="Ingrese web" />
           <?=$webError?>
+        </div>
+        <div class="user-input-box">
+          <input type="text" id="facebook" name="facebook" value="<?php if (isset($facebook)) echo $facebook ?>" placeholder="Ingrese facebook" />
+          <?=$facebookError?>
+        </div>
+        <div class="user-input-box">
+          <input type="text" id="instagram" name="instagram" value="<?php if (isset($instagram)) echo $instagram ?>" placeholder="Ingrese instagram" />
+          <?=$instagramError?>
         </div>
       </div>
       <div class="form-submit-btn">

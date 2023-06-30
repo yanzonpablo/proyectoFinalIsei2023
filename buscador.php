@@ -1,10 +1,10 @@
 <?php
 require_once('bd/conexion.php');
 
-// try {
 
 if (isset($_POST['buscador'])) {
-
+  
+  // try {
   $palabra = $_POST['buscador'];
   
   $consulta = $pdo->prepare("SELECT * FROM capacitadores WHERE nombre OR apellido like '%$palabra%'");

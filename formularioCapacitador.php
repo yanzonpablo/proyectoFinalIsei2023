@@ -65,12 +65,12 @@ if (isset($_POST['aceptar'])) {
 
   echo $e->getMessage();
   }
-  header('location: abm.php');
+  header('location: abmCapacitadores.php');
   } else {
     
     if (isset($_POST['cancelar'])) {
 
-      heder('location: abm.php');
+      header('location: abmCapacitadores.php');
   }
 }
 ?>
