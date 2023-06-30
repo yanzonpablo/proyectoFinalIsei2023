@@ -37,7 +37,10 @@
                                         <div class="dropdown second">
                                             <ul>
                                                 <li class="dropdown-link">
-                                                    <a href="abmCapacitadores.php">A.B.M. Capacitador</a>
+                                                    <a href="abmCapacitadores.php">A.B.M. Capacitadores</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="abmCamaras.php">A.B.M. Cámaras</a>
                                                 </li>
                                                 <li class="dropdown-link">
                                                     <a href="newsletter.php">Newsletters</a>
