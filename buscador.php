@@ -3,9 +3,11 @@ require_once('bd/conexion.php');
 
 // try {
 
-if (isset($_POST['buscador']) || (isset($_POST['input-buscar']))) {
+if (isset($_POST['buscador'])) {
 
-  $consulta = prepare("SELECT * FROM capacitadores WHERE nombre = '%like%' OR apellido = '%like%'");
+  $palabra = $_POST['buscador'];
+  
+  $consulta = $pdo->prepare("SELECT * FROM capacitadores WHERE nombre OR apellido like '%$palabra%'");
 
   $consulta->execute();
   
@@ -36,8 +38,8 @@ if (isset($_POST['buscador']) || (isset($_POST['input-buscar']))) {
     <?php require_once "nav.php" ?>
   </header>
   <div class="header-content">
-      <input type="text" class="input-buscador" placeholder="Buscar capacitador">
-    <button type="buscador" name="buscador" class="buscador"><i class="fas fa-search"></i></button>
+      <input type="text" class="input-buscador" placeholder="Buscar capacitador" name="buscador" id="buscador">
+    <button type="buscador" name="buscador" id="buscador" class="buscador"><i class="fas fa-search"></i></button>
   </div>
     <main>
       <div class="modal" id="modal">

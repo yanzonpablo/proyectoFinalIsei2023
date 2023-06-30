@@ -26,7 +26,7 @@ $consulta->execute();
     <?php require_once "nav.php" ?>
   </header>
   <div class="header-content">
-      <input type="text" class="input-buscador" placeholder="Buscar Capacitador">
+      <input type="text" class="input-buscador" placeholder="Buscar capacitador">
     <button type="buscador" name="buscador" class="buscador"><i class="fas fa-search"></i></button>
   </div>
     <main>
@@ -34,7 +34,7 @@ $consulta->execute();
         <div class="modal-content">
           <img src="" alt="" class="modal-img" id="modal-img">
         </div>
-        <div class="modal-boton" id="modal-boton">X</div>
+        <!-- <div class="modal-boton" id="modal-boton">X</div> -->
       </div>
       <div>
         <p class="title">NUESTROS CAPACITADORES</p>

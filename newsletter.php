@@ -37,7 +37,7 @@ $consulta -> execute();
 		<?php require_once("nav.php") ?>
 	</header>
 		<div class="cont_title">
-			<p>LISTA E-MAILS ACTIVOS A NEWSLETTERS</p>
+			<p>E-MAILS ASOCIADOS A NEWSLETTERS</p>
 		</div>
 	<div class="contenedor">
 	<a href="" class="btnDescarga" id="download_xls" download="filename.xls">DESCARGAR LISTA</a>
