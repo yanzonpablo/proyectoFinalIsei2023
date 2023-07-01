@@ -1,7 +1,8 @@
 <?php
 require_once ('bd/conexion.php');
 
-$consulta = $pdo->prepare('SELECT nombre, descripcion, logo_camara FROM camaras');
+$consulta = $pdo->prepare('SELECT id, nombre, descripcion, logo_camara FROM camaras');
+
 $consulta->execute();
 
 
@@ -18,6 +19,7 @@ $consulta->execute();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="js/sliderscamaras.js" defer></script>
     <script src="js/modal.js"></script>
+    <link rel="stylesheet" href="css/slidersCamara.css">
   </head>
   <body>
     <main id="camarasAdheridas">
@@ -29,11 +31,9 @@ $consulta->execute();
           <?php 
           while($res = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
           <li class="card">
-
-            <div class="img activaModal"><a href="modal.php"><img src="images/logosCamaras/<?= $res['logo_camara'] ?>" alt="<? $res['nombre'] ?>" draggable="false"></div>
+            <div class="img activaModal"><a href="<?= 'modal.php?id='.$res['id'] ?>"><img src="images/logosCamaras/<?= $res['logo_camara'] ?>" alt="<? $res['nombre'] ?>" draggable="false"></div>
             <h2 class="modaltitle"><?= $res['nombre'] ?></h2>
             <span class="modaldescripcion"><?= $res['descripcion'] ?></span></a>
-
             <?php } ?>
         </li>
       </ul>

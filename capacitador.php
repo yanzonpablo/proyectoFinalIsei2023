@@ -1,6 +1,8 @@
 <?php
 require_once('bd/conexion.php');
+
 $id = $_GET['id'];
+
 $consulta = $pdo->prepare("SELECT id, nombre, apellido, especialidad, imagen, descripcion FROM capacitadores where id = $id");
 
 $consulta->execute();

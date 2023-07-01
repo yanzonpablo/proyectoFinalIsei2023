@@ -1,3 +1,13 @@
+<?php
+require_once('bd/conexion.php');
+
+$id = $_GET['id'];
+
+$con = $pdo->prepare("SELECT * FROM camaras WHERE id = $id");
+
+$con->execute();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,17 +26,20 @@
     <a href="#" class="activaModal"></a>
     <section class="modal">
         <div class="modalContainer">
-            <img src="logoCapacitacion.png" class="modalImg">
-            <h2 class="modalTitle">ATAM</h2>
-            <p class="modalDescripcion">CENTRO TALLERISTA DE MAR DEL PLATA 345</p>
-            <p class="modalTelefono">Teléfono: 234523455345</p>
-            <p class="modalDireccion">Dirección: ADFGASDRFGSHED 456</p>
-            <p class="modalProvincia">Provincia: Buenos Aires</p>
-            <p class="modalCodigo_postal">Cód. Postal: 3455</p>
-            <p class="modalWeb">Web: www.atam.com.ar</p>
-            <p class="modalFacebook">Facebook: facebook/atam-mardelplata</p>
-            <p class="modalinstagram">Instagram: instagram/atam-mardelplata</p>
+            <?php while($res = $con->fetch(PDO::FETCH_ASSOC)) { ?>
+            <img src="images/logosCamaras/<?= $res['logo_camara'] ?>" class="modalImg">
+            <h2 class="modalTitle"><?= $res['nombre'] ?></h2>
+            <p class="modalDescripcion"><?= $res['descripcion'] ?></p>
+            <p class="modalTelefono"><strong>Teléfono:</strong> <?= $res['telefono'] ?></p>
+            <p class="modalemail"><strong>E-mail:</strong><?= $res['email'] ?></p>
+            <p class="modalDireccion"><strong>Dirección:</strong> <?= $res['direccion'] ?></p>
+            <p class="modalProvincia"><strong>Provincia:</strong> <?= $res['provincia'] ?></p>
+            <p class="modalCodigo_postal"><strong>Cód. Postal:</strong> <?= $res['codigo_postal'] ?></p>
+            <p class="modalWeb"><strong>Web:</strong> <?= $res['web'] ?></p>
+            <p class="modalFacebook"><strong>Facebook:</strong> <?= $res['facebook'] ?></p>
+            <p class="modalinstagram"><strong>Instagram:</strong> <?= $res['instagram'] ?></p>
             <a href="#" class="modalClose">Cerrar</a>
+            <?php } ?>
         </div>
     </section>
     <script src="js/modal.js"></script>

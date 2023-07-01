@@ -7,6 +7,7 @@
 }
 .titulo {
   font-size: 28px;
+  padding-bottom: 10px;
   text-align: center;
   font-weight: 600;
   color: #001a49;
@@ -126,8 +127,10 @@
     grid-auto-columns: 100%;
   }
   .wrapper {
-
     width: 80%;
+  }
+  .titulo {
+    font-size: 18px;
   }
 
 }
