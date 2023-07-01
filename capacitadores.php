@@ -22,9 +22,9 @@ $consulta->execute();
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-  <header>
+
     <?php require_once "nav.php" ?>
-  </header>
+
   <div class="header-content">
       <input type="text" class="input-buscador" placeholder="Buscar capacitador">
     <button type="buscador" name="buscador" class="buscador"><i class="fas fa-search"></i></button>

@@ -3,6 +3,7 @@ require_once ('varErrorCursos.php');
 require_once ('bd/conexion.php');
 
 if (isset($_POST['aceptar'])) {
+  try {
       $nombre = $_POST['nombre'];
       $nivel_curso = $_POST['nivel_curso'];
       $descripcion = $_POST['descripcion'];
@@ -35,11 +36,11 @@ if (isset($_POST['aceptar'])) {
       // ---------------fin logo-----------------
 
       $carga_horaria = $_POST['carga_horaria'];
-      $fecha_inicio = $_POST['fecha_inicio'];
-      $fecha_fin = $_POST['fecha_fin'];
+      // $fecha_inicio = $_POST['fecha_inicio'];
+      // $fecha_fin = $_POST['fecha_fin'];
       $modalidad = $_POST['modalidad'];
       
-      $query = $pdo->prepare('INSERT INTO cursos (nombre, nivel_curso, descripcion, carga_horaria, logo_curso, fecha_inicio, fecha_fin, modalidad) VALUES (:nombre, :nivel_curso, :descripcion, :carga_horaria, :logo_curso, :fecha_inicio, :fecha_fin, :modalidad)');
+      $consulta = $pdo->query('INSERT INTO cursos (nombre, nivel_curso, descripcion, carga_horaria, logo_curso, fecha_inicio, fecha_fin, modalidad) VALUES (:nombre, :nivel_curso, :descripcion, :carga_horaria, :logo_curso, :fecha_inicio, :fecha_fin, :modalidad)');
       
       $query->bindParam(':nombre', $nombre);
       $query->bindParam(':nivel_curso', $nivel_curso);
@@ -48,10 +49,17 @@ if (isset($_POST['aceptar'])) {
       $query->bindParam(':logo_curso', $logo_curso);
       $query->bindParam(':fecha_inicio', $fecha_inicio);
       $query->bindParam(':fecha_fin', $fecha_fin);
+      $query->bindParam(':modalidad', $modalidad);
+
 
       $query->execute();
+
+    } catch (PDOException $e) {
+
+      echo $e->getMessage();
+      }
     }
-    ?>
+  ?>
 
   <?php
   $consulta = $pdo -> prepare("SELECT * FROM modalidades ORDER BY modalidad ASC");
@@ -99,6 +107,7 @@ if (isset($_POST['aceptar'])) {
       <div>
       <div class="main-user-info">
         <div class="user-input-box">
+
           <input type="text" name="nombre" value="<?php if (isset($nombre)) echo $nombre ?>" placeholder="Ingrese nombre del curso" />
           <?=$nombreError?></div>
         <div class="user-input-box">
@@ -136,8 +145,8 @@ if (isset($_POST['aceptar'])) {
           
           <div class="user-input-box">
             <select name="modalidad" id="modalidad" class="style-select">
-              <option value="0" selected disabled>* Seleccione una modalidad</option>
               <?php while($modalidad = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
+              <option value="0" selected disabled>* Seleccione una modalidad</option>
                 <option value="<?= $modalidad['modalidad'] ?>" name="modalidad" ><?=  $modalidad['modalidad'] ?></option>
                 <?php } ?>
               </select><?= $modalidadError?></div>

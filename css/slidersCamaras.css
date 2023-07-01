@@ -99,6 +99,7 @@
 }
 .carousel .card h2 {
   font-weight: 500;
+  text-align: center;
   font-size: 16px;
   margin: 0px 0 0 0;
   color: #001a49;
@@ -107,8 +108,10 @@
   text-align: center;
   color: #6A6D78;
   font-size: 12px;
-  line-height: 1;
   color: #001a49;
+}
+.carousel .card a {
+text-align: center;
 }
 @media screen and (max-width: 900px) {
   .wrapper .carousel {

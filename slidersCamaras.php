@@ -17,9 +17,11 @@ $consulta->execute();
     <!-- Fontawesome Link for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="js/sliderscamaras.js" defer></script>
+    <script src="js/modal.js"></script>
   </head>
   <body>
-    <main>
+    <main id="camarasAdheridas">
+      <section>
       <p class="titulo">CAMARAS ADHERIDAS</p>
       <div class="wrapper">
         <i id="left" class="fa-solid fa-angle-left"></i>
@@ -27,14 +29,17 @@ $consulta->execute();
           <?php 
           while($res = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
           <li class="card">
-            <div class="img"><a href=""><img src="images/logosCamaras/<?= $res['logo_camara'] ?>" alt="<? $res['nombre'] ?>" draggable="false"></div></a>
-            <h2><?= $res['nombre'] ?></h2>
-            <span><?= $res['descripcion'] ?></span>
+
+            <div class="img activaModal"><a href="modal.php"><img src="images/logosCamaras/<?= $res['logo_camara'] ?>" alt="<? $res['nombre'] ?>" draggable="false"></div>
+            <h2 class="modaltitle"><?= $res['nombre'] ?></h2>
+            <span class="modaldescripcion"><?= $res['descripcion'] ?></span></a>
+
             <?php } ?>
         </li>
       </ul>
       <i id="right" class="fa-solid fa-angle-right"></i>
     </div>
+    </section>
     </main>  
   </body>
 </html>

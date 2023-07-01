@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 14px;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s .9s;
+    --transform: translateY(-100vh);
+    --transition: transform .8s;
+}
+.modalShow{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+    --transform: translateY(0);
+    --transition: transform .8s .8s;
+}
+.modalContainer {
+    margin: auto;
+    width: 95%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 30px 20px;
+    display: grid;
+    gap: 16px;
+    place-items: center;
+    grid-auto-columns: 100%;
+    transform: var(--transform);
+    transition:var(--transition);
+}
+.modalTitle {
+    font-size: 24px;
+}
+.modalDescripcion {
+    padding-bottom: 3px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+.modalTelefono {
+    padding-bottom: 3px;
+}
+.modalDireccion {
+    padding-bottom: 3x;
+}
+.modalProvicia {
+    padding-bottom: 3px;
+}
+.modalCodigo_postal {
+    padding-bottom: 3px;
+}
+.modalWeb {
+    padding-bottom: 3px;
+}
+.modalfacebook {
+    padding-bottom: 3px;
+}
+.modalinstagram {
+    padding-bottom: 3px;
+}
+.modalImg {
+    width: 30%;
+    max-width: 300px;
+}
+.modalClose {
+    text-decoration: none;
+    color: #fff;
+    background-color: #F26250;
+    padding: 1em 3em;
+    border: 1px solid ;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+.modalClose:hover {
+    color: #F26250;
+    background-color: #fff;
+}
+@media (max-width:800px) {
+    body {
+        font-size: 12px;
+    }
+    .modalContainer {
+        padding: 20px 10px;
+    }
+    .modalTitle {
+        font-size: 30px;
+    }
+}
