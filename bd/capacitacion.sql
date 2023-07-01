@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-06-2023 a las 21:36:16
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.9
+-- Tiempo de generación: 01-07-2023 a las 06:06:57
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `afiliados` (
   `id` int(10) NOT NULL,
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `telefono` varchar(12) NOT NULL,
   `dni` int(10) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
-  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `direccion` varchar(120) NOT NULL,
   `codigo_postal` int(10) NOT NULL,
   `id_provincia` int(10) NOT NULL,
   `fecha_alta` date NOT NULL,
@@ -49,15 +49,17 @@ CREATE TABLE `afiliados` (
 
 CREATE TABLE `camaras` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `logo_camara` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `direccion` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigo_postal` varchar(10) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `provincia` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `web` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `logo_camara` varchar(255) NOT NULL,
+  `telefono` varchar(12) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
+  `codigo_postal` varchar(10) NOT NULL,
+  `provincia` varchar(30) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `web` varchar(120) NOT NULL,
+  `facebook` varchar(60) NOT NULL,
+  `instagram` varchar(60) NOT NULL,
   `camara_cancelada` int(1) NOT NULL DEFAULT 0,
   `fecha_alta` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -66,27 +68,27 @@ CREATE TABLE `camaras` (
 -- Volcado de datos para la tabla `camaras`
 --
 
-INSERT INTO `camaras` (`id`, `nombre`, `descripcion`, `logo_camara`, `telefono`, `direccion`, `codigo_postal`, `provincia`, `email`, `web`, `camara_cancelada`, `fecha_alta`) VALUES
-(119, 'FECHACO', 'FEDERACIÓN ECONÓMICA DEL CHACO', 'IMG-6494373354aa74.54298394.jpg', '03624435536', 'Juan Domingo Perón 111', '3506', 'Chaco', 'gerencia@fechaco.org', 'http://fechaco.org/', 0, '2023-06-22 11:57:39'),
-(120, 'AMA', 'ASOCIACIÓN MECÁNICOS Y AFINES', 'IMG-649437efcad881.59196698.jpg', '034041564176', 'Islas Malvinas 441', '3013', 'Santa Fe', 'amasancarlos@hotmail.com', 'http://www.amasancarlos.com.ar', 0, '2023-06-22 12:00:47'),
-(121, 'AMUPTRA', 'ASOCIACIÓN MUTUAL DE PROPIETARIOS DE TALLERES DE REPARACIÓN DE AUTOMOTORES', 'IMG-6494386698f584.99419884.jpg', '3513021357', ' Italia 2472', '5000', 'Córdoba', 'amuptra@hotmail.com', 'www.amuptra.org.ar', 0, '2023-06-22 12:02:46'),
-(122, 'APROTAME', 'ASOCIACIÓN DE PROPIETARIOS DE TALLERES MECÁNICOS Y AFINES', 'IMG-64943913a489c3.47308014.jpg', '034921550779', 'Aristóbulo del Valle 1036', '2300', 'Santa Fe', 'osvaldodcardoso@hotmail.es', 'www.aprotame.org.ar', 0, '2023-06-22 12:05:39'),
-(123, 'APTA', 'ASOCIACIÓN PROPIETARIOS DE TALLERES DE REPARACIÓN DE AUTOMOTORES DE ZONA NORTE', 'IMG-6494399f4cf6a2.41109247.jpg', '01147560694', ' Sargento Cabral 3431', '1605', 'Buenos Aires', 'aptazonanorte@yahoo.com.ar', 'www.aptazonanorte.org.ar', 0, '2023-06-22 12:07:59'),
-(124, 'APTMA', 'ASOCIACIÓN DE PROPIETARIOS DE TALLERES MECÁNICOS DE AUTOMOTORES Y AFINES', 'IMG-64943a274ecde6.03670357.jpg', '3424601185', 'Padre Genesio 151', '3000', 'Santa Fe', 'aptmasantafe@gmail.com', 'www.mecanicosunidos.com.ar', 0, '2023-06-22 12:10:15'),
-(125, 'APTRA', 'ASOCIACIÓN PROPIETARIOS DE TALLERES RAMO AUTOMOTOR', 'IMG-64943ac3bdb396.30253018.jpg', '03814243044', 'General Simón Bolívar 1637', '4000', 'Tucumán', 'aptra1973@hotmail.com', 'www.aptratucuman.org', 0, '2023-06-22 12:12:51'),
-(126, 'ATA', 'ASOCIACIÓN TALLERISTAS AUTOMOTORES DE PARANÁ', 'IMG-64943b28f3ada0.68503201.jpg', '03434075243', 'Amancio Alcorta 564', '3100', 'Entre Rios', 'ataparana@gmail.com', 'www.ataparana.org', 0, '2023-06-22 12:14:32'),
-(127, 'ATAM', 'ASOCIACIÓN TALLERISTAS AUTOMOTORES MARPLATENSES', 'IMG-64943b93c332d6.33522103.jpg', '02234822618', 'Florencio Sanchez 28', '7600', 'Buenos Aires', 'atam-mdp@hotmail.com', 'www.atam-mdp.com.ar', 0, '2023-06-22 12:16:19'),
-(128, 'ATASAN', 'ASOCIACIÓN TALLERES Y AFINES SAN NICOLÁS', 'IMG-64943c227aaae3.31400630.jpg', '03364437034', 'España 602', '2900', 'Buenos Aires', 'atasancamara@hotmail.com', 'www.atasan.com.ar', 0, '2023-06-22 12:18:42'),
-(129, 'ATGS', 'ASOCIACIÓN DE TALLERISTAS GENERAL SARMIENTO', 'IMG-64943c8d4687f5.96516723.jpg', '01144516808', 'Vicente López 2792', '1663', 'Buenos Aires', 'atgs2006@yahoo.com.ar', 'www.atgs.com.ar', 0, '2023-06-22 12:20:29'),
-(130, 'ATRAANES', 'ASOCIACIÓN DE TALLERES REPARADORES DE AUTOMOTORES', 'IMG-64943d18048ce6.58695929.jpg', '03482552513', 'Calle 20 N°1028', '3560', 'Santa Fe', 'atraanes@gmail.com', 'www.atraanes.com.ar', 0, '2023-06-22 12:22:48'),
-(131, 'ATRAR', 'ASOCIACIÓN TALLERES REPARACIONES DE AUTOMOTORES Y AFINES DE ROSARIO', 'IMG-64943e1dd6aa21.01677416.jpg', '03414400388', 'Montevideo 1060', '2000', 'Santa Fe', 'atrar@atrar.org.ar', 'www.atrar.org.ar', 0, '2023-06-22 12:27:09'),
-(132, 'CMSL', 'CAMARA  DE TALLERES DE REPARACIONES DE AUTOMOTORES Y AFINES DE SAN LUIS', 'IMG-64943e901f0557.67999326.jpeg', '026571560267', 'Av. 25 De Mayo 795', '5700', 'San Luis', 'camaramecanicossl@gmail.com', 'www.camaramecanicossl.com', 0, '2023-06-22 12:29:04'),
-(133, 'CRA', 'CÁMARA DE RECTIFICACIÓN AUTOMOTRIZ', 'IMG-64943f79907675.85251914.jpg', '01149416666', 'Cochabamba 2774', '1252', 'Buenos Aires', 'camararectificacion@fibertel.com.ar', 'http://camararectificacion.org/', 0, '2023-06-22 12:32:57'),
-(134, 'CRABB', 'CÁMARA DE REPARACIÓN DE AUTOMOTORES DE BAHÍA BLANCA', 'IMG-64943fef3f9c97.77789383.jpg', '029115440270', 'Güemes 524', '8000', 'Buenos Aires', 'crabahiablanca@gmail.com', 'www.crabb.org.ar', 0, '2023-06-22 12:34:55'),
-(135, 'CTAC', 'CENTRO DE TALLERISTAS DE AUTOMOTORES CONCORDIA', 'IMG-6494404d40c6b1.72213099.jpg', '03454273091', 'Teniente Ibañez 938', '3200', 'Entre Rios', 'centrotalleresconcordia@gmail.com', 'www.centrotalleresconcordia.org.ar', 0, '2023-06-22 12:36:29'),
-(136, 'UPTMA', 'UNIÓN PROPIETARIOS DE TALLERES MECÁNICOS DE AUTOMÓVILES', 'IMG-649440acbe4536.43446318.jpg', '01149429942', 'Adolfo Alsina 2540', '1000', 'Buenos Aires', 'unionpropietarios@uptma.org.ar', 'www.uptma.org.ar', 0, '2023-06-22 12:38:04'),
-(137, 'UTMA', 'UNIÓN TALLERES MECÁNICOS Y ANEXOS ZONA CUYO', 'IMG-6494411f072da5.63709780.jpg', '2614311061', 'Dorrego 841', '5500', 'Mendoza', 'utmamendoza@gmail.com', 'www.utma.weebly.com', 0, '2023-06-22 12:39:59'),
-(138, 'FAATRA', 'FEDERACIÓN ARGENTINA DE ASOCIACIÓN DE TALLERES DE REPARACIÓN DE AUTOMOTORES Y AFINES', 'IMG-649441c9311556.70132713.png', '03414810047', 'La Paz 1864', '2000', 'Santa Fe', 'info@faatra.org.ar', 'www.faatra.org.ar', 0, '2023-06-22 12:42:49');
+INSERT INTO `camaras` (`id`, `nombre`, `descripcion`, `logo_camara`, `telefono`, `direccion`, `codigo_postal`, `provincia`, `email`, `web`, `facebook`, `instagram`, `camara_cancelada`, `fecha_alta`) VALUES
+(119, 'FECHACO', 'FEDERACIÓN ECONÓMICA DEL CHACO', 'IMG-6494373354aa74.54298394.jpg', '03624435536', 'Juan Domingo Perón 111', '3506', 'Chaco', 'gerencia@fechaco.org', 'http://fechaco.org/', '', '', 0, '2023-06-22 11:57:39'),
+(120, 'AMA', 'ASOCIACIÓN MECÁNICOS Y AFINES', 'IMG-649437efcad881.59196698.jpg', '034041564176', 'Islas Malvinas 441', '3013', 'Santa Fe', 'amasancarlos@hotmail.com', 'http://www.amasancarlos.com.ar', '', '', 0, '2023-06-22 12:00:47'),
+(121, 'AMUPTRA', 'ASOCIACIÓN MUTUAL DE PROPIETARIOS DE TALLERES DE REPARACIÓN DE AUTOMOTORES', 'IMG-6494386698f584.99419884.jpg', '3513021357', ' Italia 2472', '5000', 'Córdoba', 'amuptra@hotmail.com', 'www.amuptra.org.ar', '', '', 0, '2023-06-22 12:02:46'),
+(122, 'APROTAME', 'ASOCIACIÓN DE PROPIETARIOS DE TALLERES MECÁNICOS Y AFINES', 'IMG-64943913a489c3.47308014.jpg', '034921550779', 'Aristóbulo del Valle 1036', '2300', 'Santa Fe', 'osvaldodcardoso@hotmail.es', 'www.aprotame.org.ar', '', '', 0, '2023-06-22 12:05:39'),
+(123, 'APTA', 'ASOCIACIÓN PROPIETARIOS DE TALLERES DE REPARACIÓN DE AUTOMOTORES DE ZONA NORTE', 'IMG-6494399f4cf6a2.41109247.jpg', '01147560694', ' Sargento Cabral 3431', '1605', 'Buenos Aires', 'aptazonanorte@yahoo.com.ar', 'www.aptazonanorte.org.ar', '', '', 0, '2023-06-22 12:07:59'),
+(124, 'APTMA', 'ASOCIACIÓN DE PROPIETARIOS DE TALLERES MECÁNICOS DE AUTOMOTORES Y AFINES', 'IMG-64943a274ecde6.03670357.jpg', '3424601185', 'Padre Genesio 151', '3000', 'Santa Fe', 'aptmasantafe@gmail.com', 'www.mecanicosunidos.com.ar', '', '', 0, '2023-06-22 12:10:15'),
+(125, 'APTRA', 'ASOCIACIÓN PROPIETARIOS DE TALLERES RAMO AUTOMOTOR', 'IMG-64943ac3bdb396.30253018.jpg', '03814243044', 'General Simón Bolívar 1637', '4000', 'Tucumán', 'aptra1973@hotmail.com', 'www.aptratucuman.org', '', '', 0, '2023-06-22 12:12:51'),
+(126, 'ATA', 'ASOCIACIÓN TALLERISTAS AUTOMOTORES DE PARANÁ', 'IMG-64943b28f3ada0.68503201.jpg', '03434075243', 'Amancio Alcorta 564', '3100', 'Entre Rios', 'ataparana@gmail.com', 'www.ataparana.org', '', '', 0, '2023-06-22 12:14:32'),
+(127, 'ATAM', 'ASOCIACIÓN TALLERISTAS AUTOMOTORES MARPLATENSES', 'IMG-64943b93c332d6.33522103.jpg', '02234822618', 'Florencio Sanchez 28', '7600', 'Buenos Aires', 'atam-mdp@hotmail.com', 'www.atam-mdp.com.ar', '', '', 0, '2023-06-22 12:16:19'),
+(128, 'ATASAN', 'ASOCIACIÓN TALLERES Y AFINES SAN NICOLÁS', 'IMG-64943c227aaae3.31400630.jpg', '03364437034', 'España 602', '2900', 'Buenos Aires', 'atasancamara@hotmail.com', 'www.atasan.com.ar', '', '', 0, '2023-06-22 12:18:42'),
+(129, 'ATGS', 'ASOCIACIÓN DE TALLERISTAS GENERAL SARMIENTO', 'IMG-64943c8d4687f5.96516723.jpg', '01144516808', 'Vicente López 2792', '1663', 'Buenos Aires', 'atgs2006@yahoo.com.ar', 'www.atgs.com.ar', '', '', 0, '2023-06-22 12:20:29'),
+(130, 'ATRAANES', 'ASOCIACIÓN DE TALLERES REPARADORES DE AUTOMOTORES', 'IMG-64943d18048ce6.58695929.jpg', '03482552513', 'Calle 20 N°1028', '3560', 'Santa Fe', 'atraanes@gmail.com', 'www.atraanes.com.ar', '', '', 0, '2023-06-22 12:22:48'),
+(131, 'ATRAR', 'ASOCIACIÓN TALLERES REPARACIONES DE AUTOMOTORES Y AFINES DE ROSARIO', 'IMG-64943e1dd6aa21.01677416.jpg', '03414400388', 'Montevideo 1060', '2000', 'Santa Fe', 'atrar@atrar.org.ar', 'www.atrar.org.ar', '', '', 0, '2023-06-22 12:27:09'),
+(132, 'CMSL', 'CAMARA  DE TALLERES DE REPARACIONES DE AUTOMOTORES Y AFINES DE SAN LUIS', 'IMG-64943e901f0557.67999326.jpeg', '026571560267', 'Av. 25 De Mayo 795', '5700', 'San Luis', 'camaramecanicossl@gmail.com', 'www.camaramecanicossl.com', '', '', 0, '2023-06-22 12:29:04'),
+(133, 'CRA', 'CÁMARA DE RECTIFICACIÓN AUTOMOTRIZ', 'IMG-64943f79907675.85251914.jpg', '01149416666', 'Cochabamba 2774', '1252', 'Buenos Aires', 'camararectificacion@fibertel.com.ar', 'http://camararectificacion.org/', '', '', 0, '2023-06-22 12:32:57'),
+(134, 'CRABB', 'CÁMARA DE REPARACIÓN DE AUTOMOTORES DE BAHÍA BLANCA', 'IMG-64943fef3f9c97.77789383.jpg', '029115440270', 'Güemes 524', '8000', 'Buenos Aires', 'crabahiablanca@gmail.com', 'www.crabb.org.ar', '', '', 0, '2023-06-22 12:34:55'),
+(135, 'CTAC', 'CENTRO DE TALLERISTAS DE AUTOMOTORES CONCORDIA', 'IMG-6494404d40c6b1.72213099.jpg', '03454273091', 'Teniente Ibañez 938', '3200', 'Entre Rios', 'centrotalleresconcordia@gmail.com', 'www.centrotalleresconcordia.org.ar', '', '', 0, '2023-06-22 12:36:29'),
+(136, 'UPTMA', 'UNIÓN PROPIETARIOS DE TALLERES MECÁNICOS DE AUTOMÓVILES', 'IMG-649440acbe4536.43446318.jpg', '01149429942', 'Adolfo Alsina 2540', '1000', 'Buenos Aires', 'unionpropietarios@uptma.org.ar', 'www.uptma.org.ar', '', '', 0, '2023-06-22 12:38:04'),
+(137, 'UTMA', 'UNIÓN TALLERES MECÁNICOS Y ANEXOS ZONA CUYO', 'IMG-6494411f072da5.63709780.jpg', '2614311061', 'Dorrego 841', '5500', 'Mendoza', 'utmamendoza@gmail.com', 'www.utma.weebly.com', '', '', 0, '2023-06-22 12:39:59'),
+(138, 'FAATRA', 'FEDERACIÓN ARGENTINA DE ASOCIACIÓN DE TALLERES DE REPARACIÓN DE AUTOMOTORES Y AFINES', 'IMG-649441c9311556.70132713.png', '03414810047', 'La Paz 1864', '2000', 'Santa Fe', 'info@faatra.org.ar', 'www.faatra.org.ar', '', '', 0, '2023-06-22 12:42:49');
 
 -- --------------------------------------------------------
 
@@ -96,17 +98,17 @@ INSERT INTO `camaras` (`id`, `nombre`, `descripcion`, `logo_camara`, `telefono`,
 
 CREATE TABLE `capacitadores` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellido` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(120) NOT NULL,
+  `apellido` varchar(120) NOT NULL,
   `cuil_cuit` int(11) NOT NULL,
-  `imagen` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT 'usersNone.png',
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigo_postal` varchar(10) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `especialidad` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(1000) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `provincia` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `imagen` varchar(255) NOT NULL DEFAULT 'usersNone.png',
+  `telefono` varchar(12) NOT NULL,
+  `direccion` varchar(120) NOT NULL,
+  `codigo_postal` varchar(10) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `especialidad` varchar(255) NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
+  `provincia` varchar(60) NOT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
   `fecha_baja` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -116,7 +118,7 @@ CREATE TABLE `capacitadores` (
 --
 
 INSERT INTO `capacitadores` (`id`, `nombre`, `apellido`, `cuil_cuit`, `imagen`, `telefono`, `direccion`, `codigo_postal`, `email`, `especialidad`, `descripcion`, `provincia`, `fecha_alta`, `fecha_baja`) VALUES
-(10, 'Alejandro', 'Berbetoros', 2030404659, 'IMG-649d831edbdf95.97533355.jpg', '3414595987', 'La paz 1864', '2000', 'berbetoros@gmail.com', 'Inyección Electrónica', ' Docente argentino recibido para dar clases en EGB 1 y 2. Luego de años dedicados a la docencia decidió retomar el oficio de cerrajero que heredó de su padre y comenzó a capacitarse, orientándose al rubro de la cerrajería automotriz.\r\n\r\nObtuvo capacitaciones en inmovilizadores electrónicos, instalación de alarmas, instalación de estéreos y accesorios, diagnóstico y procedimientos de inmovilizadores electrónicos, inyección electrónica, procedimientos de inmovilizadores para cerrajeros y desbloqueo de centrales electrónicas.       ', 'Santa Fe', '2023-06-27', '0000-00-00'),
+(10, 'Alejandro', 'Berbetoros', 2030404659, 'IMG-649fa2dd8e0866.67240065.png', '3414595987', 'La paz 1864', '2000', 'berbetoros@gmail.com', 'Inyección Electrónica', ' Docente argentino recibido para dar clases en EGB 1 y 2. Luego de años dedicados a la docencia decidió retomar el oficio de cerrajero que heredó de su padre y comenzó a capacitarse, orientándose al rubro de la cerrajería automotriz.\r\n\r\nObtuvo capacitaciones en inmovilizadores electrónicos, instalación de alarmas, instalación de estéreos y accesorios, diagnóstico y procedimientos de inmovilizadores electrónicos, inyección electrónica, procedimientos de inmovilizadores para cerrajeros y desbloqueo de centrales electrónicas.            ', 'Santa Fe', '2023-06-27', '0000-00-00'),
 (11, 'Martin', 'Desiveri', 2147483647, 'IMG-649acfa8da0ae5.14453762.jpg', '034041564176', 'Santa Fe 12', '1016', 'martin@gmail.com', 'Mecánica Gral.', ' Ingenierio electrónico argentino recibido en la Universidad Nacional de Rosario. Se desempeña en su propio taller y laboratorio de ingeniería automotriz POWERINYECTION.\r\n\r\nAdemás de sus conocimientos en el rubro automotriz cuenta con tecnicaturas en Reparación de PCs y Reparación de Redes Informáticas.\r\n\r\n', 'Buenos Aires', '2023-06-27', '0000-00-00'),
 (12, 'Leandro Facundo', 'Garcia', 2147483647, 'IMG-649ad012e2f289.81292554.jpg', '3415645665', 'Laprida 1235', '1017', 'carlos@gmail.com', 'Transmisión Robotizada', ' Instructor argentino con 11 años de experiencia. Brindando  capacitaciones de Ford Motor Company y General Motors Argentina.\r\n\r\nSe desempeñó como capacitador para empresas como, “SECCO auto elevadores y grúas” y “Norauto” en capacitaciones de aire acondicionado y mantenimiento.\r\n\r\nTambién brindó seminarios WEB para GM Latinoamérica en Chile, Perú, Bolivia y Colombia.\r\n\r\nContinúa trabajando en su propio taller ofreciendo diagnósticos y soluciones a sus clientes.\r\n\r\nDesde el año 2020 se incorpora a CEA ELECTRONICA AUTOMOTRIZ como instructor y referente de FORD Y GENERAL MOTORS.\r\n\r\n', 'Buenos Aires', '2023-06-27', '0000-00-00'),
 (13, 'Tilso ', 'Castro', 2147483647, 'IMG-649ad0639f1a04.82306375.png', '3425987456', 'San Martin 2356', '1017', 'tilso@gmail', 'AIRBAG Y ABS', ' El ingeniero Tilso Castro es instructor internacional en tecnologías Automotrices desde el año 2005.\r\nImparte entrenamiento en los siguientes países, Colombia, Ecuador, Bolivia, Argentina, Guatemala, Panamá, Costa Rica, Colombia, Perú, Estados Unidos, México, Venezuela, República Dominicana, Haiti, Canadá, Chile y Colombia, entre otros.\r\n\r\nAcumula más de 40.000 horas como instructor en tecnologías automotrices con presencia en todo el continente , también sirve como colaborador para eventos en Europa.\r\n\r\nSu especialidad e brindar capacitaciones en nuevas tecnologías Automotrices, dentro de sus cursos se encuentran temas desde el sistema de control electrónico en vehículos diésel y gasolina, hasta sistemas de control electrónico avanzado, multiplexado y reparación de computadoras.\r\n\r\nHa trabajado en proyectos con empresas del sector, como son Caterpillar, General Motors, Ford Motor, Instituto Cea Costa Rica, Confederación Nacional de Talleres México, Dimauto Tools, Autosoporte, Autoava', 'Buenos Aires', '2023-06-27', '0000-00-00'),
@@ -145,9 +147,9 @@ CREATE TABLE `certificados` (
 
 CREATE TABLE `cursos` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(120) NOT NULL,
   `nivel_curso` int(1) NOT NULL,
-  `descripcion` varchar(1000) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
   `carga_horaria` int(10) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
@@ -204,7 +206,7 @@ CREATE TABLE `inscripciones` (
 
 CREATE TABLE `modalidades` (
   `id` int(10) NOT NULL,
-  `modalidad` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `modalidad` varchar(20) NOT NULL,
   `id_curso` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -225,7 +227,7 @@ INSERT INTO `modalidades` (`id`, `modalidad`, `id_curso`) VALUES
 
 CREATE TABLE `newsletters` (
   `id` int(10) NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `email` varchar(120) NOT NULL,
   `baja` int(1) NOT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -249,8 +251,8 @@ INSERT INTO `newsletters` (`id`, `email`, `baja`, `fecha_alta`) VALUES
 
 CREATE TABLE `niveles_cursos` (
   `id` int(10) NOT NULL,
-  `nivel` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
-  `carga_horaria` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `nivel` varchar(60) NOT NULL,
+  `carga_horaria` varchar(20) NOT NULL,
   `sub_indice` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -274,7 +276,7 @@ INSERT INTO `niveles_cursos` (`id`, `nivel`, `carga_horaria`, `sub_indice`) VALU
 
 CREATE TABLE `provincias` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL
+  `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -315,10 +317,10 @@ INSERT INTO `provincias` (`id`, `nombre`) VALUES
 
 CREATE TABLE `usuarios` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellido` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(20) NOT NULL,
   `fecha_alta` date NOT NULL,
   `rol_usuario` int(1) NOT NULL,
   `id_afiliados` int(10) NOT NULL
@@ -442,13 +444,13 @@ ALTER TABLE `afiliados`
 -- AUTO_INCREMENT de la tabla `camaras`
 --
 ALTER TABLE `camaras`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT de la tabla `capacitadores`
 --
 ALTER TABLE `capacitadores`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `certificados`
