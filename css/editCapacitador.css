@@ -9,9 +9,9 @@ section {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-top: -30px;
 }
 .container {
+    margin-top: 20px;
     align-self: center;
     /* background: linear-gradient(135deg, #009ee0, #ffffff);
     background-size: cover; */
@@ -181,10 +181,8 @@ label.textoLogo{
     .container{
         height: 100vh;
         min-width: 280px;
-        margin-top: 30px;
     }
     .form-title{
-        margin-top: 30px;
         font-size: 20px;
     }
     .user-input-box {
@@ -216,8 +214,8 @@ label.textoLogo{
         overflow: auto;
     }
     .form-submit-btn button {
-        padding: 5px;
-        margin: 10 0 5px 0;
+        padding: 5px 0;
+        margin: 10 0 10px 0;
     }
     .error {
         font-size: 10px;
@@ -240,6 +238,7 @@ label.textoLogo{
     }
     .contenedorBtn {
         flex-direction: column;
+        margin-bottom: 10px;
     }
 
 }

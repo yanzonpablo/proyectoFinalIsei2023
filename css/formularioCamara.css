@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif !important;
 }
+.linea {
+    border: 1px solid rgb(233, 233, 233);
+    margin-bottom: 10px;
+}
 section {
     display: flex;
     justify-content: center;
@@ -75,7 +79,10 @@ label.textoLogo{
     padding-left: 10px;
     color: gray;
 }
-
+.contenedorBtn {
+    display: flex;
+    justify-content: space-around;
+}
 .user-input-box input {
     height: 40px;
     width: 95%;
@@ -176,5 +183,10 @@ label.textoLogo{
     .main-user-info::-webkit-scrollbar {
         width: 0;
     }
-
+    .contenedorBtn {
+        flex-direction: column;
+    }
+    .linea {
+        border: none;
+    }
 }

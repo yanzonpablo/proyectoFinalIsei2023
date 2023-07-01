@@ -121,7 +121,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
   <?php require_once ('nav.php') ?>
   <section>
     <div class="container">
-      <h1 class="form-title">REGISTRO DE CAMARA</h1>
+      <h1 class="form-title">EDICION REGISTRO DE CAMARA</h1>
       <form action="" method="POST" enctype="multipart/form-data">
         <?php while($res = $con->fetch(PDO::FETCH_ASSOC)) { ?>
         <div class="main-user-info">
@@ -202,8 +202,8 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
             <?=$instagramError?>
           </div>
           <?php } ?>
-
         </div>
+        <div class="linea"></div>
         <div class="contenedorBtn">
           <div class="form-submit-btn">
             <button type="submit" name="cancelar" value="cancelar">Cancelar

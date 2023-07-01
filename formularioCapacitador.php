@@ -167,6 +167,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
         <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="<?php if (isset($descripcion)) echo $descripcion ?>" class="textareaCurso"> </textarea>
         <?=$descripcionError?>
         </div>
+        <div class="linea"></div>
         <div class="contenedorBtn">
           <div class="form-submit-btn">
             <button type="submit" name="aceptar" value="aceptar">Cancelar

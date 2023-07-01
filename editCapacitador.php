@@ -115,9 +115,10 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
 
 <body>
   <?php require_once ('nav.php') ?>
+  
   <section>
   <div class="container">
-    <h1 class="form-title">ACTUALIZAR CAPACITADOR</h1>
+    <h1 class="form-title">EDICION REGISTRO CAPACITADOR</h1>
     <?php while($res = $con->fetch(PDO::FETCH_ASSOC)) { ?>
     <form action="" method="POST" enctype="multipart/form-data">
       <div>

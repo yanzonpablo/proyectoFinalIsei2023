@@ -4,12 +4,15 @@
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif !important;
 }
+.linea {
+    border: 1px solid rgb(233, 233, 233);
+    margin-bottom: 10px;
+}
 section {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-top: -30px;
 }
 .container {
     align-self: center;
@@ -230,6 +233,9 @@ label.textoLogo{
     }
     .contenedorBtn {
         flex-direction: column;
+    }
+    .linea {
+        display: none;
     }
 
 }
