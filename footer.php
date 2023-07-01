@@ -25,10 +25,10 @@ if (isset($_POST['submit'])) {
         <div class="footer-item redes">
             <h2 class="footer-title"> Redes Sociales </h2>
             <ul>
-                <li><i class="fab fa-youtube"><a href="https://www.youtube.com/@faatra" target="_blank" rel="noopener noreferrer"></a></i> Youtube
-                <li><i class="fab fa-instagram"><a href="https://www.instagram.com/faatraargentina/" target="_blank" rel="noopener noreferrer"></a></i> Instagram
-                <li><i class="fab fa-facebook"><a href="https://www.facebook.com/FAATRArgentina" target="_blank" rel="noopener noreferrer"></a></i> facebook
-                <li><i class="fab fa-linkedin"><a href="https://linkedin.com/in/faatra-argentina-1616b51a5/" target="_blank" rel="noopener noreferrer"></a></i> Linkedin
+                <li><i class="fab fa-youtube"><a href="https://www.youtube.com/@faatra" target="_blank" rel="noopener noreferrer"> Youtube</a></i> 
+                <li><i class="fab fa-instagram"><a href='https://www.instagram.com/faatraargentina/' target="_blank" rel="noopener noreferrer"> Instagram</a></i> 
+                <li><i class="fab fa-facebook"><a href="https://www.facebook.com/FAATRArgentina" target="_blank" rel="noopener noreferrer"> facebook</a></i> 
+                <li><i class="fab fa-linkedin"><a href="https://linkedin.com/in/faatra-argentina-1616b51a5/" target="_blank" rel="noopener noreferrer"> Linkedin</a></i> 
             </ul>
         </div>
         <form class="footer-item newsletter" method="POST">
