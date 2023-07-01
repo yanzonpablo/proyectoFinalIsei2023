@@ -159,7 +159,7 @@
             </a>
         </div>
         <!-- --------------- CARDS FIN-------------- -->
-        <div class="separacion"></div>
+        <div class="separacion1"></div>
         <?php require('slidersCamaras.php') ?>
         <div class="separacion"></div>
         <!-- ---------------PREGUNTAS FRECUENTES INICIO-------------- -->
