@@ -27,9 +27,6 @@
                             <div class="dropdown">
                                 <ul>
                                     <li class="dropdown-link">
-                                        <a href="FormularioCamara.php">Formulario Cámara</a>
-                                    </li>
-                                    <li class="dropdown-link">
                                         <a href="FormularioCurso.php">Formulario Curso</a>
                                     </li>
                                     <li class="dropdown-link">

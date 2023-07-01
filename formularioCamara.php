@@ -67,7 +67,7 @@ if (isset($_POST['aceptar'])) {
       echo $e->getMessage();
     }
     
-    header('location: index.php');
+    header('location: abmCamaras.php');
 }
 ?>
 <?php
