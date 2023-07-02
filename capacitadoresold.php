@@ -1,23 +1,11 @@
 <?php
 require_once('bd/conexion.php');
 
+$consulta = $pdo->prepare('SELECT id, nombre, apellido, imagen, especialidad FROM capacitadores');
 
-if (isset($_POST['buscador'])) {
-  
-  // try {
-  $palabra = $_POST['buscador'];
-  
-  $consulta = $pdo->prepare("SELECT * FROM capacitadores WHERE nombre OR apellido like '%$palabra%'");
-
-  $consulta->execute();
-  
-  // } catch(PDOException $e) {
-
-  //   echo $e->getMessage();
-  // }
-}
-
+$consulta->execute();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,33 +22,32 @@ if (isset($_POST['buscador'])) {
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-  <header>
+
     <?php require_once "nav.php" ?>
-  </header>
+
   <div class="header-content">
-      <input type="text" class="input-buscador" placeholder="Buscar capacitador" name="buscador" id="buscador">
-    <button type="buscador" name="buscador" id="buscador" class="buscador"><i class="fas fa-search"></i></button>
+      <input type="text" class="input-buscador" placeholder="Buscar capacitador">
+    <button type="buscador" name="buscador" class="buscador"><i class="fas fa-search"></i></button>
   </div>
     <main>
       <div class="modal" id="modal">
         <div class="modal-content">
           <img src="" alt="" class="modal-img" id="modal-img">
         </div>
-        <div class="modal-boton" id="modal-boton">X</div>
+        <!-- <div class="modal-boton" id="modal-boton">X</div> -->
       </div>
       <div>
         <p class="title">NUESTROS CAPACITADORES</p>
       </div>
       <div class="container-capacitadores" id="lista-capacitadores">
-        <div class="card">
           <?php while ($capacitador = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
-            <a href="<?= 'capacitador.php?id='.$capacitador['id'] ?>" class="linkCapacitador">
-            <img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
+          <div class="card">
+            <a href="<?= 'capacitador.php?id='.$capacitador['id'] ?>" class="linkCapacitador"><img src="images/capacitadores/<?= $capacitador['imagen']?>" class="card-img" alt="<? $capacitador['nombre']?>">
             <h4><?= $capacitador['nombre']?>.<?= $capacitador['apellido']?></h4>
             <p><?= $capacitador['especialidad']?></p></a>
-            <?php } ?>
             <a href="<?= 'capacitador.php?id='.$capacitador['id'] ?>" class="button agregar-carrito">CONOCELO</a> 
           </div>
+          <?php } ?>
         </div>
 </main>
 <?php include_once "footer.php" ?>

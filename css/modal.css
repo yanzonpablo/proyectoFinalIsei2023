@@ -85,8 +85,8 @@ body {
 .modalClose {
     text-decoration: none;
     color: #fff;
-    background-color: #F26250;
-    padding: 1em 3em;
+    background-color: #029ee0;
+    padding: 10px 48px;
     border: 1px solid ;
     border-radius: 6px;
     display: inline-block;
@@ -94,7 +94,7 @@ body {
     transition: background-color .3s;
 }
 .modalClose:hover {
-    color: #F26250;
+    color: #029ee0;
     background-color: #fff;
 }
 @media (max-width:800px) {

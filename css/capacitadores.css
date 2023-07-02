@@ -40,6 +40,8 @@ label {
 .linkCapacitador {
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    color: #6d6d6d;
 }
 .input-buscador {
     height: 30px;

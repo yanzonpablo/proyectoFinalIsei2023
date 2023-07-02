@@ -23,8 +23,8 @@ $con->execute();
 </head>
 
 <body>
-    <a href="#" class="activaModal"></a>
-    <section class="modal">
+    <!-- <a href="#" class="activaModal"></a> -->
+    <section class="modal activaModal">
         <div class="modalContainer">
             <?php while($res = $con->fetch(PDO::FETCH_ASSOC)) { ?>
             <img src="images/logosCamaras/<?= $res['logo_camara'] ?>" class="modalImg">
