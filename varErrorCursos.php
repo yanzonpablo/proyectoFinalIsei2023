@@ -10,7 +10,7 @@ $fecha_finError = '';
 $modalidadError = '';
 $nivel_cursoError = '';
 $carga_horariaError = '';
-
+$capacitadorError = '';
 
 //-----------Al inicio es $error = false ------no hay error
 $error = false; 

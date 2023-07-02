@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -69,7 +70,7 @@
                                 <img class="iconpubli" src="images/3reparacion.png" alt="vanguardia">
                             </div>
                             <p class="publi-plan">REPARACIONES REALES</p>
-                            <p class="publi-p">Capacítate conociendo casos reales de reparaciones realizadas en nuestros
+                            <p class="publi-p">Capacitate conociendo casos reales de reparaciones realizadas en nuestros
                                 talleres y laboratorios.</p>
                         </div>
                     </div>
@@ -143,7 +144,7 @@
             <a href="#" class="table-item">
                 <h3 class="table-plan"> PERFECCIONAMIENTO NO PROFESIONAL </h3>
                 <article class="table-content">
-                    <p class="table-p">Cursos para el desempeño organizacional de la empresa Automotriz, identificación
+                    <p class="table-p">Cursos para el desempeño organizacional de la empresa automotriz, identificación
                         de las falencias de la empresa, metodologías de trabajo, calculo de costos, seguridad e higiene,
                         etc.</p>
                         <p class="btnCursos">INGRESAR</p>
@@ -152,7 +153,7 @@
             <a href="#" class="table-item">
                 <h3 class="table-plan"> CHARLAS TECNICAS Y COMERCIALES</h3>
                 <article class="table-content">
-                    <p class="table-p">Empresas del rubro presentan características, aplicaciones y manipulación de sus
+                    <p class="table-p">Empresas del rubro presentan productos, características, aplicaciones y manipulación de sus
                         líneas de productos, realizando recomendaciones y demostraciones prácticas en vivo.</p>
                 </article>
                 <p class="btnCursos">INGRESAR</p>

@@ -1,13 +1,12 @@
 <?php
 require_once('bd/conexion.php');
 
-
-
 if (isset( $_POST['input-buscador'])) {
 
   $palabra = $_POST['input-buscador'];
 
   try {
+
   $bus = $pdo->prepare("SELECT id, nombre, apellido, especialidad, imagen from capacitadores where nombre like '%$palabra%' or apellido like '%$palabra%'");
 
   $bus->execute();
@@ -26,7 +25,6 @@ if (isset( $_POST['input-buscador'])) {
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,6 +37,7 @@ if (isset( $_POST['input-buscador'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
     <title>CAPACITADORES</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="css/capacitadores.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
@@ -78,6 +77,6 @@ if (isset( $_POST['input-buscador'])) {
           </div>
       </form>
     </main>
-<?php include_once "footer.php" ?>
-</body>
+    <?php include_once "footer.php" ?>
+  </body>
 </html>

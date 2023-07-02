@@ -1,11 +1,12 @@
 <?php
+
 require_once ('varErrorCursos.php');
 require_once ('bd/conexion.php');
 
 if (isset($_POST['aceptar'])) {
+
   try {
       $nombre = $_POST['nombre'];
-      $nivel_curso = $_POST['nivel_curso'];
       $descripcion = $_POST['descripcion'];
 
       // ---------------logo-----------------
@@ -36,11 +37,13 @@ if (isset($_POST['aceptar'])) {
       // ---------------fin logo-----------------
 
       $carga_horaria = $_POST['carga_horaria'];
-      // $fecha_inicio = $_POST['fecha_inicio'];
-      // $fecha_fin = $_POST['fecha_fin'];
+      $fecha_inicio = $_POST['fecha_inicio'];
+      $fecha_fin = $_POST['fecha_fin'];
+      $nivel_curso = $_POST['nivel_curso'];
       $modalidad = $_POST['modalidad'];
+      $capacitador = $_POST['capacitador'];
       
-      $consulta = $pdo->query('INSERT INTO cursos (nombre, nivel_curso, descripcion, carga_horaria, logo_curso, fecha_inicio, fecha_fin, modalidad) VALUES (:nombre, :nivel_curso, :descripcion, :carga_horaria, :logo_curso, :fecha_inicio, :fecha_fin, :modalidad)');
+      $query = $pdo->query('INSERT INTO cursos (nombre, nivel_curso, descripcion, carga_horaria, logo_curso, :fecha_inicio, :fecha_fin, modalidad, capacitador) VALUES (:nombre, :nivel_curso, :descripcion, :carga_horaria, :logo_curso, :fecha_inicio, :fecha_fin, :modalidad, :capacitador)');
       
       $query->bindParam(':nombre', $nombre);
       $query->bindParam(':nivel_curso', $nivel_curso);
@@ -50,6 +53,7 @@ if (isset($_POST['aceptar'])) {
       $query->bindParam(':fecha_inicio', $fecha_inicio);
       $query->bindParam(':fecha_fin', $fecha_fin);
       $query->bindParam(':modalidad', $modalidad);
+      $query->bindParam(':capacitador', $capacitador);
 
 
       $query->execute();
@@ -64,6 +68,11 @@ if (isset($_POST['aceptar'])) {
   <?php
   $consulta = $pdo -> prepare("SELECT * FROM modalidades ORDER BY modalidad ASC");
   $consulta -> execute();
+  ?>
+
+  <?php
+  $instructor = $pdo -> prepare("SELECT * FROM capacitadores ORDER BY nombre DESC");
+  $instructor -> execute();
   ?>
 
   <?php
@@ -121,6 +130,18 @@ if (isset($_POST['aceptar'])) {
               <?= $nivel_cursoError?>
             </div>
 
+            
+            <div class="user-input-box">
+              <input type="date" id="fechaInicio" name="fecha_inicio" value="" placeholder="* Ingrese fecha inicio" />
+              <span for="fecha_inicio" class="error"></span>
+              <?=$fecha_inicioError?>
+            </div>
+            
+            <div class="user-input-box">
+            <input type="date" name="fecha_fin" id="fechaFin" placeholder="* Ingrese fecha fin">
+              <span for="fecha_fin" class="error"></span>
+              <?=$fecha_finError?>
+            </div>
             <div class="user-input-box">
               <select name="carga_horaria" id="carga_horaria" class="style-select">
                 <option value="0" selected disabled>* Seleccione carga horaria</option>
@@ -132,11 +153,16 @@ if (isset($_POST['aceptar'])) {
             </select>
             <?= $carga_horariaError?>
           </div>
-          
-        <div class="user-input-box">
-          <input type="date" id="fecha_inicio" name="fecha" value="" placeholder="Ingrese fecha inicio" />
-          <span for="fecha_inicio" class="error"></span>
-          <?=$fecha_inicioError?></div>
+
+
+          <div class="user-input-box">
+          <select name="capacitador" id="capacitador" class="style-select">
+            <option value="0" selected disabled>* Seleccione capacitador</option>
+            <?php while($capacitador = $instructor->fetch(PDO::FETCH_ASSOC)) { ?>
+            <option value="<?= $capacitador['nombre'] ?>" name="capacitador" ><?=  $capacitador['nombre'] ?></option>
+            <?php } ?>
+          </select><?= $capacitadorError?>
+        </div>
           
           <label for="logo_curso" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
           <div class="user-input-boxFile">
@@ -145,12 +171,14 @@ if (isset($_POST['aceptar'])) {
           
           <div class="user-input-box">
             <select name="modalidad" id="modalidad" class="style-select">
-              <?php while($modalidad = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
               <option value="0" selected disabled>* Seleccione una modalidad</option>
-                <option value="<?= $modalidad['modalidad'] ?>" name="modalidad" ><?=  $modalidad['modalidad'] ?></option>
-                <?php } ?>
-              </select><?= $modalidadError?></div>
+              <?php while($modalidad = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
+              <option value="<?= $modalidad['modalidad'] ?>" name="modalidad" ><?=  $modalidad['modalidad'] ?></option>
+              <?php } ?>
+            </select><?= $modalidadError?>
+          </div>
             </div>
+
             </div>
           <div class="user-input-box2">
             <label for="descripcion">Ingrese descripción:</label>
@@ -167,5 +195,43 @@ if (isset($_POST['aceptar'])) {
   </div>
 </section>
 </body>
+<script>
+window.addEventListener('load',function(){
+
+document.getElementById('fechaInicio').type= 'text';
+
+document.getElementById('fechaInicio').addEventListener('blur',function(){
+
+document.getElementById('fechaInicio').type= 'text';
+
+});
+
+document.getElementById('fechaInicio').addEventListener('focus',function(){
+
+document.getElementById('fechaInicio').type= 'date';
+
+});
+
+});
+</script>
+<script>
+window.addEventListener('load',function(){
+
+document.getElementById('fechaFin').type= 'text';
+
+document.getElementById('fechaFin').addEventListener('blur',function(){
+
+document.getElementById('fechaFin').type= 'text';
+
+});
+
+document.getElementById('fechaFin').addEventListener('focus',function(){
+
+document.getElementById('fechaFin').type= 'date';
+
+});
+
+});
+</script>
 
 </html>
