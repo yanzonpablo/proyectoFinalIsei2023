@@ -1,5 +1,4 @@
 <?php
-
 require_once ('varErrorCursos.php');
 require_once ('bd/conexion.php');
 
@@ -54,7 +53,6 @@ if (isset($_POST['aceptar'])) {
       $query->bindParam(':fecha_fin', $fecha_fin);
       $query->bindParam(':modalidad', $modalidad);
       $query->bindParam(':capacitador', $capacitador);
-
 
       $query->execute();
 
@@ -129,14 +127,11 @@ if (isset($_POST['aceptar'])) {
               </select>
               <?= $nivel_cursoError?>
             </div>
-
-            
             <div class="user-input-box">
               <input type="date" id="fechaInicio" name="fecha_inicio" value="" placeholder="* Ingrese fecha inicio" />
               <span for="fecha_inicio" class="error"></span>
               <?=$fecha_inicioError?>
             </div>
-            
             <div class="user-input-box">
             <input type="date" name="fecha_fin" id="fechaFin" placeholder="* Ingrese fecha fin">
               <span for="fecha_fin" class="error"></span>
@@ -153,8 +148,6 @@ if (isset($_POST['aceptar'])) {
             </select>
             <?= $carga_horariaError?>
           </div>
-
-
           <div class="user-input-box">
           <select name="capacitador" id="capacitador" class="style-select">
             <option value="0" selected disabled>* Seleccione capacitador</option>
@@ -163,12 +156,10 @@ if (isset($_POST['aceptar'])) {
             <?php } ?>
           </select><?= $capacitadorError?>
         </div>
-          
           <label for="logo_curso" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
           <div class="user-input-boxFile">
             <input type="file" id="logo_curso" name="logo_curso"/>
           </div></label>
-          
           <div class="user-input-box">
             <select name="modalidad" id="modalidad" class="style-select">
               <option value="0" selected disabled>* Seleccione una modalidad</option>
@@ -178,60 +169,20 @@ if (isset($_POST['aceptar'])) {
             </select><?= $modalidadError?>
           </div>
             </div>
-
             </div>
           <div class="user-input-box2">
             <label for="descripcion">Ingrese descripción:</label>
             <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="<?php if (isset($descripcion)) echo $descripcion ?>" class="textareaCurso"> </textarea>
             <?=$descripcionError?>
           </div>
-
             <div class="form-submit-btn">
               <button type="submit" name="aceptar" value="aceptar">Registrar
-                </div>
-    </form>
-    
-
+            </div>
+      </form>
   </div>
 </section>
+<script src="js/fechaInicio.js"></script>
+<script src="js/fechaFin.js"></script>
 </body>
-<script>
-window.addEventListener('load',function(){
-
-document.getElementById('fechaInicio').type= 'text';
-
-document.getElementById('fechaInicio').addEventListener('blur',function(){
-
-document.getElementById('fechaInicio').type= 'text';
-
-});
-
-document.getElementById('fechaInicio').addEventListener('focus',function(){
-
-document.getElementById('fechaInicio').type= 'date';
-
-});
-
-});
-</script>
-<script>
-window.addEventListener('load',function(){
-
-document.getElementById('fechaFin').type= 'text';
-
-document.getElementById('fechaFin').addEventListener('blur',function(){
-
-document.getElementById('fechaFin').type= 'text';
-
-});
-
-document.getElementById('fechaFin').addEventListener('focus',function(){
-
-document.getElementById('fechaFin').type= 'date';
-
-});
-
-});
-</script>
 
 </html>

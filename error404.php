@@ -11,21 +11,21 @@
 </head>
 
 <body>
-    <main class="body">
-    <div class="contenedor">
-        <div class="imagen">
-            <img src="images/Attention-Danger.png" alt="error-404">
-        </div>
-        <div>
-            <div class0="parrafo">
-                <p>Ups!!!</p>
-                <p>La pagina no ha sido encontrada</p>
+    <main>
+        <div class="contenedor">
+            <div class="pantalla">
+                <div class="imagen">
+                    <img src="images/Attention-Danger.png" alt="error-404">
+                </div>
+                    <div class="parrafo">
+                        <p>Ups!!!</p>
+                        <p>La pagina no ha sido encontrada</p>
+                    </div>
+                <div class="regresar">
+                    <a href="index.php">Regresar</a>
+                </div>
             </div>
         </div>
-        <div class="regresar">
-            <a href="index.php">Regresar</a>
-        </div>
-    </div>
     </main>
 </body>
 

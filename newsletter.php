@@ -33,9 +33,7 @@ $consulta -> execute();
 </head>
 
 <body>
-
 		<?php require_once("nav.php") ?>
-
 		<div class="cont_title">
 			<p>E-MAILS ASOCIADOS A NEWSLETTERS</p>
 		</div>
@@ -59,8 +57,6 @@ $consulta -> execute();
 		</table>
 	</div>
 </body>
-
-
 
 <script src="js/descargaExcel.js"></script>
 

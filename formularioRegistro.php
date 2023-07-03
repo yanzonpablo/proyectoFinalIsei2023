@@ -1,18 +1,73 @@
 <?php
 require_once ('bd/conexion.php');
-require_once ('./validacionFunction.php');
-require_once ('./varError.php');
+require_once ('varErrorRegistro.php');
 
-if (isset($_POST['aceptar'])) {
-    $check_fn = validarCampo('nombre', $descripcionDeCampo='nombre', 3,30);
-    $nombre = $check_fn['campo'];
-    $nombreError =  $check_fn['msg'];
-    $error = $check_fn['estado'];
-    }
+// if (isset($_POST['aceptar'])) {
+//     $check_fn = validarCampo('nombre', $descripcionDeCampo='nombre', 3,30);
+//     $nombre = $check_fn['campo'];
+//     $nombreError =  $check_fn['msg'];
+//     $error = $check_fn['estado'];
+//     }
 ?>
 <?php
 $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC");
 ?>
+
+<?php
+
+if (isset($_POST['aceptar'])) {
+
+  try {
+  // -------------- tabla usuarios -------------------------
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
+$email = $_POST['email'];
+
+
+$datos1 = $pdo->query('INSERT INTO usuarios (nombre, apellido, email) VALUE (:nombre, :apellido, :email)');
+
+
+$datos1->bindParam(':nombre', $nombre);
+$datos1->bindParam(':apellido', $apellido);
+$datos1->bindParam(':email', $email);
+
+$dato1->execute();
+} catch (PDOException $e) {
+
+  echo $e->getMessage();
+  }
+
+  // -------------- afiliados -------------------------
+  try {
+$telefono = $_POST['telefono'];
+$dni = $_POST['dni'];
+$fecha_nacimiento = $_POST['fecha_nacimiento'];
+$direccion = $_POST['direccion'];
+$codigo_postal = $_POST['codigo_postal'];
+$provincia = $_POST['provincia'];
+
+$datos2 = $pdo->query('INSERT INTO afiliados (telefono, dni, fecha_nacimiento, direccion, codigo_postal, provincia) VALUES (:telefono, :dni, :fecha_nacimiento, :direccion, :codigo_postal, :provincia)');
+
+$datos2->bindParam(':telefono', $telefono);
+$datos2->bindParam(':dni', $dni);
+$datos2->bindParam(':fecha_nacimiento', $fecha_nacimiento);
+$datos2->bindParam(':direccion', $direccion);
+$datos2->bindParam(':codigo_postal', $codigo_postal);
+$datos2->bindParam(':provincia', $provincia);
+
+$dato2->Execute();
+  } catch (PDOException $e) {
+
+    echo $e->getMessage();
+    }
+
+}
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <html lang="es">
@@ -40,36 +95,36 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
     <form action="" method="POST">
       <div class="main-user-info">
         <div class="user-input-box">
-          <input type="text" name="nombre" value="<?php if (isset($nombre)) echo $nombre ?>" placeholder="Ingrese nombre" />
+          <input type="text" name="nombre" value="" placeholder="Ingrese nombre" />
           <?=$nombreError?>
         </div>
         <div class="user-input-box">
-          <input type="text" id="apellido" name="apellido" value="<?php if (isset($apellido)) echo $apellido ?>" placeholder="Ingrese apellido" />
+          <input type="text" id="apellido" name="apellido" value="" placeholder="Ingrese apellido" />
           <?=$apellidoError?>
         </div>
         <div class="user-input-box">
-          <input type="email" id="email" name="email" value="<?php if (isset($email)) echo $email ?>" placeholder="Ingrese e-mail" />
+          <input type="email" id="email" name="email" value="" placeholder="Ingrese e-mail" />
           <?=$emailError?>
         </div>
         <div class="user-input-box">
-          <input type="tel" id="telefono" name="telefono" value="<?php if (isset($telefono)) echo $telefono ?>" placeholder="Ingrese teléfono" />
+          <input type="tel" id="telefono" name="telefono" value="" placeholder="Ingrese teléfono" />
           <span for="teléfono" class="error"></span>
           <?=$telefonoError?>
         </div>
         <div class="user-input-box">
-          <input type="text" id="dni" name="dni" value="<?php if (isset($dni)) echo $dni ?>" placeholder="Ingrese DNI" />
+          <input type="text" id="dni" name="dni" value="" placeholder="Ingrese DNI" />
           <?=$dniError?>
         </div>
         <div class="user-input-box">
-          <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php if (isset($fechaNacimiento)) echo $fechaNacimiento ?>" placeholder="" />
-          <?=$fechaNacimientoError?>
+          <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value=" " placeholder="" />
+          <?=$fecha_nacimientoError?>
         </div>
         <div class="user-input-box">
-          <input type="text" id="direccion" name="direccion" value="<?php if (isset($direccion)) echo $direccion ?>" placeholder="Ingrese dirección" />
+          <input type="text" id="direccion" name="direccion" value="" placeholder="Ingrese dirección" />
           <?=$direccionError?>
         </div>
         <div class="user-input-box">
-          <input type="text" id="codigoPostal" name="codigoPostal" value="<?php if (isset($codigoPostal)) echo $codigoPostal ?>" placeholder="Ingrese código postal" />
+          <input type="text" id="codigo_postal" name="codigo_postal" value="" placeholder="Ingrese código postal" />
           <?=$codigoPostalError?>
         </div>
         <div class="user-input-box">
@@ -78,22 +133,10 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
             <?php
             while($provincias = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
             <option value="<?= $provincias['nombre'] ?>" name="provincia" ><?= $provincias['nombre'] ?></option>
-              <?php } ?>
-              </select>
+            <?php } ?>
+          </select>
               <?= $provinciaError?>
             </div>
-          <div class="user-input-box">
-              <input type="text" id="ciudad" name="ciudad" value="<?php if (isset($ciudad)) echo $ciudad ?>" placeholder="Ingrese ciudad" />
-              <?=$ciudadError?>
-          </div>
-          <div class="user-input-box">
-          <input type="password" id="password" name="password" placeholder="Ingrese Password" />
-          <?=$passwordError?>
-        </div>
-        <div class="user-input-box">
-          <input type="password" id="rePassword" name="rePassword" placeholder="Confirmar Password" />
-          <?=$rePasswordError?>
-        </div>
       </div>
 
       <div class="user-input-check">

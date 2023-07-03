@@ -31,9 +31,7 @@ $consulta -> execute();
 </head>
 </body>
 <body>
-	<header>
 		<?php require_once("nav.php") ?>
-	</header>
 		<div class="cont_title">
 			<p>CAMARAS ABM</p>
 		</div>
