@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/iconopantalla.css">
+    <link rel="stylesheet" href="css/modal.css">
     <script src="js/questions.js"></script>
     <script src="js/loginpopup.js"></script>
     <title>CAPACITACION</title>

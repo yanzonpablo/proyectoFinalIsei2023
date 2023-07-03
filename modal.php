@@ -31,7 +31,7 @@ $con->execute();
             <h2 class="modalTitle"><?= $res['nombre'] ?></h2>
             <p class="modalDescripcion"><?= $res['descripcion'] ?></p>
             <p class="modalTelefono"><strong>Teléfono:</strong> <?= $res['telefono'] ?></p>
-            <p class="modalemail"><strong>E-mail:</strong><?= $res['email'] ?></p>
+            <p class="modalemail"><strong>E-mail:</strong> <?= $res['email'] ?></p>
             <p class="modalDireccion"><strong>Dirección:</strong> <?= $res['direccion'] ?></p>
             <p class="modalProvincia"><strong>Provincia:</strong> <?= $res['provincia'] ?></p>
             <p class="modalCodigo_postal"><strong>Cód. Postal:</strong> <?= $res['codigo_postal'] ?></p>
