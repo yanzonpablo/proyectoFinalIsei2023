@@ -42,7 +42,7 @@ if (isset($_POST['aceptar'])) {
       $modalidad = isset($_POST['modalidad']);
       $capacitador = isset($_POST['capacitador']);
       
-      $query = $pdo->query('INSERT INTO cursos (nombre, nivel_curso, descripcion, carga_horaria, logo_curso, fecha_inicio, fecha_fin, modalidad, capacitador) VALUES (:nombre, :nivel_curso, :descripcion, :logo_curso, :carga_horaria, :fecha_inicio, :fecha_fin, :id_capacitador, :id_modalidad)');
+      $query = $pdo->query('INSERT INTO cursos (nombre, nivel_curso, descripcion, carga_horaria, logo_curso, fecha_inicio, fecha_fin, id_modalidad, id_capacitador) VALUES (:nombre, :nivel_curso, :descripcion, :logo_curso, :carga_horaria, :fecha_inicio, :fecha_fin, :capacitador, :modalidad)');
       
       $query->bindParam(':nombre', $nombre);
       $query->bindParam(':descripcion', $descripcion);
@@ -51,8 +51,8 @@ if (isset($_POST['aceptar'])) {
       $query->bindParam(':fecha_fin', $fecha_fin);
       $query->bindParam(':carga_horaria', $carga_horaria);
       $query->bindParam(':nivel_curso', $nivel_curso);
-      $query->bindParam(':id_modalidad', $modalidad);
-      $query->bindParam(':id_capacitador', $capacitador);
+      $query->bindParam(':modalidad', $modalidad);
+      $query->bindParam(':capacitador', $capacitador);
 
       $query->execute();
 
