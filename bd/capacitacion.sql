@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2023 a las 15:19:47
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.9
+-- Tiempo de generación: 05-07-2023 a las 04:38:11
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,15 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `afiliados` (
   `id` int(10) NOT NULL,
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `telefono` varchar(12) NOT NULL,
   `dni` int(10) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
-  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `direccion` varchar(120) NOT NULL,
   `codigo_postal` int(10) NOT NULL,
   `id_provincia` int(10) NOT NULL,
   `fecha_alta` date NOT NULL,
   `afiliado_activo` int(1) NOT NULL,
-  `id_camara` int(10) NOT NULL
+  `id_camara` int(10) NOT NULL,
+  `id_ciudad` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -48,17 +49,17 @@ CREATE TABLE `afiliados` (
 
 CREATE TABLE `camaras` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `logo_camara` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `direccion` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigo_postal` varchar(10) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `provincia` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `web` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `facebook` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `instagram` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `logo_camara` varchar(255) NOT NULL,
+  `telefono` varchar(12) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
+  `codigo_postal` varchar(10) NOT NULL,
+  `provincia` varchar(30) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `web` varchar(120) NOT NULL,
+  `facebook` varchar(60) NOT NULL,
+  `instagram` varchar(60) NOT NULL,
   `camara_cancelada` int(1) NOT NULL DEFAULT 0,
   `fecha_alta` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -97,17 +98,17 @@ INSERT INTO `camaras` (`id`, `nombre`, `descripcion`, `logo_camara`, `telefono`,
 
 CREATE TABLE `capacitadores` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellido` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(120) NOT NULL,
+  `apellido` varchar(120) NOT NULL,
   `cuil_cuit` int(11) NOT NULL,
-  `imagen` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT 'usersNone.png',
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigo_postal` varchar(10) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `especialidad` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(1000) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `provincia` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `imagen` varchar(255) NOT NULL DEFAULT 'usersNone.png',
+  `telefono` varchar(12) NOT NULL,
+  `direccion` varchar(120) NOT NULL,
+  `codigo_postal` varchar(10) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `especialidad` varchar(255) NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
+  `provincia` varchar(60) NOT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
   `fecha_baja` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -117,12 +118,13 @@ CREATE TABLE `capacitadores` (
 --
 
 INSERT INTO `capacitadores` (`id`, `nombre`, `apellido`, `cuil_cuit`, `imagen`, `telefono`, `direccion`, `codigo_postal`, `email`, `especialidad`, `descripcion`, `provincia`, `fecha_alta`, `fecha_baja`) VALUES
-(10, 'Alejandro', 'Berbetoros', 2030404659, 'IMG-649fa2dd8e0866.67240065.png', '3414595987', 'La paz 1864', '2000', 'berbetoros@gmail.com', 'Inyección Electrónica', ' Docente argentino recibido para dar clases en EGB 1 y 2. Luego de años dedicados a la docencia decidió retomar el oficio de cerrajero que heredó de su padre y comenzó a capacitarse, orientándose al rubro de la cerrajería automotriz.\r\n\r\nObtuvo capacitaciones en inmovilizadores electrónicos, instalación de alarmas, instalación de estéreos y accesorios, diagnóstico y procedimientos de inmovilizadores electrónicos, inyección electrónica, procedimientos de inmovilizadores para cerrajeros y desbloqueo de centrales electrónicas.            ', 'Santa Fe', '2023-06-27', '0000-00-00'),
+(10, 'Alejandro', 'Berbetoros', 2030404659, 'IMG-64a0e445f028c7.10791201.jpg', '3414595987', 'La paz 1864', '2000', 'berbetoros@gmail.com', 'Inyección Electrónica', ' Docente argentino recibido para dar clases en EGB 1 y 2. Luego de años dedicados a la docencia decidió retomar el oficio de cerrajero que heredó de su padre y comenzó a capacitarse, orientándose al rubro de la cerrajería automotriz.\r\n\r\nObtuvo capacitaciones en inmovilizadores electrónicos, instalación de alarmas, instalación de estéreos y accesorios, diagnóstico y procedimientos de inmovilizadores electrónicos, inyección electrónica, procedimientos de inmovilizadores para cerrajeros y desbloqueo de centrales electrónicas.             ', 'Santa Fe', '2023-06-27', '0000-00-00'),
 (11, 'Martin', 'Desiveri', 2147483647, 'IMG-649acfa8da0ae5.14453762.jpg', '034041564176', 'Santa Fe 12', '1016', 'martin@gmail.com', 'Mecánica Gral.', ' Ingenierio electrónico argentino recibido en la Universidad Nacional de Rosario. Se desempeña en su propio taller y laboratorio de ingeniería automotriz POWERINYECTION.\r\n\r\nAdemás de sus conocimientos en el rubro automotriz cuenta con tecnicaturas en Reparación de PCs y Reparación de Redes Informáticas.\r\n\r\n', 'Buenos Aires', '2023-06-27', '0000-00-00'),
 (12, 'Leandro Facundo', 'Garcia', 2147483647, 'IMG-649ad012e2f289.81292554.jpg', '3415645665', 'Laprida 1235', '1017', 'carlos@gmail.com', 'Transmisión Robotizada', ' Instructor argentino con 11 años de experiencia. Brindando  capacitaciones de Ford Motor Company y General Motors Argentina.\r\n\r\nSe desempeñó como capacitador para empresas como, “SECCO auto elevadores y grúas” y “Norauto” en capacitaciones de aire acondicionado y mantenimiento.\r\n\r\nTambién brindó seminarios WEB para GM Latinoamérica en Chile, Perú, Bolivia y Colombia.\r\n\r\nContinúa trabajando en su propio taller ofreciendo diagnósticos y soluciones a sus clientes.\r\n\r\nDesde el año 2020 se incorpora a CEA ELECTRONICA AUTOMOTRIZ como instructor y referente de FORD Y GENERAL MOTORS.\r\n\r\n', 'Buenos Aires', '2023-06-27', '0000-00-00'),
 (13, 'Tilso ', 'Castro', 2147483647, 'IMG-649ad0639f1a04.82306375.png', '3425987456', 'San Martin 2356', '1017', 'tilso@gmail', 'AIRBAG Y ABS', ' El ingeniero Tilso Castro es instructor internacional en tecnologías Automotrices desde el año 2005.\r\nImparte entrenamiento en los siguientes países, Colombia, Ecuador, Bolivia, Argentina, Guatemala, Panamá, Costa Rica, Colombia, Perú, Estados Unidos, México, Venezuela, República Dominicana, Haiti, Canadá, Chile y Colombia, entre otros.\r\n\r\nAcumula más de 40.000 horas como instructor en tecnologías automotrices con presencia en todo el continente , también sirve como colaborador para eventos en Europa.\r\n\r\nSu especialidad e brindar capacitaciones en nuevas tecnologías Automotrices, dentro de sus cursos se encuentran temas desde el sistema de control electrónico en vehículos diésel y gasolina, hasta sistemas de control electrónico avanzado, multiplexado y reparación de computadoras.\r\n\r\nHa trabajado en proyectos con empresas del sector, como son Caterpillar, General Motors, Ford Motor, Instituto Cea Costa Rica, Confederación Nacional de Talleres México, Dimauto Tools, Autosoporte, Autoava', 'Buenos Aires', '2023-06-27', '0000-00-00'),
 (23, 'Jorge', 'Desiervi', 2147483647, 'IMG-649ddc25454015.02821007.jpg', '034041564176', 'Padre Genesio 151', '1016', 'amasancarlos@hotmail.com', 'Electrónica', ' Nacido en Capital Federal en 1959 comenzó su trabajo en talleres de reparación mecánica de automóviles a los 9 años. Tiempo después abrió su propio taller en la cochera de la casa de sus padres donde hacía afinados y demás trabajos mecánicos. Luego se especializó en carburadores y a partir de ahí ya comenzó a perfeccionarse con teoría a través de los estudios.\r\n\r\nTécnico nacional en automotores recibido en el año 1977. Trabajó en concesionarios Fiat donde en 1 año llego a ser gerente de Servicios haciendo todos los cursos.', 'Buenos Aires', '2023-06-29', '0000-00-00'),
-(24, 'Carlos', 'Perez', 2147483647, 'IMG-649ddcd6911e60.50308414.jpg', '351 3021357', 'Islas Malvinas 441', '5002', 'cperez@gmail.com', 'Reparación ECU', ' Bioingeniero argentino recibido en la facultad de ingeniería de la UNER.\r\n\r\nSe desempeña como instructor desde 1999 ofreciendo cursos sobre programación de microcontroladores y desarrollo de circuitos impresos electrónicos.\r\n\r\nCon más de 20 años de experiencia en el diseño de equipamiento electrónico, ofreció sus conocimientos para empresas como “Gran Buenos Aires RX”, “Gurpo Avatech SA” e “Ingenieria Inversa SA”. Desde el año 2011 se dedica al diseño y desarrollo de equipamiento electrónico en forma particular para empresas de productos médicos.\r\n', 'Córdoba', '2023-06-29', '0000-00-00');
+(24, 'Carlos', 'Perez', 2147483647, 'IMG-649ddcd6911e60.50308414.jpg', '351 3021357', 'Islas Malvinas 441', '5002', 'cperez@gmail.com', 'Reparación ECU', ' Bioingeniero argentino recibido en la facultad de ingeniería de la UNER.\r\n\r\nSe desempeña como instructor desde 1999 ofreciendo cursos sobre programación de microcontroladores y desarrollo de circuitos impresos electrónicos.\r\n\r\nCon más de 20 años de experiencia en el diseño de equipamiento electrónico, ofreció sus conocimientos para empresas como “Gran Buenos Aires RX”, “Gurpo Avatech SA” e “Ingenieria Inversa SA”. Desde el año 2011 se dedica al diseño y desarrollo de equipamiento electrónico en forma particular para empresas de productos médicos.\r\n', 'Córdoba', '2023-06-29', '0000-00-00'),
+(26, 'Pablo', 'asd', 2027564352, 'IMG-64a1ad9a3aba41.09761851.png', '1324512345', 'asdfasdf 2345', '2000', 'asdf@gmail.com', 'cualquiera', ' adfgsdfgsdfgh', 'Santa Fe', '2023-07-02', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -146,16 +148,14 @@ CREATE TABLE `certificados` (
 
 CREATE TABLE `cursos` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `nivel_curso` int(1) NOT NULL,
-  `descripcion` varchar(1000) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(120) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `nivel_curso` int(10) NOT NULL,
+  `descripcion` varchar(1000) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `logo_curso` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `carga_horaria` int(10) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
-  `publicacion` int(1) NOT NULL,
-  `id_usuario` int(10) NOT NULL,
   `id_capacitador` int(10) NOT NULL,
-  `id_inscripcion` int(10) NOT NULL,
   `id_modalidad` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -205,7 +205,7 @@ CREATE TABLE `inscripciones` (
 
 CREATE TABLE `modalidades` (
   `id` int(10) NOT NULL,
-  `modalidad` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `modalidad` varchar(20) NOT NULL,
   `id_curso` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -226,7 +226,7 @@ INSERT INTO `modalidades` (`id`, `modalidad`, `id_curso`) VALUES
 
 CREATE TABLE `newsletters` (
   `id` int(10) NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `email` varchar(120) NOT NULL,
   `baja` int(1) NOT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -250,8 +250,8 @@ INSERT INTO `newsletters` (`id`, `email`, `baja`, `fecha_alta`) VALUES
 
 CREATE TABLE `niveles_cursos` (
   `id` int(10) NOT NULL,
-  `nivel` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
-  `carga_horaria` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `nivel` varchar(60) NOT NULL,
+  `carga_horaria` varchar(20) NOT NULL,
   `sub_indice` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -275,7 +275,7 @@ INSERT INTO `niveles_cursos` (`id`, `nivel`, `carga_horaria`, `sub_indice`) VALU
 
 CREATE TABLE `provincias` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL
+  `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -316,10 +316,10 @@ INSERT INTO `provincias` (`id`, `nombre`) VALUES
 
 CREATE TABLE `usuarios` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellido` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(20) NOT NULL,
   `fecha_alta` date NOT NULL,
   `rol_usuario` int(1) NOT NULL,
   `id_afiliados` int(10) NOT NULL
@@ -335,7 +335,10 @@ CREATE TABLE `usuarios` (
 ALTER TABLE `afiliados`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_camara` (`id_camara`),
-  ADD KEY `id_provincia` (`id_provincia`);
+  ADD KEY `id_ciudad` (`id_ciudad`),
+  ADD KEY `id_ciudad_2` (`id_ciudad`),
+  ADD KEY `id_provincia` (`id_provincia`),
+  ADD KEY `id_ciudad_3` (`id_ciudad`);
 
 --
 -- Indices de la tabla `camaras`
@@ -362,9 +365,7 @@ ALTER TABLE `certificados`
 --
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`),
   ADD KEY `id_capacitador` (`id_capacitador`),
-  ADD KEY `id_inscripcion` (`id_inscripcion`),
   ADD KEY `id_modalidad` (`id_modalidad`);
 
 --
@@ -446,7 +447,7 @@ ALTER TABLE `camaras`
 -- AUTO_INCREMENT de la tabla `capacitadores`
 --
 ALTER TABLE `capacitadores`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `certificados`
@@ -529,17 +530,8 @@ ALTER TABLE `certificados`
 -- Filtros para la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursos_ibfk_2` FOREIGN KEY (`id_inscripcion`) REFERENCES `inscripciones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cursos_ibfk_4` FOREIGN KEY (`id_modalidad`) REFERENCES `modalidades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cursos_ibfk_5` FOREIGN KEY (`id_capacitador`) REFERENCES `capacitadores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `cursos_ofrecidos`
---
-ALTER TABLE `cursos_ofrecidos`
-  ADD CONSTRAINT `cursos_ofrecidos_ibfk_1` FOREIGN KEY (`id_camara`) REFERENCES `camaras` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cursos_ofrecidos_ibfk_2` FOREIGN KEY (`id_capacitador`) REFERENCES `capacitadores` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `entidades`
