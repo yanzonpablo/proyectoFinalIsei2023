@@ -24,7 +24,7 @@ $datos1->bindParam(':email', $email);
 
 $telefono = $_POST['telefono'];
 $dni = $_POST['dni'];
-$fecha_nacimiento = isset($_POST['fecha_nacimiento']);
+$fecha_nacimiento = date('y-m-d',strtotime($_POST['fecha_nacimiento']));
 $direccion = $_POST['direccion'];
 $codigo_postal = $_POST['codigo_postal'];
 $provincia = isset($_POST['provincia']);
