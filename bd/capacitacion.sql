@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-07-2023 a las 04:38:11
+-- Tiempo de generación: 06-07-2023 a las 04:31:40
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -34,11 +34,9 @@ CREATE TABLE `afiliados` (
   `fecha_nacimiento` date NOT NULL,
   `direccion` varchar(120) NOT NULL,
   `codigo_postal` int(10) NOT NULL,
-  `id_provincia` int(10) NOT NULL,
-  `fecha_alta` date NOT NULL,
-  `afiliado_activo` int(1) NOT NULL,
-  `id_camara` int(10) NOT NULL,
-  `id_ciudad` int(10) NOT NULL
+  `id_provincia` int(2) NOT NULL,
+  `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
+  `afiliado_activo` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -319,9 +317,9 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(30) NOT NULL,
   `apellido` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `fecha_alta` date NOT NULL,
-  `rol_usuario` int(1) NOT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
+  `rol_usuario` int(1) NOT NULL DEFAULT 1,
   `id_afiliados` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -334,11 +332,7 @@ CREATE TABLE `usuarios` (
 --
 ALTER TABLE `afiliados`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_camara` (`id_camara`),
-  ADD KEY `id_ciudad` (`id_ciudad`),
-  ADD KEY `id_ciudad_2` (`id_ciudad`),
-  ADD KEY `id_provincia` (`id_provincia`),
-  ADD KEY `id_ciudad_3` (`id_ciudad`);
+  ADD KEY `id_provincia` (`id_provincia`);
 
 --
 -- Indices de la tabla `camaras`
@@ -435,7 +429,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `afiliados`
 --
 ALTER TABLE `afiliados`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `camaras`
@@ -507,24 +501,11 @@ ALTER TABLE `provincias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `afiliados`
---
-ALTER TABLE `afiliados`
-  ADD CONSTRAINT `afiliados_ibfk_2` FOREIGN KEY (`id_provincia`) REFERENCES `provincias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `certificados`
---
-ALTER TABLE `certificados`
-  ADD CONSTRAINT `certificados_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `certificados_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `cursos`
@@ -537,20 +518,7 @@ ALTER TABLE `cursos`
 -- Filtros para la tabla `entidades`
 --
 ALTER TABLE `entidades`
-  ADD CONSTRAINT `entidades_ibfk_1` FOREIGN KEY (`id_afiliado`) REFERENCES `afiliados` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `entidades_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `inscripciones`
---
-ALTER TABLE `inscripciones`
-  ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_afiliados`) REFERENCES `afiliados` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

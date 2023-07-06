@@ -2,51 +2,34 @@
 require_once ('bd/conexion.php');
 require_once ('varErrorRegistro.php');
 
-// if (isset($_POST['aceptar'])) {
-//     $check_fn = validarCampo('nombre', $descripcionDeCampo='nombre', 3,30);
-//     $nombre = $check_fn['campo'];
-//     $nombreError =  $check_fn['msg'];
-//     $error = $check_fn['estado'];
-//     }
 ?>
 <?php
 $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC");
 ?>
 
 <?php
-
 if (isset($_POST['aceptar'])) {
-
-  try {
   // -------------- tabla usuarios -------------------------
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 
-
-$datos1 = $pdo->query('INSERT INTO usuarios (nombre, apellido, email) VALUE (:nombre, :apellido, :email)');
-
+$datos1 = $pdo->prepare("INSERT INTO usuarios (nombre, apellido, email) VALUE (:nombre, :apellido, :email)");
 
 $datos1->bindParam(':nombre', $nombre);
 $datos1->bindParam(':apellido', $apellido);
 $datos1->bindParam(':email', $email);
 
-$dato1->execute();
-} catch (PDOException $e) {
+// -------------- afiliados -------------------------
 
-  echo $e->getMessage();
-  }
-
-  // -------------- afiliados -------------------------
-  try {
 $telefono = $_POST['telefono'];
 $dni = $_POST['dni'];
-$fecha_nacimiento = $_POST['fecha_nacimiento'];
+$fecha_nacimiento = isset($_POST['fecha_nacimiento']);
 $direccion = $_POST['direccion'];
 $codigo_postal = $_POST['codigo_postal'];
-$provincia = $_POST['provincia'];
+$provincia = isset($_POST['provincia']);
 
-$datos2 = $pdo->query('INSERT INTO afiliados (telefono, dni, fecha_nacimiento, direccion, codigo_postal, provincia) VALUES (:telefono, :dni, :fecha_nacimiento, :direccion, :codigo_postal, :provincia)');
+$datos2 = $pdo->prepare('INSERT INTO afiliados (telefono, dni, fecha_nacimiento, direccion, codigo_postal, id_provincia) VALUES (:telefono, :dni, :fecha_nacimiento, :direccion, :codigo_postal, :provincia)');
 
 $datos2->bindParam(':telefono', $telefono);
 $datos2->bindParam(':dni', $dni);
@@ -55,16 +38,14 @@ $datos2->bindParam(':direccion', $direccion);
 $datos2->bindParam(':codigo_postal', $codigo_postal);
 $datos2->bindParam(':provincia', $provincia);
 
-$dato2->Execute();
-  } catch (PDOException $e) {
-
-    echo $e->getMessage();
-    }
-
+if ($_POST['condicion']) {
+  $datos1->execute();
+  $datos2->execute();
+ 
+} else {
+    header('location: formularioRegistro.php');
+  }
 }
-
-
-
 
 ?>
 
@@ -116,7 +97,7 @@ $dato2->Execute();
           <?=$dniError?>
         </div>
         <div class="user-input-box">
-          <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value=" " placeholder="" />
+          <input type="date" id="fechaInicio" name="fecha_nacimiento" value=" " placeholder="* Ingrese fecha de nacimiento" />
           <?=$fecha_nacimientoError?>
         </div>
         <div class="user-input-box">
@@ -131,8 +112,8 @@ $dato2->Execute();
           <select name="provincia" id="provincia" class="style-select">
             <option value="0" selected disabled>* Seleccione una provincia</option>
             <?php
-            while($provincias = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
-            <option value="<?= $provincias['nombre'] ?>" name="provincia" ><?= $provincias['nombre'] ?></option>
+            while($provincia = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
+            <option value="<?= $provincia['id'] ?>" name="provincia" ><?= $provincia['nombre'] ?></option>
             <?php } ?>
           </select>
               <?= $provinciaError?>
@@ -150,6 +131,7 @@ $dato2->Execute();
     </form>
   </div>
 </section>
+<script src="js/fechaInicio.js"></script>
 </body>
 
 </html>
