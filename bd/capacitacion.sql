@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-07-2023 a las 21:49:18
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.9
+-- Tiempo de generación: 08-07-2023 a las 16:21:37
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,15 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `afiliados` (
   `id` int(10) NOT NULL,
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `telefono` varchar(12) NOT NULL,
   `dni` int(10) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
-  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `direccion` varchar(120) NOT NULL,
   `codigo_postal` int(10) NOT NULL,
   `id_provincia` int(2) NOT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
   `afiliado_activo` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `afiliados`
+--
+
+INSERT INTO `afiliados` (`id`, `telefono`, `dni`, `fecha_nacimiento`, `direccion`, `codigo_postal`, `id_provincia`, `fecha_alta`, `afiliado_activo`) VALUES
+(17, '3453453', 0, '1970-01-01', 'asdfasdfas werqwe', 234234, 1, '2023-07-05', 1);
 
 -- --------------------------------------------------------
 
@@ -47,17 +54,17 @@ CREATE TABLE `afiliados` (
 
 CREATE TABLE `camaras` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `logo_camara` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `direccion` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigo_postal` varchar(10) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `provincia` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `web` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `facebook` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `instagram` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `logo_camara` varchar(255) NOT NULL,
+  `telefono` varchar(12) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
+  `codigo_postal` varchar(10) NOT NULL,
+  `provincia` varchar(30) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `web` varchar(120) NOT NULL,
+  `facebook` varchar(60) NOT NULL,
+  `instagram` varchar(60) NOT NULL,
   `camara_cancelada` int(1) NOT NULL DEFAULT 0,
   `fecha_alta` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -96,17 +103,17 @@ INSERT INTO `camaras` (`id`, `nombre`, `descripcion`, `logo_camara`, `telefono`,
 
 CREATE TABLE `capacitadores` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellido` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(120) NOT NULL,
+  `apellido` varchar(120) NOT NULL,
   `cuil_cuit` int(11) NOT NULL,
-  `imagen` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT 'usersNone.png',
-  `telefono` varchar(12) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `direccion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigo_postal` varchar(10) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `especialidad` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(1000) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `provincia` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `imagen` varchar(255) NOT NULL DEFAULT 'usersNone.png',
+  `telefono` varchar(12) NOT NULL,
+  `direccion` varchar(120) NOT NULL,
+  `codigo_postal` varchar(10) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `especialidad` varchar(255) NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
+  `provincia` varchar(60) NOT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
   `fecha_baja` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -149,7 +156,7 @@ CREATE TABLE `cursos` (
   `nombre` varchar(120) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `nivel_curso` int(10) NOT NULL,
   `descripcion` varchar(1000) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `logo_curso` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL DEFAULT '',
+  `logo_curso` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `carga_horaria` int(10) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
@@ -162,7 +169,7 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id`, `nombre`, `nivel_curso`, `descripcion`, `logo_curso`, `carga_horaria`, `fecha_inicio`, `fecha_fin`, `id_capacitador`, `id_modalidad`) VALUES
-(10, 'FECHACO', 1, ' srustidtifdyofyofyoyfofyufyurui', 'IMG-64a713506c7110.31425412.jpg', 1, '2023-02-21', '2012-10-23', 1, 1);
+(14, 'inyeccion electronica', 3, ' qawertgaewrtgaeerhaaerhaerth', 'IMG-64a96ceca0b7a9.87824369.png', 3, '2023-12-12', '2011-12-23', 10, 5);
 
 -- --------------------------------------------------------
 
@@ -210,7 +217,7 @@ CREATE TABLE `inscripciones` (
 
 CREATE TABLE `modalidades` (
   `id` int(10) NOT NULL,
-  `modalidad` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `modalidad` varchar(20) NOT NULL,
   `id_curso` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -231,7 +238,7 @@ INSERT INTO `modalidades` (`id`, `modalidad`, `id_curso`) VALUES
 
 CREATE TABLE `newsletters` (
   `id` int(10) NOT NULL,
-  `email` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `email` varchar(120) NOT NULL,
   `baja` int(1) NOT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -255,8 +262,8 @@ INSERT INTO `newsletters` (`id`, `email`, `baja`, `fecha_alta`) VALUES
 
 CREATE TABLE `niveles_cursos` (
   `id` int(10) NOT NULL,
-  `nivel` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
-  `carga_horaria` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `nivel` varchar(60) NOT NULL,
+  `carga_horaria` varchar(20) NOT NULL,
   `sub_indice` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -280,7 +287,7 @@ INSERT INTO `niveles_cursos` (`id`, `nivel`, `carga_horaria`, `sub_indice`) VALU
 
 CREATE TABLE `provincias` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL
+  `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -321,14 +328,21 @@ INSERT INTO `provincias` (`id`, `nombre`) VALUES
 
 CREATE TABLE `usuarios` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellido` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(20) DEFAULT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
   `rol_usuario` int(1) NOT NULL DEFAULT 1,
   `id_afiliados` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `fecha_alta`, `rol_usuario`, `id_afiliados`) VALUES
+(16, 'asdfasdf', 'asdfasdf', 'asedfasdf@asdf.com', NULL, '2023-07-05', 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -339,8 +353,7 @@ CREATE TABLE `usuarios` (
 --
 ALTER TABLE `afiliados`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_provincia` (`id_provincia`),
-  ADD KEY `id_provincia_2` (`id_provincia`);
+  ADD KEY `id_provincia` (`id_provincia`);
 
 --
 -- Indices de la tabla `camaras`
@@ -367,7 +380,8 @@ ALTER TABLE `certificados`
 --
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_capacitador` (`id_capacitador`);
+  ADD KEY `id_capacitador` (`id_capacitador`),
+  ADD KEY `id_modalidad` (`id_modalidad`);
 
 --
 -- Indices de la tabla `cursos_ofrecidos`
@@ -436,7 +450,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `afiliados`
 --
 ALTER TABLE `afiliados`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `camaras`
@@ -448,7 +462,7 @@ ALTER TABLE `camaras`
 -- AUTO_INCREMENT de la tabla `capacitadores`
 --
 ALTER TABLE `capacitadores`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `certificados`
@@ -460,7 +474,7 @@ ALTER TABLE `certificados`
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos_ofrecidos`
@@ -508,17 +522,7 @@ ALTER TABLE `provincias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `entidades`
---
-ALTER TABLE `entidades`
-  ADD CONSTRAINT `entidades_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
