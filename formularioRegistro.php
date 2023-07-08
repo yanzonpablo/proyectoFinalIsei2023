@@ -14,7 +14,7 @@ $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 
-$datos1 = $pdo->prepare("INSERT INTO usuarios (nombre, apellido, email) VALUE (:nombre, :apellido, :email)");
+$datos1 = $pdo->prepare('INSERT INTO usuarios (nombre, apellido, email) VALUES (:nombre, :apellido, :email)');
 
 $datos1->bindParam(':nombre', $nombre);
 $datos1->bindParam(':apellido', $apellido);
@@ -27,7 +27,7 @@ $dni = $_POST['dni'];
 $fecha_nacimiento = date('y-m-d',strtotime($_POST['fecha_nacimiento']));
 $direccion = $_POST['direccion'];
 $codigo_postal = $_POST['codigo_postal'];
-$provincia = isset($_POST['provincia']);
+$provincia = $_POST['provincia'];
 
 $datos2 = $pdo->prepare('INSERT INTO afiliados (telefono, dni, fecha_nacimiento, direccion, codigo_postal, id_provincia) VALUES (:telefono, :dni, :fecha_nacimiento, :direccion, :codigo_postal, :provincia)');
 
@@ -39,9 +39,10 @@ $datos2->bindParam(':codigo_postal', $codigo_postal);
 $datos2->bindParam(':provincia', $provincia);
 
 if ($_POST['condicion']) {
+  if (isset($_POST['condicion']) && $_POST['condicion'] == '1')
   $datos1->execute();
   $datos2->execute();
- 
+
 } else {
     header('location: formularioRegistro.php');
   }
@@ -126,7 +127,7 @@ if ($_POST['condicion']) {
       </div>
 
       <div class="form-submit-btn">
-        <button type="submit" name="aceptar" value="aceptar">Aceptar
+        <button type="submit" name="aceptar" id="condicion" value="aceptar">Aceptar
       </div>
     </form>
   </div>

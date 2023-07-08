@@ -34,19 +34,18 @@ if (isset($_POST['aceptar'])) {
         }
       }
       // ---------------fin logo-----------------
-      $fecha_inicio = date_default_timezone_set('America/Argentina/Buenos_Aires');
-      date('dd-mm-yyyy', strtotime($_POST['fecha_inicio']));
+      $fecha_inicio = date('y-m-d',strtotime($_POST['fecha_inicio']));
       $fecha_fin = date('m-d-y', strtotime($_POST['fecha_fin']));
-      $carga_horaria = isset($_POST['carga_horaria']);
-      $nivel_curso = isset($_POST['nivel_curso']);
-      $modalidad = isset($_POST['modalidad']);
-      $capacitador = isset($_POST['capacitador']);
+      $carga_horaria = $_POST['carga_horaria'];
+      $nivel_curso = $_POST['nivel_curso'];
+      $modalidad = $_POST['modalidad'];
+      $capacitador = $_POST['capacitador'];
       
-      $query = $pdo->query('INSERT INTO cursos (nombre, nivel_curso, descripcion, logo_curso, carga_horaria, fecha_inicio, fecha_fin, id_modalidad, id_capacitador) VALUES (:nombre, :nivel_curso, :descripcion, :logo_curso, :carga_horaria, :fecha_inicio, :fecha_fin, :capacitador, :modalidad)');
+      $query = $pdo->prepare('INSERT INTO cursos (nombre, nivel_curso, descripcion, logo_curso, carga_horaria, fecha_inicio, fecha_fin, id_modalidad, id_capacitador) VALUES (:nombre, :nivel_curso, :descripcion, :logo_curso, :carga_horaria, :fecha_inicio, :fecha_fin, :modalidad, :capacitador)');
       
       $query->bindParam(':nombre', $nombre);
       $query->bindParam(':descripcion', $descripcion);
-      $query->bindParam(':logo_curso', $logo_curso);
+      $query->bindParam(':logo_curso', $nombreNuevaImagen);
       $query->bindParam(':fecha_inicio', $fecha_inicio); 
       $query->bindParam(':fecha_fin', $fecha_fin);
       $query->bindParam(':carga_horaria', $carga_horaria); //id
