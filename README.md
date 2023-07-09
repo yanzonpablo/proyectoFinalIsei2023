@@ -14,7 +14,7 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 
 <center>
 
-<img src="bd/homeCapacitacion.png" alt="home-Web" width="600"/>
+<img src="bd/homeCapacitacion.png" alt="home-Web" width="500"/>
 
 </center>
 
