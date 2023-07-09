@@ -13,7 +13,7 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 ## Screenshot Home Web
 
 <center>
-<img src="bd/homecapacitacion.png" alt="home-Web" width="600"/>
+<img src="bd/homeCapacitacion.png" alt="home-Web" width="600"/>
 </center>
 
 ## Screenshot Home Responsive
