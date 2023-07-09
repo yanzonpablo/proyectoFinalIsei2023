@@ -1,18 +1,18 @@
 <h1 align="center"> Proyecto Final Desarrolo de Sistemas Web 
 </h1>
 
-## Sistema de capacitación 
+## Sistema de capacitación
 
 Sistema de publicación de presentaciones comerciales, charlas técnicas, cursos base y de perfeccionamiento dirigido a público relacionado al mundo de la reparación del automotor. 
 A su ves es una herramienta que permite administrar inscripciones sobre las publicaciones mensionadas.
 
 El sistema consiste en una aplicación Web que le permite a sus Administradores (quienes se autentican con usuario y contraseña) dar de alta y baja eventos, capacitadores, gestionar su inscripción y confeccionar los certificados de asistencia para su envío luego del evento o cuando el participante lo solicite. Para esto, dispondrá de formularios que pueden personalizarse, lo que permitirá definir aspectos como información general del evento, disertantes, modalidades de cursado, entre otros datos.  
 
-## Screenshot Home Web
+## Captura de pantalla Home:
 
 <p align="center" width=100%><img src="bd/homeCapacitacion.png" alt="home-Web" width="60%"/></p>
 
-## Screenshot Home Responsive
+## Captura de pantalla Home Responsive:
 
 <p align="center" width=100%><img src="bd/homeResponsive.png" alt="Home-Responsive" width="60%"/></p>
 
@@ -65,7 +65,7 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 2. Crear la base de datos <strong>capacitación</strong> en MySQL.
 3. Importar el archivo capacitacion.sql ubicado en "(proyectoIsei2023/bd/)" a la base de datos creada.
   
-## Estructura base de datos
+## Estructura base de datos:
 <h3 align="center"> Diagrama Relacional </h3>
 
 <p align="center" width=100%><img src="bd/mkBd.png" alt="home-Web" width="90%"/></p>
