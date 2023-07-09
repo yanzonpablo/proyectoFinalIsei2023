@@ -10,11 +10,11 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 
 ## Captura de pantalla Home:
 
-<p align="center" width=100%><img src="bd/homeCapacitacion.png" alt="home-Web" width="60%"/></p>
+<p align="center" width=100%><img src='bd/homeweb.png' width="60%"/></p>
 
 ## Captura de pantalla Home Responsive:
 
-<p align="center" width=100%><img src="bd/homeResponsive.png" alt="Home-Responsive" width="60%"/></p>
+<p align="center" width=100%><img src='bd/homeresponsive.png' width="60%"/></p>
 
 ## Criterios para su realización:
 
