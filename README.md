@@ -13,13 +13,17 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 ## Screenshot Home Web
 
 <center>
+
 <img src="bd/homeCapacitacion.png" alt="home-Web" width="600"/>
+
 </center>
 
 ## Screenshot Home Responsive
 
 <center>
+
 <img src="bd/homeResponsive.png" alt="Home-Responsive" width="600"/>
+
 </center>
 
 ## Criterios para su realización:
@@ -33,7 +37,9 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 ## Logo
 
 <center> 
+
 <img src="bd/logo.png" alt="Logo" width="200"/>
+
 </center>
  
 ## Tema de colores:
@@ -77,4 +83,8 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 ## Estructura base de datos
 ### Diagrama Relacional
 
-![BD](/bd/mkBd.png "Base de datos - Capacitación")
+<center> 
+
+<img src="/bd/mkBd.png " alt="Logo" width="600"/>
+
+</center>
