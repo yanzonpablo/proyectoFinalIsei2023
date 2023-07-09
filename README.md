@@ -1,6 +1,7 @@
 <center>
 
 # Proyecto Final Desarrolo de Sistemas Web 
+
 </center>
 
 ## Sistema de capacitación 
@@ -22,7 +23,7 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 
 <center>
 
-<img src="bd/homeResponsive.png" alt="Home-Responsive" width="600"/>
+<img src="bd/homeResponsive.png" alt="Home-Responsive" width="400"/>
 
 </center>
 
@@ -38,7 +39,7 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 
 <center> 
 
-<img src="bd/logo.png" alt="Logo" width="200"/>
+<img src="bd/logo.png" alt="Logo" width="100"/>
 
 </center>
  
@@ -49,18 +50,17 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
     text_color="#ffffff"
 
     Otros colores
-    Primer_color="#ffffff"
-    Primer_border_color="#gray"
-    Primer_text_color="#001a49"
+    Principal_color="#ffffff"
+    Principal_border_color="#gray"
+    Principal_text_color="#001a49"
 
-    second_color="white"
-    second_text_color="#6d6d6d"
-
-
+    secundario_color="f2f2f2"
+    secundario_text_color="#6d6d6d"
 
     Footer
     background_color="#000"
     link_color="#ffffff"
+    secundario_border="f5f3f3"
     link_hover_color="#e65b00"
 
 ```
@@ -85,6 +85,6 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 
 <center> 
 
-<img src="/bd/mkBd.png " alt="Logo" width="600"/>
+<img src="bd/mkBd.png " alt="BDR" width="600"/>
 
 </center>
