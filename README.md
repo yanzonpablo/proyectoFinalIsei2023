@@ -75,3 +75,4 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 <p style="text-align:center">
 
 <img style="text-align:center" src="bd/mkBd.png " alt="BDR" width="600"/></p>
+<span style="display:block;text-align:center">![] (bd/mkBd.png)</span>
