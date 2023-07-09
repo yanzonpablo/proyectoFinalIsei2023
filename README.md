@@ -1,7 +1,5 @@
-<h2 align="center">
-
-# Proyecto Final Desarrolo de Sistemas Web 
-</h2>
+<h1 align="center"> Proyecto Final Desarrolo de Sistemas Web 
+</h1>
 
 ## Sistema de capacitación 
 
@@ -12,13 +10,11 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 
 ## Screenshot Home Web
 
-<p style="text-align:center">
-
 <p align="center" width=100%><img src="bd/homeCapacitacion.png" alt="home-Web" width="60%"/></p>
 
 ## Screenshot Home Responsive
 
-<p align="center" width=100%><img src="bd/homeResponsive.png" alt="Home-Responsive" width="70%"/></p>
+<p align="center" width=100%><img src="bd/homeResponsive.png" alt="Home-Responsive" width="60%"/></p>
 
 ## Criterios para su realización:
 
@@ -30,8 +26,8 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 
 ## Logo
 
-<p style="text-align:center"><img style="text-align:center" src="bd/logo.png" alt="Logo" width="100"/></p>
- 
+ <p align="center" width=100%><img src="bd/logo.png" alt="home-Web" width="20%"/></p>
+
 ## Tema de colores:
 ```    
     Header
@@ -72,4 +68,4 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 ## Estructura base de datos
 ### Diagrama Relacional
 
-<p align="center" width=100%><img src="bd/mkBd.png" alt="home-Web" width="80%"/></p>
+<p align="center" width=100%><img src="bd/mkBd.png" alt="home-Web" width="90%"/></p>
