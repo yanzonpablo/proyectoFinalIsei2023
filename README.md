@@ -14,11 +14,11 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 
 <p style="text-align:center">
 
-<img style="text-align:center" src="bd/homeCapacitacion.png" alt="home-Web" width="500"/></p>
+<p align="center" width=100%><img src="bd/homeCapacitacion.png" alt="home-Web" width="60%"/></p>
 
 ## Screenshot Home Responsive
 
-<p style="text-align:center"><img style="text-align:center" src="bd/homeResponsive.png" alt="Home-Responsive" width="400"/></p>
+<p align="center" width=100%><img src="bd/homeResponsive.png" alt="Home-Responsive" width="70%"/></p>
 
 ## Criterios para su realización:
 
@@ -72,7 +72,4 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 ## Estructura base de datos
 ### Diagrama Relacional
 
-<p style="text-align:center">
-
-<img style="text-align:center" src="bd/mkBd.png " alt="BDR" width="600"/></p>
-<span style="display:block;text-align:center">![] (bd/mkBd.png)</span>
+<p align="center" width=100%><img src="bd/mkBd.png" alt="home-Web" width="80%"/></p>
