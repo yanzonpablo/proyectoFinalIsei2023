@@ -10,14 +10,14 @@
 }
 section {
     display: flex;
+    /* background: linear-gradient(135deg, #8bd8f8, #ffffff);
+    background-size: cover; */
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 .container {
     align-self: center;
-    /* background: linear-gradient(135deg, #009ee0, #ffffff);
-    background-size: cover; */
     max-width: 700px;
     padding: 0 30px;
     border-radius: 5px;

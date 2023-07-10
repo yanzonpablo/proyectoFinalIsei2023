@@ -65,7 +65,7 @@
                             <div class="dropdown">
                                 <ul>
                                     <li class="dropdown-link">
-                                        <a href="#">Cursos Base e Inclusión Social</a>
+                                        <a href="cursosBases.php">Cursos Base e Inclusión Social</a>
                                     </li>
                                     <li class="dropdown-link">
                                         <a href="#">Perfeccionamiento Técnico</a>
