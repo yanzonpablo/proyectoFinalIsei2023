@@ -7,7 +7,7 @@ if (isset( $_POST['input-buscador'])) {
 
   try {
     
-    $bus = $pdo->prepare("SELECT cursos.id, cursos.nombre, cursos.logo_curso, niveles_cursos.carga_horaria, niveles_cursos.nivel from cursos INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id WHERE LOWER(cursos.nombre) LIKE LOWER('%$palabra%') AND cursos.nivel_curso = 5 OR LOWER(cursos.nombre) LIKE LOWER('%$palabra%') and cursos.nivel_curso = 6");
+    $bus = $pdo->prepare("SELECT cursos.id, cursos.nombre, cursos.logo_curso, niveles_cursos.carga_horaria, niveles_cursos.nivel, niveles_cursos.carga_horaria from cursos INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id WHERE LOWER(cursos.nombre) LIKE LOWER('%$palabra%') AND cursos.nivel_curso = 5 OR LOWER(cursos.nombre) LIKE LOWER('%$palabra%') and cursos.nivel_curso = 6");
     
   $bus->execute();
   
@@ -38,7 +38,7 @@ if (isset( $_POST['input-buscador'])) {
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
     <title>CAPACITADORES</title>
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="css/capacitadores.css">
+    <link rel="stylesheet" href="css/cursosBases.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
@@ -70,6 +70,8 @@ if (isset( $_POST['input-buscador'])) {
                   </h4>
                 <p><?= $res['nivel']?>
                   </p>
+                <span style="font-size: 12px;">Carga Horaria: <?= $res['carga_horaria']?>
+          </span>
               </a>
               <a href="<?= 'capacitador.php?id='.$res['id'] ?>" class="button agregar-carrito">CONOCELO</a> 
             </div>

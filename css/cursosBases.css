@@ -1,0 +1,200 @@
+main{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    background: #fff;
+}
+.title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #001a49;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+p{
+    padding: 5px 0px;
+}
+/* ---------buscador---------- */
+label {
+    display: flex;
+    align-items: center;
+}
+.header-content {
+    height: 70px;
+    background-color: #001a49;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.buscador:hover {
+    cursor: pointer;
+}
+.card {
+    padding: 10px;
+}
+.linkCapacitador {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #6d6d6d;
+}
+.input-buscador {
+    height: 30px;
+    width: 30%;
+    border-radius: 10px 0 0 10px;
+    padding: 0 50px 0 10px ;
+    font-size: 16px;
+    border: none;
+}
+.input-buscador:focus  {
+    outline: none;
+}
+button {
+    border: none;
+    border-radius: 0 10px 10px 0;
+}
+.fas {
+    padding: 5px;
+    font-size: 20px;
+    color: darkgrey;
+    border-radius: 0 10px 10px 0;
+}
+/* ---------------------- */
+.button {
+    background:#027fb5;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 15px;
+    border-radius: 5px;
+    color:  #f2f2f2;
+    font-weight: 700;
+}
+.button:hover {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #001a49;
+    color: #f2f2f2;
+}
+/*productos-modal*/
+.modal {
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.modal-img {
+    width: 50%;
+}
+.modal-boton {
+    position: absolute;
+    top: 10px;
+    right:10px;
+    color:white;
+    cursor: pointer;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background:#029ee0;
+    font-size: 2em;
+    text-align: center;
+    border-radius: 50%;
+    font-family: monospace;
+}
+.modal-open {
+    display: block;
+}
+/*productos-card*/
+.container-capacitadores {
+    width: 100%;
+    max-width: 1200px;
+    border-top: 1px solid rgb(210, 209, 209);
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 30px 0px;
+}
+.container-capacitadores .card {
+    width: 240px;
+    height: 270px;
+    background: #f5f3f3;
+    background-size: cover;
+    color:#6d6d6d;
+    border-radius: 8px;
+    border:1px solid;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    overflow: hidden;
+    margin: 20px 20px;
+    text-align: center;
+    align-items: center;
+    transition: all 0.25s;
+}
+.container-capacitadores .card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+}
+.container-capacitadores .card img {
+    width: 130px;
+    height: 130px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.container-capacitadores .card h4 {
+    font-weight: 500;
+    font-size: 16px;
+    padding: 2px 0px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif !important;
+}
+.container-capacitadores .card p {
+    padding-top: 5px 0px;
+    margin: 0px;
+    font-size: 12px;
+
+    font-family: 'Raleway', sans-serif !important;
+}
+.container-capacitadores .card a {
+    padding: 5px;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    font-family: 'Raleway', sans-serif !important;
+}
+/*contenido*/
+.container{
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5% auto;
+}
+@media (max-width: 800px) {
+
+    header{
+        height: auto;
+    }
+    .title {
+        font-size: 20px;
+    }
+
+}
