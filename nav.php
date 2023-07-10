@@ -27,7 +27,9 @@
                             <div class="dropdown">
                                 <ul>
                                     <li class="dropdown-link">
-                                        <a href="FormularioCurso.php">Formulario Curso</a>
+                                        <a href="FormularioCurso.php">Formulario Cursos</a>
+                                    </li>                                    <li class="dropdown-link">
+                                        <a href="abmCursos.php">A.B.M Cursos</a>
                                     </li>
                                     <li class="dropdown-link">
                                         <a href="#">Panel de control<i class="fas fa-caret-down"></i></a>
@@ -68,13 +70,13 @@
                                         <a href="cursosBases.php">Cursos Base e Inclusión Social</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="#">Perfeccionamiento Técnico</a>
+                                        <a href="cursosPerfeccionamientoT.php">Perfeccionamiento Técnico</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="#">Perfeccionamiento No Técnico</a>
+                                        <a href="cursosPerfeccionamientoNoT.php">Perfeccionamiento No Técnico</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="#">Charlas Técnicas y Presentaciones Comerciales</a>
+                                        <a href="charlasPresentacionTecnica.php">Charlas Técnicas y Presentaciones Comerciales</a>
                                     </li>
                                     <!-- <li class="dropdown-link">
                                         <a href="#">Link 3<i class="fas fa-caret-down"></i></a>

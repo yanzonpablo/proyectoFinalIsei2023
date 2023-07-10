@@ -7,7 +7,7 @@ if (isset( $_POST['input-buscador'])) {
 
   try {
     
-    $bus = $pdo->prepare("SELECT cursos.id, cursos.nombre, cursos.logo_curso, niveles_cursos.carga_horaria, niveles_cursos.nivel, niveles_cursos.carga_horaria from cursos INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id WHERE LOWER(cursos.nombre) LIKE LOWER('%$palabra%') AND cursos.nivel_curso = 5 OR LOWER(cursos.nombre) LIKE LOWER('%$palabra%') and cursos.nivel_curso = 6");
+    $bus = $pdo->prepare("SELECT cursos.id, cursos.nombre, cursos.logo_curso, niveles_cursos.carga_horaria, niveles_cursos.nivel, niveles_cursos.carga_horaria FROM cursos INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id WHERE LOWER(cursos.nombre) LIKE LOWER('%$palabra%') AND cursos.nivel_curso = 2");
     
   $bus->execute();
   
@@ -17,7 +17,7 @@ if (isset( $_POST['input-buscador'])) {
 } 
 } else {
   
-  $bus = $pdo->prepare('SELECT cursos.id, cursos.nombre, cursos.logo_curso, niveles_cursos.carga_horaria, niveles_cursos.nivel, niveles_cursos.carga_horaria from cursos INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id WHERE cursos.nivel_curso = 5 OR cursos.nivel_curso = 6');
+  $bus = $pdo->prepare('SELECT cursos.id, cursos.nombre, cursos.logo_curso, niveles_cursos.carga_horaria, niveles_cursos.nivel, niveles_cursos.carga_horaria from cursos INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id WHERE cursos.nivel_curso = 2');
 
     $bus->execute();
 
@@ -59,12 +59,12 @@ if (isset( $_POST['input-buscador'])) {
           </div>
         </div>
         <div>
-          <p class="title">CURSOS BASE E INCLUSIÓN SOCIAL</p>
+          <p class="title">CURSOS DE PERFECCIONAMIENTO NO TÉCNICO</p>
         </div>
         <div class="container-capacitadores " id="lista-capacitadores">
           <?php while($res = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
           <div class="card">
-              <a href="<?= 'cursosBases.php?id='.$res['id'] ?>" class="linkCapacitador">
+              <a href="<?= 'cursosPerfeccionamientoNoT.php?id='.$res['cursos.id'] ?>" class="linkCapacitador">
                 <img src="images/cursos/<?= $res['logo_curso']?>" class="card-img" alt="<? $res['cursos.nombre']?>">
                 <h4><?= $res['nombre']?>
                   </h4>
@@ -73,7 +73,7 @@ if (isset( $_POST['input-buscador'])) {
                 <span style="font-size: 12px;">Carga Horaria: <?= $res['carga_horaria']?>
           </span>
               </a>
-              <a href="<?= 'capacitador.php?id='.$res['id'] ?>" class="button agregar-carrito">CONOCELO</a> 
+              <a href="<?= 'cursosPerfeccionamientoNoT.php?id='.$res['id'] ?>" class="button agregar-carrito">CONOCELO</a> 
             </div>
             <?php } ?>
           </div>
