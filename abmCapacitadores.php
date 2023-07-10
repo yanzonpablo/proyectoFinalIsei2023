@@ -21,13 +21,13 @@ $consulta -> execute();
 	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 	<title>CAPACITACION</title>
 	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/abm.css">
+	<link rel="stylesheet" type="text/css" href="css/abmCapacitadores.css">
 </head>
 </body>
 <body>
 		<?php require_once("nav.php") ?>
 		<div class="cont_title">
-			<p>CAPACITACION ABM</p>
+			<p>ABM CAPACITADORES</p>
 		</div>
 			<div class="contenedor">
 			<a href="formularioCapacitador.php" class="btnAlta">ALTA CAPACITADOR</a>

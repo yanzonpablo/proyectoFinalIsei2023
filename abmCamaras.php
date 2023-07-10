@@ -27,13 +27,13 @@ $consulta -> execute();
 	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 	<title>CAPACITACION</title>
 	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/abm.css">
+	<link rel="stylesheet" type="text/css" href="css/abmCamaras.css">
 </head>
 </body>
 <body>
 		<?php require_once("nav.php") ?>
 		<div class="cont_title">
-			<p>CAMARAS ABM</p>
+			<p>ABM CAMARAS</p>
 		</div>
 			<div class="contenedor">
 			<a href="formularioCamara.php" class="btnAlta">ALTA CAMARA</a>

@@ -38,7 +38,7 @@ if (isset( $_POST['input-buscador'])) {
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
     <title>CAPACITADORES</title>
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="css/cursosBases.css">
+    <link rel="stylesheet" href="css/cursosPerfeccionamientoT.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
