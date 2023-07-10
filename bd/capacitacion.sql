@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-07-2023 a las 16:21:37
+-- Tiempo de generación: 10-07-2023 a las 04:17:20
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -169,7 +169,9 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id`, `nombre`, `nivel_curso`, `descripcion`, `logo_curso`, `carga_horaria`, `fecha_inicio`, `fecha_fin`, `id_capacitador`, `id_modalidad`) VALUES
-(14, 'inyeccion electronica', 3, ' qawertgaewrtgaeerhaaerhaerth', 'IMG-64a96ceca0b7a9.87824369.png', 3, '2023-12-12', '2011-12-23', 10, 5);
+(14, 'inyeccion electronica', 3, ' qawertgaewrtgaeerhaaerhaerth', 'IMG-64a96ceca0b7a9.87824369.png', 3, '2023-12-12', '2011-12-23', 10, 5),
+(15, 'Electricidad Automotor', 5, ' Curso de electricidad Basica para mec[anica del automotor.', 'IMG-64ab308e5e9e39.75184306.png', 1, '2023-01-01', '2012-03-23', 12, 7),
+(16, 'Mecanica Naftera', 6, ' Curso nafteros', 'IMG-64ab49e985dc48.85942993.png', 1, '2023-12-06', '2007-12-23', 26, 7);
 
 -- --------------------------------------------------------
 
@@ -474,7 +476,7 @@ ALTER TABLE `certificados`
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos_ofrecidos`
