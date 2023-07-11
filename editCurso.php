@@ -3,7 +3,9 @@ require_once('bd/conexion.php');
 
 $id = $_GET['id'];
 
-$con = $pdo->prepare("SELECT * FROM cursos WHERE id = $id");
+$con = $pdo->prepare("SELECT * FROM cursos, capacitadores.nombre AS profe 
+INNER JOIN capacitadores ON cursos.id_capacitador = capacitadores.id
+WHERE id = $id");
 
 $con->execute();
 ?>
@@ -73,7 +75,7 @@ if (isset($_POST['aceptar'])) {
   ?>
 
   <?php
-  $consulta = $pdo -> prepare("SELECT * FROM modalidades ORDER BY modalidad ASC");
+  $consulta = $pdo -> prepare("SELECT * FROM modalidades ORDER BY modalidad ASC ");
   $consulta -> execute();
   ?>
 
@@ -120,11 +122,11 @@ if (isset($_POST['aceptar'])) {
   <div class="container">
     <h1 class="form-title">EDICION DE CURSOS</h1>
     <form action="" method="POST" enctype="multipart/form-data">
+      <?php while($datos = $con->fetch(PDO::FETCH_ASSOC)) { ?>
       <div>
       <div class="main-user-info">
         <div class="user-input-box">
-
-          <input type="text" name="nombre" value="" placeholder="Ingrese nombre del curso" />
+          <input type="text" name="nombre" value="<?= $datos['nombre'] ?>" placeholder="Ingrese nombre del curso" />
           <?= $nombreError?>
         </div>
 
@@ -140,13 +142,13 @@ if (isset($_POST['aceptar'])) {
             </div>
 
             <div class="user-input-box">
-              <input type="date" id="fechaInicio" name="fecha_inicio" value="" placeholder="* Ingrese fecha inicio" />
+              <input type="date" id="fechaInicio" name="fecha_inicio" value="<?= $datos['fecha_inicio'] ?>" placeholder="* Ingrese fecha inicio" />
               <span for="fecha_inicio" class="error"></span>
               <?= $fecha_inicioError?>
             </div>
 
             <div class="user-input-box">
-            <input type="date" name="fecha_fin" id="fechaFin" value="" placeholder="* Ingrese fecha fin">
+            <input type="date" name="fecha_fin" id="fechaFin" value="<?= $datos['fecha_fin'] ?>" placeholder="* Ingrese fecha fin">
               <span for="fecha_fin" class="error"></span>
               <?= $fecha_finError?>
             </div>
@@ -156,7 +158,7 @@ if (isset($_POST['aceptar'])) {
                 <?php
             while($hs = $carga->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $hs['sub_indice'] ?>" name="carga_horaria">
-              <?= $hs['carga_horaria'] ?></option>
+              <?= $datos['carga_horaria'] ?></option>
               <?php } ?>
             </select>
             <?= $carga_horariaError?>
@@ -166,7 +168,7 @@ if (isset($_POST['aceptar'])) {
           <select name="capacitador" id="capacitador" class="style-select">
             <option value="0" selected disabled>* Seleccione capacitador</option>
             <?php while($capacitador = $instructor->fetch(PDO::FETCH_ASSOC)) { ?>
-            <option value="<?= $capacitador['id'] ?>" name="capacitador" ><?=  $capacitador['nombre'] ?></option>
+            <option value="<?= $capacitador['id'] ?>" name="capacitador" ><?=  $datos['nombre'] ?></option>
             <?php } ?>
           </select>
           <?= $capacitadorError?>
@@ -182,7 +184,7 @@ if (isset($_POST['aceptar'])) {
             <select name="modalidad" id="modalidad" class="style-select">
               <option value="0" selected disabled>* Seleccione una modalidad</option>
               <?php while($modalidad = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
-              <option value="<?= $modalidad['id'] ?>" name="modalidad" ><?= $modalidad['modalidad'] ?></option>
+              <option value="<?= $modalidad['id'] ?>" name="modalidad" ><?= $datos['modalidad'] ?></option>
               <?php } ?>
             </select>
             <?= $modalidadError?>
@@ -192,7 +194,7 @@ if (isset($_POST['aceptar'])) {
 
           <div class="user-input-box2">
             <label for="descripcion">Ingrese descripción:</label>
-            <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="" class="textareaCurso"> </textarea>
+            <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="<?= $datos['descripcion'] ?>" class="textareaCurso"><?= $datos['descripcion'] ?> </textarea>
             <?=$descripcionError?>
           </div>
           <div class="contenedorBtn">
@@ -205,7 +207,8 @@ if (isset($_POST['aceptar'])) {
                 <button type="submit" name="aceptar" value="aceptar">Registrar
               </div>
           </div>
-      </form>
+          <?php } ?>
+        </form>
   </div>
 </section>
 <script src="js/fechaInicio.js"></script>

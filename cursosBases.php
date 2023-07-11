@@ -68,8 +68,6 @@ if (isset( $_POST['input-buscador'])) {
                 <img src="images/cursos/<?= $res['logo_curso']?>" class="card-img" alt="<? $res['cursos.nombre']?>">
                 <h4><?= $res['nombre']?>
                   </h4>
-                <p><?= $res['nivel']?>
-                  </p>
                 <span style="font-size: 12px;">Carga Horaria: <?= $res['carga_horaria']?>
           </span>
               </a>

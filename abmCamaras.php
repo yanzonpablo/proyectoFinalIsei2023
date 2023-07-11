@@ -56,12 +56,12 @@ $consulta -> execute();
 					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?></td>
 					<td class="descripcion" data-label="descripcion"><?= $datos['descripcion']?></td>
 					<td class="Editar"><a href="<?= 'editCamara.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
-					<td class="Borrar"><a onclick="return confirma()" href="<?= 'deleteCamaras.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
+					<td class="Borrar"><a onclick="return confirmaCamara()" href="<?= 'deleteCamaras.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
 		</table>
 	</div>
 </body>
-<script src="js/confirma.js"></script>
+<script src="js/confirmaCamara.js"></script>
 </html>

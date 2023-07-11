@@ -48,12 +48,12 @@ $consulta -> execute();
 					<td class="imagen" ><img width="20%" src="images/capacitadores/<?= $datos['imagen'] ?>" alt=""></td>
 					<td class="nombreApellido" data-label="Nombre y Apellido"><?= $datos['nombre'].' '.$datos['apellido'] ?></td>
 					<td class="Editar"><a href="<?= 'editCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
-					<td class="Borrar"><a onclick="return confirma()" href="<?= 'deleteCapacitadores.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
+					<td class="Borrar"><a onclick="return confirmaCapacitador()" href="<?= 'deleteCapacitadores.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
 		</table>
 	</div>
 </body>
-<script src="js/confirma.js"></script>
+<script src="js/confirmaCapacitador.js"></script>
 </html>

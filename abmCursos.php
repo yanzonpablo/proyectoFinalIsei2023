@@ -57,13 +57,13 @@ $consulta -> execute();
 					<td class="horas" data-label="Carga Horaria"><?= $datos['carga_horaria'] ?></td>
 					<td class="capacitador" data-label="Capacitador"><?= $datos['profe'] ?></td>
 					<td class="nivel" data-label="Nivel"><?= $datos['nivel'] ?></td>
-					<td class="editar"><a href="<?= 'editCursos.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
-					<td class="borrar"><a onclick="return confirma()" href="<?= 'deleteCursos.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
+					<td class="editar"><a href="<?= 'editCurso.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
+					<td class="borrar"><a onclick="return confirmaCurso()" href="<?= 'deleteCursos.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
 		</table>
 	</div>
 </body>
-<script src="js/confirma.js"></script>
+<script src="js/confirmaCurso.js"></script>
 </html>

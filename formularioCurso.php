@@ -156,7 +156,7 @@ if (isset($_POST['aceptar'])) {
           <select name="capacitador" id="capacitador" class="style-select">
             <option value="0" selected disabled>* Seleccione capacitador</option>
             <?php while($capacitador = $instructor->fetch(PDO::FETCH_ASSOC)) { ?>
-            <option value="<?= $capacitador['id'] ?>" name="capacitador" ><?=  $capacitador['nombre'] ?></option>
+            <option value="<?= $capacitador['id'] ?>" name="capacitador" ><?=  $capacitador['nombre'] ?> <?= $capacitador['apellido'] ?></option>
             <?php } ?>
           </select>
           <?= $capacitadorError?>

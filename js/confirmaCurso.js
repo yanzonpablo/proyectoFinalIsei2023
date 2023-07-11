@@ -1,5 +1,5 @@
-function confirma() {
-    const res = confirm("Confirma borrar capacitador");
+function confirmaCurso() {
+    const res = confirm("Confirma borrar curso");
     if (res == true) {
         return true;
     } else {
