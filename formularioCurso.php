@@ -35,7 +35,7 @@ if (isset($_POST['aceptar'])) {
       }
       // ---------------fin logo-----------------
       $fecha_inicio = date('y-m-d',strtotime($_POST['fecha_inicio']));
-      $fecha_fin = date('m-d-y', strtotime($_POST['fecha_fin']));
+      $fecha_fin = date('y-m-d', strtotime($_POST['fecha_fin']));
       $carga_horaria = $_POST['carga_horaria'];
       $nivel_curso = $_POST['nivel_curso'];
       $modalidad = $_POST['modalidad'];
