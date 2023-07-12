@@ -2,7 +2,7 @@
 require_once ('varErrorCursos.php');
 require_once ('bd/conexion.php');
 
-if (isset($_POST['aceptar'])) {
+if (isset($_POST['registrar'])) {
 
   try {
       $nombre = $_POST['nombre'];
@@ -60,7 +60,7 @@ if (isset($_POST['aceptar'])) {
         echo $e->getMessage();
   }
   
-  header('location: abmCursos.php');
+  header('location: formularioCurso.php');
 
 } else {
   
