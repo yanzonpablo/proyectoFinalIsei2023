@@ -65,9 +65,15 @@ if (isset($_POST['aceptar'])) {
     } catch(PDOException $e) {
 
       echo $e->getMessage();
-    }
+    } 
     
     header('location: abmCamaras.php');
+      } else {
+    
+    if (isset($_POST['cancelar'])) {
+
+      header('location: abmCamaras.php');
+  }
 }
 ?>
 <?php
@@ -160,7 +166,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias ORDER BY nombre ASC")
       <div class="linea"></div>
       <div class="contenedorBtn">
           <div class="form-submit-btn">
-            <button type="submit" name="aceptar" value="aceptar">Cancelar
+            <button type="submit" name="cancelar" value="cancelar">Cancelar
             </div>
             <div class="form-submit-btn">
               <button type="submit" name="aceptar" value="aceptar">Registrar

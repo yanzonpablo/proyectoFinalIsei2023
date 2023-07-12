@@ -3,15 +3,17 @@ require_once('bd/conexion.php');
 
 $user = $_GET['id'];
 
-$con = $pdo->prepare("SELECT cursos.id as cursoId, cursos.nombre AS cursoNombre, fecha_inicio, fecha_fin, cursos.descripcion AS cursoDescripcion, modalidades.modalidad AS modalidad, carga_horaria, capacitadores.nombre AS profe FROM cursos 
-INNER JOIN capacitadores on cursos.id_capacitador = capacitador.id
-INNER JOIN modalidades on cursos.id_modalidad = modalidades.id
-WHERE cursoId = $user");
-
+$con = $pdo->prepare('SELECT cursos.id as cursoId, 
+-- cursos.nombre AS cursoNombre, fecha_inicio, fecha_fin, cursos.descripcion AS cursoDescripcion, modalidades.modalidad AS modalidad, carga_horaria, capacitadores.nombre AS profe 
+FROM cursos 
+-- INNER JOIN capacitadores on cursos.id_capacitador = capacitador.id
+-- INNER JOIN modalidades on cursos.id_modalidad = modalidades.id
+WHERE cursoId = $user');
 
 // $con = $pdo->prepare("SELECT cursos.nombre AS cursoNombre, fecha_inicio, fecha_fin, cursos.descripcion AS cursoDescripcion, modalidades.modalidad AS modalidad, carga_horaria, capacitadores.nombre AS profe FROM cursos, capacitadores, modalidades WHERE cursos.id_capacitador = capacitador.id AND cursos.id_modalidad = modalidades.id AND cursos.id = $user");
 
 // $con->execute();
+
 ?>
 
 <?php
@@ -124,12 +126,12 @@ if (isset($_POST['aceptar'])) {
   <?php require_once ('nav.php') ?>
   <section>
   <div class="container">
-    <h1 class="form-title">EDICION DE CURSOS</h1>
-    <?php while($data = $con->fetch(PDO::FETCH_ASSOC)) { ?>
+    <h1 class="form-title">EDICION REGISTRO CURSOS</h1>
     <form action="" method="POST" enctype="multipart/form-data">
       <div>
-      <div class="main-user-info">
-        <div class="user-input-box">
+        <?php while($data = $con->fetch(PDO::FETCH_ASSOC)) { ?>
+        <div class="main-user-info">
+          <div class="user-input-box">
 
           <input type="text" name="nombre" value="<?= $data['cursoNombre'] ?>" placeholder="Ingrese nombre del curso" />
           <?= $nombreError?>
@@ -163,7 +165,7 @@ if (isset($_POST['aceptar'])) {
                 <?php
             while($hs = $carga->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $hs['sub_indice'] ?>" name="carga_horaria">
-              <?= $hs['carga_horaria'] ?></option>
+              <?= $data['carga_horaria'] ?></option>
               <?php } ?>
             </select>
             <?= $carga_horariaError?>
@@ -173,7 +175,7 @@ if (isset($_POST['aceptar'])) {
           <select name="capacitador" id="capacitador" class="style-select">
             <option value="0" selected disabled>* Seleccione capacitador</option>
             <?php while($capacitador = $instructor->fetch(PDO::FETCH_ASSOC)) { ?>
-            <option value="<?= $capacitador['id'] ?>" name="capacitador" ><?=  $capacitador['nombre'] ?></option>
+            <option value="<?= $capacitador['id'] ?>" name="capacitador" ><?=  $data['nombre'] ?></option>
             <?php } ?>
           </select>
           <?= $capacitadorError?>
@@ -203,17 +205,17 @@ if (isset($_POST['aceptar'])) {
             <?=$descripcionError?>
           </div>
           <div class="contenedorBtn">
-
+            
             <div class="form-submit-btn">
               <button type="submit" name="cancelar" value="cancelar">Cancelar
-              </div>
-
-              <div class="form-submit-btn">
-                <button type="submit" name="aceptar" value="aceptar">Registrar
-              </div>
-          </div>
+                </div>
+                
+                <div class="form-submit-btn">
+                  <button type="submit" name="aceptar" value="aceptar">Registrar
+                    </div>
+                  </div>
+                  <?php } ?>
         </form>
-        <?php } ?>
   </div>
 </section>
 <script src="js/fechaInicio.js"></script>

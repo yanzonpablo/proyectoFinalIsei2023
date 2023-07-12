@@ -59,7 +59,17 @@ if (isset($_POST['aceptar'])) {
 
         echo $e->getMessage();
   }
+  
+  header('location: abmCursos.php');
+
+} else {
+  
+  if (isset($_POST['cancelar'])) {
+
+    header('location: abmCursos.php');
+  }
 }
+
   ?>
 
   <?php
@@ -185,10 +195,15 @@ if (isset($_POST['aceptar'])) {
             <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="" class="textareaCurso"> </textarea>
             <?=$descripcionError?>
           </div>
-
-            <div class="form-submit-btn">
-              <button type="submit" name="aceptar" value="aceptar">Registrar
-            </div>
+          <div class="linea"></div>
+          <div class="contenedorBtn">
+          <div class="form-submit-btn">
+          <button type="submit" name="cancelar" value="cancelar">Cancelar
+          </div>
+          <div class="form-submit-btn">
+            <button type="submit" name="registrar" value="registrar">Registrar
+          </div>
+        </div>
       </form>
   </div>
 </section>

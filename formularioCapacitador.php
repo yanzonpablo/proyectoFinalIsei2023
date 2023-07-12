@@ -66,6 +66,7 @@ if (isset($_POST['aceptar'])) {
   echo $e->getMessage();
   }
   header('location: abmCapacitadores.php');
+  
   } else {
     
     if (isset($_POST['cancelar'])) {
@@ -170,10 +171,10 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
         <div class="linea"></div>
         <div class="contenedorBtn">
           <div class="form-submit-btn">
-            <button type="submit" name="aceptar" value="aceptar">Cancelar
-            </div>
-            <div class="form-submit-btn">
-              <button type="submit" name="aceptar" value="aceptar">Registrar
+          <button type="submit" name="cancelar" value="cancelar">Cancelar
+          </div>
+          <div class="form-submit-btn">
+            <button type="submit" name="aceptar" value="aceptar">Registrar
           </div>
         </div>
     </form>

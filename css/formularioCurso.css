@@ -19,6 +19,32 @@ section {
     padding: 0 30px;
     border-radius: 5px;
 }
+.contenedorBtn {
+    display: flex;
+    justify-content: space-around;
+}
+.form-submit-btn button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding: 10px;
+    cursor: pointer;
+    border:none;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    transition: 1s;
+    text-transform: uppercase;
+    background: #027fb5;
+}
+.form-submit-btn button:hover {
+    transform: translateY(-2px);
+    text-transform: uppercase;
+    background: #009ee0;
+    color: rgb(255, 255, 255);
+}
 .form-title {
     font-family: 'Raleway', sans-serif !important;
     font-size: 28px;
