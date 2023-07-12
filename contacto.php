@@ -55,7 +55,7 @@
     </section>
     <div class="linea"></div>
     <footer>
-    <?php require_once ('footer.php'); ?>
+    <?php include_once ('footer.php'); ?>
     </footer>
 </body>
 </html>

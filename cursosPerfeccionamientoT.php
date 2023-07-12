@@ -69,7 +69,7 @@ if (isset( $_POST['input-buscador'])) {
                 <h4><?= $res['nombre']?>
                   </h4>
 
-                <span style="font-size: 12px;">Carga Horaria: <?= $res['carga_horaria']?>
+                <span style="font-size: 12px; margin-top: 10pX">Carga Horaria: <?= $res['carga_horaria']?>
           </span>
               </a>
               <a href="<?= 'cursosPerfeccionamientoT.php?id='.$res['id'] ?>" class="button agregar-carrito">CONOCELO</a> 

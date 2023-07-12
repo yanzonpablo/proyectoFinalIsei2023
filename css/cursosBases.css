@@ -133,7 +133,7 @@ button {
 }
 .container-capacitadores .card {
     width: 240px;
-    height: 270px;
+    height: 265px;
     background: #f5f3f3;
     background-size: cover;
     color:#6d6d6d;
@@ -159,14 +159,13 @@ button {
 }
 .container-capacitadores .card h4 {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     padding: 2px 0px;
     width: 100%;
     font-family: 'Raleway', sans-serif !important;
 }
 .container-capacitadores .card p {
-    padding-top: 5px 0px;
-    margin: 0px;
+    padding-top: 5px;
     font-size: 12px;
 
     font-family: 'Raleway', sans-serif !important;
@@ -175,7 +174,7 @@ button {
     padding: 5px;
     display: block;
     width: 90%;
-    margin: 0 auto;
+    margin: 5px auto;
     font-family: 'Raleway', sans-serif !important;
 }
 /*contenido*/

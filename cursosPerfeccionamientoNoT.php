@@ -66,9 +66,9 @@ if (isset( $_POST['input-buscador'])) {
           <div class="card">
               <a href="<?= 'cursosPerfeccionamientoNoT.php?id='.$res['alias'] ?>" class="linkCapacitador">
                 <img src="images/cursos/<?= $res['logo_curso']?>" class="card-img" alt="<? $res['cursos.nombre']?>">
-                <h5><?= $res['nombre']?>
-                  </h5>
-                <span style="font-size: 12px;">Carga Horaria: <?= $res['carga_horaria']?>
+                <h4><?= $res['nombre']?>
+                  </h4>
+                <span style="font-size: 12px; margin-top: 10px">Carga Horaria: <?= $res['carga_horaria']?>
           </span>
               </a>
               <a href="<?= 'cursosPerfeccionamientoNoT.php?id='.$res['alias'] ?>" class="button agregar-carrito">CONOCELO</a> 
