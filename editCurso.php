@@ -19,7 +19,7 @@ $con->execute();
 require_once ('varErrorCursos.php');
 require_once ('bd/conexion.php');
 
-if (isset($_POST['acetar'])) {
+if (isset($_POST['aceptar'])) {
 
   try {
       $nombre = $_POST['cNombre'];
@@ -60,7 +60,7 @@ if (isset($_POST['acetar'])) {
       
       $query = $pdo->prepare("UPDATE cursos SET nombre = :cNombre, nivel_curso = :nivel_curso, descripcion = :descripcion, logo_curso = :logo_curso, carga_horaria = :carga_horaria, fecha_inicio = :fecha_inicio, fecha_fin = :fecha_fin, id_modalidad = :modalidad, id_capacitador = :capacitador WHERE id = $id");
       
-      $query->bindParam(':nombre', $nombre);
+      $query->bindParam(':cNombre', $nombre);
       $query->bindParam(':descripcion', $descripcion);
       $query->bindParam(':logo_curso', $nombreNuevaImagen);
       $query->bindParam(':fecha_inicio', $fecha_inicio); 
