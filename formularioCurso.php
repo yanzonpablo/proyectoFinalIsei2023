@@ -60,7 +60,7 @@ if (isset($_POST['registrar'])) {
         echo $e->getMessage();
   }
   
-  header('location: formularioCurso.php');
+  header('location: abmCursos.php');
 
 } else {
   

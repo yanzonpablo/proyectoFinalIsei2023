@@ -2,7 +2,7 @@
 
 require_once('bd/conexion.php');
 
-$consulta = $pdo->prepare('SELECT id, imagen, nombre, apellido FROM capacitadores');
+$consulta = $pdo->prepare('SELECT id, imagen, nombre, apellido FROM capacitadores ORDER BY id');
 
 $consulta -> execute();
 

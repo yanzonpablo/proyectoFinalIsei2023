@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2023 a las 13:58:33
+-- Tiempo de generación: 12-07-2023 a las 21:30:28
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -36,6 +36,7 @@ CREATE TABLE `afiliados` (
   `codigo_postal` int(10) NOT NULL,
   `id_provincia` int(2) NOT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
+  `id_usuario` int(10) NOT NULL,
   `afiliado_activo` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -43,8 +44,8 @@ CREATE TABLE `afiliados` (
 -- Volcado de datos para la tabla `afiliados`
 --
 
-INSERT INTO `afiliados` (`id`, `telefono`, `dni`, `fecha_nacimiento`, `direccion`, `codigo_postal`, `id_provincia`, `fecha_alta`, `afiliado_activo`) VALUES
-(17, '3453453', 0, '1970-01-01', 'asdfasdfas werqwe', 234234, 1, '2023-07-05', 1);
+INSERT INTO `afiliados` (`id`, `telefono`, `dni`, `fecha_nacimiento`, `direccion`, `codigo_postal`, `id_provincia`, `fecha_alta`, `id_usuario`, `afiliado_activo`) VALUES
+(17, '3453453', 0, '1970-01-01', 'asdfasdfas werqwe', 234234, 1, '2023-07-05', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -201,7 +202,8 @@ INSERT INTO `cursos` (`id`, `nombre`, `nivel_curso`, `descripcion`, `logo_curso`
 (45, 'S&H PARA TALLER', 2, ' A QUIEN ESTA DIRIGIDO:\r\n- Titulares de Talleres o administrativos   \r\n\r\nFINALIDAD U OBJETIVOS DEL CURSO: \r\n- Una vez finalizado el curso los participantes podrán: • Conocer la legislación vigente en materia de Higiene y Seguridad • Comprender los beneficios de aplicar las normas de Higiene y Seguridad en su taller • Aprender cómo evitar multas, suspensiones o clausuras • Aplicar técnicas de orden y limpieza en su lugar de trabajo • Preparar sus establecimientos para la prevención de incendios • Realizar una correcta gestión de los residuos que genera el taller • Manipular y almacenar productos químicos de forma segura • Aplicar los protocolos de bioseguridad para la prevención de COVID-19 • Como seleccionar elementos de protección.\r\n\r\nCONTENIDOS: \r\nIntroducción a la Higiene y Seguridad • Para qué sirve la higiene y seguridad • Beneficios de aplicar normas de higiene y seguridad en su taller • Como evitar multas • Marco Legal • Análisis de la legislación • La importancia del orden y la', 'IMG-64ada145e512e5.99956815.jpg', 2, '2023-10-22', '0000-00-00', 11, 7),
 (46, 'S&H PARA OPERARIOS', 2, ' DESTINATARIOS\r\nEmpleados de talleres y titulares sin empleados \r\n\r\nOBJETIVOS • Comprender para que sirve la higiene y seguridad • Identificar actos y condiciones inseguras en su puesto de trabajo • Prevenir accidentes laborarles • Distinguir las señales y colores de seguridad • Evitar contactos eléctricos • Utilizar un matafuego • Aprender a actuar en casos de emergencia • Utilizar de forma correcta y cuidar los elementos de seguridad • Separar las distintas clases de residuos que genera el taller • Conocer las técnicas adecuadas para el manejo manual de cargas pesadas • Manipular y almacenar productos químicos de forma segura • Aplicar los protocolos de bioseguridad para la prevención del • covid-19 \r\n\r\nCONTENIDO • Introducción a la higiene y seguridad - ¿Para sirve la higiene y seguridad? - Distinguir accidentes de incidentes - Detectar actos y condiciones inseguras • La importancia de mantener su lugar de trabajo limpio y ordenado - Significado de los colores de seguridad - Signifi', 'IMG-64ada1fd582398.67648301.jpg', 2, '2023-11-01', '2011-03-23', 29, 7),
 (47, 'GESTION RR.HH', 2, ' DESTINATARIOS \r\n• Titulares de talleres, administrativos o encargados \r\n\r\nOBJETIVOS • Obtener los conocimientos necesarios para la gestión de los recursos humanos de su empresa CONTENIDO • Conceptos generales de RRHH. • Gestión de RRHH herramientas. • La Inteligencia Colaborativa para el progreso y sustentabilidad de las empresas Pymes. • La mejora continua y sus beneficios. \r\n\r\nREQUISITOS DE INGRESO\r\n• Conocimientos de manejo de herramientas informáticas y secundario completo.', 'IMG-64ada258e7a988.84898279.jpeg', 2, '2023-11-10', '0000-00-00', 24, 5),
-(48, 'ANALISIS DE COSTO', 2, 'DESTINATARIOS \r\n\r\nDestinado a titulares o administrativos de talleres\r\n\r\nOBJETIVOS\r\n • Mejorar la toma de decisiones a partir de un profundo conocimiento de los costos de la empresa. • Comprender la importancia del Punto de Equilibro Dinámico del negocio para minimizar pérdidas en época de crisis • Conocer con precisión la importancia de tomar decisiones agiles pensando en la supervivencia de mi negocio. • Lograr un aprendizaje que permita enfrentar la próxima crisis con más herramientas.', 'IMG-64ada2c27ed841.64059673.jpeg', 2, '2023-11-18', '0000-00-00', 28, 4);
+(48, 'ANALISIS DE COSTO', 2, 'DESTINATARIOS \r\n\r\nDestinado a titulares o administrativos de talleres\r\n\r\nOBJETIVOS\r\n • Mejorar la toma de decisiones a partir de un profundo conocimiento de los costos de la empresa. • Comprender la importancia del Punto de Equilibro Dinámico del negocio para minimizar pérdidas en época de crisis • Conocer con precisión la importancia de tomar decisiones agiles pensando en la supervivencia de mi negocio. • Lograr un aprendizaje que permita enfrentar la próxima crisis con más herramientas.', 'IMG-64ada2c27ed841.64059673.jpeg', 2, '2023-11-18', '0000-00-00', 28, 4),
+(52, 'FECHACO', 4, ' es una prueba', 'IMG-64aefbed392560.02212376.png', 3, '2023-10-10', '2023-10-10', 26, 5);
 
 -- --------------------------------------------------------
 
@@ -364,16 +366,16 @@ CREATE TABLE `usuarios` (
   `email` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
   `password` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
-  `rol_usuario` int(1) NOT NULL DEFAULT 1,
-  `id_afiliados` int(10) NOT NULL
+  `rol_usuario` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `fecha_alta`, `rol_usuario`, `id_afiliados`) VALUES
-(16, 'asdfasdf', 'asdfasdf', 'asedfasdf@asdf.com', NULL, '2023-07-05', 1, 0);
+INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `fecha_alta`, `rol_usuario`) VALUES
+(16, 'asdfasdf', 'asdfasdf', 'asedfasdf@asdf.com', NULL, '2023-07-05', 1),
+(17, 'FECHACO', 'Ortize', 'asdfasfd@asdfasef.com', NULL, '2023-07-12', 1);
 
 --
 -- Índices para tablas volcadas
@@ -384,7 +386,8 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `fecha_
 --
 ALTER TABLE `afiliados`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_provincia` (`id_provincia`);
+  ADD KEY `id_provincia` (`id_provincia`),
+  ADD KEY `afiliado_activo` (`afiliado_activo`);
 
 --
 -- Indices de la tabla `camaras`
@@ -466,11 +469,7 @@ ALTER TABLE `provincias`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_inscripto` (`id_afiliados`),
-  ADD KEY `id_inscripto_2` (`id_afiliados`),
-  ADD KEY `id_afiliados` (`id_afiliados`),
-  ADD KEY `id_afiliados_2` (`id_afiliados`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -486,13 +485,13 @@ ALTER TABLE `afiliados`
 -- AUTO_INCREMENT de la tabla `camaras`
 --
 ALTER TABLE `camaras`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT de la tabla `capacitadores`
 --
 ALTER TABLE `capacitadores`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `certificados`
@@ -504,7 +503,7 @@ ALTER TABLE `certificados`
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos_ofrecidos`
@@ -552,7 +551,7 @@ ALTER TABLE `provincias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

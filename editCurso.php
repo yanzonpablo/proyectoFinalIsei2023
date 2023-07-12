@@ -19,10 +19,10 @@ $con->execute();
 require_once ('varErrorCursos.php');
 require_once ('bd/conexion.php');
 
-if (isset($_POST['registrar'])) {
+if (isset($_POST['acetar'])) {
 
   try {
-      $nombre = $_POST['nombre'];
+      $nombre = $_POST['cNombre'];
       $descripcion = $_POST['descripcion'];
 
       // ---------------logo-----------------
@@ -58,7 +58,7 @@ if (isset($_POST['registrar'])) {
       $modalidad = $_POST['modalidad'];
       $capacitador = $_POST['capacitador'];
       
-      $query = $pdo->prepare("UPDATE cursos SET nombre = :nombre, nivel_curso = :nivel_curso, descripcion = :descripcion, logo_curso = :logo_curso, carga_horaria = :carga_horaria, fecha_inicio = :fecha_inicio, fecha_fin = :fecha_fin, id_modalidad = :modalidad, id_capacitador = :capacitador WHERE id = $id");
+      $query = $pdo->prepare("UPDATE cursos SET nombre = :cNombre, nivel_curso = :nivel_curso, descripcion = :descripcion, logo_curso = :logo_curso, carga_horaria = :carga_horaria, fecha_inicio = :fecha_inicio, fecha_fin = :fecha_fin, id_modalidad = :modalidad, id_capacitador = :capacitador WHERE id = $id");
       
       $query->bindParam(':nombre', $nombre);
       $query->bindParam(':descripcion', $descripcion);
@@ -126,7 +126,7 @@ if (isset($_POST['registrar'])) {
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
     <!-- fin iconos -->
     <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/formularioCurso.css">
+  <link rel="stylesheet" href="css/editCurso.css">
 </head>
 
 <body>
@@ -187,11 +187,13 @@ if (isset($_POST['registrar'])) {
           <?= $capacitadorError?>
         </div>
 
-          <label for="logo_curso" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
-          <div class="user-input-boxFile">
-            <input type="file" id="logo_curso" name="logo_curso"/><?= $data['logo_curso'] ?>
-          </div>
-        </label>
+        <label for="imagen" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
+    <div class="user-input-boxFile2">
+      <input type="file" id="imagen" name="imagen" value="images/cursos/<?= $data['logo_curso'] ?>"/>
+      <img class="imagencapacitador" width="50%" src="images/cursos/<?= $data['logo_curso'] ?>" alt="">
+    </div></label>
+
+ 
 
           <div class="user-input-box">
             <select name="modalidad" id="modalidad" class="style-select">
@@ -216,7 +218,7 @@ if (isset($_POST['registrar'])) {
               <button type="submit" name="cancelar" value="cancelar">Cancelar
             </div>
           <div class="form-submit-btn">
-            <button type="submit" name="aceptar" value="registrar">Registrar
+            <button type="submit" name="aceptar" value="aceptar">Registrar
               </div>
             </div>
       </form>

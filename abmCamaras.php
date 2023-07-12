@@ -4,7 +4,7 @@ require_once('bd/conexion.php');
 
 try {
 
-$consulta = $pdo->prepare('SELECT id, logo_camara, nombre, descripcion FROM camaras');
+$consulta = $pdo->prepare('SELECT id, logo_camara, nombre, descripcion FROM camaras ORDER BY id');
 
 $consulta -> execute();
   
