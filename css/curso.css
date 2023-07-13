@@ -4,6 +4,12 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+.fin {
+    text-align: right;
+    width: 85%;
+    margin-bottom: 10px;
+    color: #001a49;
+}
 .btn-reg {
     text-align: center;
 }
@@ -21,22 +27,16 @@
     text-align: center;
 }
 .registro:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  transition: all 0.5s;
-}
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: all 0.5s;
 }
 /*contenido*/
 .container {
+    max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
-    max-width: 1200px;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 .columna1 {
     width: 100%;
