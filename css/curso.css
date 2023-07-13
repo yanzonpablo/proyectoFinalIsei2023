@@ -1,0 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+/*contenido*/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+}
+.columna1 {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.columna1 img {
+    object-fit: cover;
+    height: 85%;
+    width: 20%;
+    border-radius: 50%;
+}
+
+.parrafo-especialidad{
+    display: flex;
+    align-content: center;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+    padding: 5px;
+    width: 70%;
+}
+/* .columna2 {
+    width: 60%;
+} */
+.title {
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #001a49;
+    font-family: 'Roboto', sans-serif;
+}
+.especialidad {
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 10px;
+    text-align: center;
+    color: gray;
+}
+.fin {
+    text-align: right;
+    margin-bottom: 20px;
+    margin-right: 50px;
+}
+.linea {
+    margin-left: 50px;
+    width: 80%;
+    padding-top: 20px;
+    border-bottom: 1px solid rgb(197, 197, 197);
+}
+.encontra {
+    text-align: center;
+    color: aliceblue;
+    padding-top: 10px;
+    font-size: 34px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+.caja {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-self: center;
+    width: 100%;
+    background-color: #001a49;
+}
+
+.btncursos {
+    margin: 20px 0;
+    text-align: center;
+}
+.btncursos .button {
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 5px rgb(191, 191, 191); 
+    text-decoration: none;
+    text-transform: none;
+    color: #001a49;
+}
+.btncursos .button:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
+.btncursos .button:focus {
+    box-shadow: none;
+    cursor: pointer;
+}
+@media (max-width: 920px){
+    .container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    }
+    .caja {
+        height: 120px;
+    }
+    .title {
+    padding-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2em;
+    }
+    .columna1 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    p{
+        display: block;
+    }
+    .columna1 img {
+        display: block;
+        width: 50%;
+        height: 50%;
+        margin-bottom: 30px;
+
+    }
+    /* .columna2 {
+        padding: 0 10px;
+        margin-top: 20px;
+        width: 100%;
+    } */
+    .cursosrelacionados {
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+    .encontra {
+        padding-top: 10px;
+        font-size: 20px;
+    }
+    .btncursos {
+        text-align: center;
+    }
+    .btncursos button {
+    padding: 5px;
+    }
+    .encontra {
+        padding: 0;
+    }
+    .linea {
+        margin: auto;
+    }
+}

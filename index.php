@@ -125,7 +125,7 @@
             <p class="encontracursos">*Todos los cursos son <strong>"sin costo"</strong> para aportantes y asociados a las <strong>Cámaras adheridas.</strong> </p>
         </div>
         <div class="table-container" id="listaCursos">
-            <a href="#" class="table-item">
+            <a href="cursosBases.php" class="table-item">
                 <h3 class="table-plan"> CURSOS BASE E INCLUSION SOCIAL </h3>
                 <article class="table-content">
                     <p class="table-p">Cursos SIN costo, orientados en competencias laborales, avaldos por el MTEySS para titulares, empleados, desempleados y público en general (a través de las cámaras cabecera de la región F.A.A.T.R.A.).
@@ -133,7 +133,7 @@
                     <p class="btnCursos">INGRESAR</p>
                 </article>
             </a>
-            <a href="#" class="table-item">
+            <a href="cursosPerfeccionamientoT.php" class="table-item">
                 <h3 class="table-plan"> PERFECCIONAMIENTO PROFESIONAL </h3>
                 <article class="table-content">
                     <p class="table-p">Cursos sobre funcionamiento de componentes, interpretación de circuitos
@@ -142,7 +142,7 @@
                         <p class="btnCursos">INGRESAR</p>
                     </article>
             </a>
-            <a href="#" class="table-item">
+            <a href="cursosPerfeccionamientoNoT.php" class="table-item">
                 <h3 class="table-plan"> PERFECCIONAMIENTO NO PROFESIONAL </h3>
                 <article class="table-content">
                     <p class="table-p">Cursos para el desempeño organizacional de la empresa automotriz, identificación
@@ -151,7 +151,7 @@
                         <p class="btnCursos">INGRESAR</p>
                     </article>
             </a>
-            <a href="#" class="table-item">
+            <a href="charlasPresentacionTecnica.php" class="table-item">
                 <h3 class="table-plan"> CHARLAS TECNICAS Y COMERCIALES</h3>
                 <article class="table-content">
                     <p class="table-p">Empresas del rubro presentan productos, características, aplicaciones y manipulación de sus

@@ -64,14 +64,14 @@ if (isset( $_POST['input-buscador'])) {
         <div class="container-capacitadores " id="lista-capacitadores">
           <?php while($res = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
           <div class="card">
-              <a href="<?= 'cursosBases.php?id='.$res['id'] ?>" class="linkCapacitador">
+              <a href="<?= 'curso.php?id='.$res['id'] ?>" class="linkCapacitador">
                 <img src="images/cursos/<?= $res['logo_curso']?>" class="card-img" alt="<? $res['cursos.nombre']?>">
                 <h4><?= $res['nombre']?>
                   </h4>
                 <span style="font-size: 12px; margin-top: 10px">Carga Horaria: <?= $res['carga_horaria']?>
           </span>
               </a>
-              <a href="<?= 'capacitador.php?id='.$res['id'] ?>" class="button agregar-carrito">CONOCELO</a> 
+              <a href="<?= 'curso.php?id='.$res['id'] ?>" class="button agregar-carrito">CONOCELO</a> 
             </div>
             <?php } ?>
           </div>
