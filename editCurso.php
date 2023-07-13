@@ -22,7 +22,7 @@ require_once ('bd/conexion.php');
 if (isset($_POST['aceptar'])) {
 
   try {
-      $nombre = $_POST['cNombre'];
+      $nombre = $_POST['nombre'];
       $descripcion = $_POST['descripcion'];
 
       // ---------------logo-----------------
@@ -58,9 +58,9 @@ if (isset($_POST['aceptar'])) {
       $modalidad = $_POST['modalidad'];
       $capacitador = $_POST['capacitador'];
       
-      $query = $pdo->prepare("UPDATE cursos SET nombre = :cNombre, nivel_curso = :nivel_curso, descripcion = :descripcion, logo_curso = :logo_curso, carga_horaria = :carga_horaria, fecha_inicio = :fecha_inicio, fecha_fin = :fecha_fin, id_modalidad = :modalidad, id_capacitador = :capacitador WHERE id = $id");
+      $query = $pdo->prepare("UPDATE cursos SET nombre = :nombre, nivel_curso = :nivel_curso, descripcion = :descripcion, logo_curso = :logo_curso, carga_horaria = :carga_horaria, fecha_inicio = :fecha_inicio, fecha_fin = :fecha_fin, id_modalidad = :modalidad, id_capacitador = :capacitador WHERE cursos.id = '$id'");
       
-      $query->bindParam(':cNombre', $nombre);
+      $query->bindParam(':nombre', $nombre);
       $query->bindParam(':descripcion', $descripcion);
       $query->bindParam(':logo_curso', $nombreNuevaImagen);
       $query->bindParam(':fecha_inicio', $fecha_inicio); 
@@ -209,7 +209,7 @@ if (isset($_POST['aceptar'])) {
 
           <div class="user-input-box2">
             <label for="descripcion">Ingrese descripción:</label>
-            <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="" class="textareaCurso"><?= $data['descripcion'] ?> </textarea>
+            <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="<?= $data['descripcion'] ?>" class="textareaCurso"><?= $data['descripcion'] ?> </textarea>
             <?=$descripcionError?>
           </div>
           <?php } ?>
