@@ -4,6 +4,32 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+.btn-reg {
+    text-align: center;
+}
+.registro {
+    background-color: #029ee0;
+    width: 200px;
+    border: none;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 5px 5px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 20px 0 20px 0;
+    text-align: center;
+}
+.registro:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: all 0.5s;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 /*contenido*/
 .container {
     display: flex;
@@ -11,11 +37,9 @@
     max-width: 1200px;
     margin-top: 20px;
     margin-bottom: 30px;
-
 }
 .columna1 {
     width: 100%;
-    height: 50vh;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -32,18 +56,15 @@
     display: flex;
     align-content: center;
     letter-spacing: 0.03em;
-    line-height: 1.5;
+    line-height: 1.3;
     padding: 5px;
     width: 70%;
 }
-/* .columna2 {
-    width: 60%;
-} */
+
 .title {
     margin-left: 50px;
     margin-top: 20px;
     font-size: 50px;
-    text-align: center;
     font-weight: bold;
     text-transform: uppercase;
     color: #001a49;
@@ -55,11 +76,6 @@
     padding-top: 10px;
     text-align: center;
     color: gray;
-}
-.fin {
-    text-align: right;
-    margin-bottom: 20px;
-    margin-right: 50px;
 }
 .linea {
     margin-left: 50px;
@@ -116,7 +132,7 @@
     width: 100%;
     }
     .caja {
-        height: 120px;
+        height: 80px;
     }
     .title {
     padding-top: 20px;
@@ -157,13 +173,16 @@
     .btncursos {
         text-align: center;
     }
-    .btncursos button {
-    padding: 5px;
-    }
+
     .encontra {
         padding: 0;
     }
     .linea {
         margin: auto;
+    }
+    .fin {
+        text-align: center;
+        width: 100%;
+        color: #001a49;
     }
 }
