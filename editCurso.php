@@ -3,13 +3,15 @@ require_once('bd/conexion.php');
 
 $id = $_GET['id'];
 
-$con = $pdo->prepare("SELECT cursos.id, cursos.nombre as cNombre, niveles_cursos.nivel, cursos.descripcion, cursos.logo_curso, 
-niveles_cursos.carga_horaria, cursos.fecha_inicio, cursos.fecha_fin, capacitadores.nombre, capacitadores.apellido, modalidades.modalidad 
-FROM cursos
+$con = $pdo->prepare("SELECT cursos.id, cursos.nombre as cursoNombre, cursos.fecha_inicio, cursos.fecha_fin, cursos.logo_curso, cursos.descripcion,
+niveles_cursos.id AS ncid, niveles_cursos.nivel AS ncnc, niveles_cursos.carga_horaria AS ncch, niveles_cursos.sub_indice AS ncsi,
+capacitadores.id AS cid, capacitadores.nombre AS cn, capacitadores.apellido AS ca,
+modalidades.id AS mi, modalidades.modalidad AS mm
+FROM cursos 
+INNER JOIN niveles_cursos on cursos.nivel_curso = niveles_cursos.id
 INNER JOIN capacitadores on cursos.id_capacitador = capacitadores.id
 INNER JOIN modalidades on cursos.id_modalidad = modalidades.id
-INNER JOIN niveles_cursos on cursos.nivel_curso = niveles_cursos.id
-WHERE cursos.id = '$id'"); 
+where cursos.id = $id");
 
 $con->execute();
 
@@ -51,6 +53,7 @@ if (isset($_POST['aceptar'])) {
         }
       }
       // ---------------fin logo-----------------
+      $logo_curso = '';
       $fecha_inicio = date('y-m-d',strtotime($_POST['fecha_inicio']));
       $fecha_fin = date('y-m-d', strtotime($_POST['fecha_fin']));
       $carga_horaria = $_POST['carga_horaria'];
@@ -139,13 +142,13 @@ if (isset($_POST['aceptar'])) {
         <div class="main-user-info">
           <div class="user-input-box">            
             <?php while($data = $con->fetch(PDO::FETCH_ASSOC)) { ?>
-          <input type="text" name="nombre" value="<?= $data['cNombre'] ?>" placeholder="Ingrese nombre del curso" />
+          <input type="text" name="nombre" value="<?= $data['cursoNombre'] ?>" placeholder="Ingrese nombre del curso" />
           <?= $nombreError?>
         </div>
 
         <div class="user-input-box">
           <select name="nivel_curso" id="nivel_curso" class="style-select">
-            <option value="" selected disabled><?= $data['nivel'] ?></option>
+            <option name="nivel_curso" value="<?= $data['ncid'] ?>" selected disabled><?= $data['ncnc'] ?></option>
             <?php
             while($nivel = $niveles->fetch(PDO::FETCH_ASSOC)){ ?>
             <option value="<?= $nivel['id'] ?>" name="nivel_curso" ><?= $nivel['nivel'] ?></option>
@@ -165,23 +168,31 @@ if (isset($_POST['aceptar'])) {
               <span for="fecha_fin" class="error"></span>
               <?= $fecha_finError?>
             </div>
+
+
+
+
             <div class="user-input-box">
               <select name="carga_horaria" id="carga_horaria" class="style-select">
-                <option value="0" selected disabled><?= $data['carga_horaria'] ?></option>
+                <option value="<?= $data['ncsi'] ?>" name="carga_horaria" selected disabled><?= $data['ncch'] ?></option>
                 <?php
             while($hs = $carga->fetch(PDO::FETCH_ASSOC)) { ?>
-            <option value="<?= $hs['sub_indice'] ?>" name="carga_horaria">
-              <?= $hs['carga_horaria'] ?></option>
+            <option value="<?= $hs['sub_indice'] ?>" name="carga_horaria"><?= $hs['carga_horaria'] ?></option>
               <?php } ?>
             </select>
             <?= $carga_horariaError?>
           </div>
 
+
+
+
+
+
           <div class="user-input-box">
           <select name="capacitador" id="capacitador" class="style-select">
-            <option value="0" selected disabled><?=  $data['nombre'] ?> <?= $data['apellido'] ?></option>
+            <option name="capacitador" value="<?= $data['cid'] ?>" selected disabled><?= $data['cn'] ?> <?= $data['ca'] ?></option>
             <?php while($capacitador = $instructor->fetch(PDO::FETCH_ASSOC)) { ?>
-            <option value="<?= $capacitador['id'] ?>" name="capacitador" ><?=  $capacitador['nombre'] ?> <?=  $capacitador['apellido'] ?></option>
+            <option value="<?= $capacitador['id'] ?>" name="capacitador" ><?= $capacitador['nombre'] ?> <?= $capacitador['apellido'] ?></option>
             <?php } ?>
           </select>
           <?= $capacitadorError?>
@@ -189,15 +200,13 @@ if (isset($_POST['aceptar'])) {
 
         <label for="imagen" class="textoLogo"><i class="fa fa-upload fa-lg" aria-hidden="true" style="color: #027fb5; margin-right: 5px;"></i>Subir Imagen
     <div class="user-input-boxFile2">
-      <input type="file" id="imagen" name="imagen" value="images/cursos/<?= $data['logo_curso'] ?>"/>
+      <input type="file" id="imagen" name="logo_curso" value="images/cursos/<?= $data['logo_curso'] ?>"/>
       <img class="imagencapacitador" width="50%" src="images/cursos/<?= $data['logo_curso'] ?>" alt="">
     </div></label>
 
- 
-
           <div class="user-input-box">
             <select name="modalidad" id="modalidad" class="style-select">
-              <option value="0" selected disabled><?= $data['modalidad'] ?></option>
+              <option value="<?= $data['mi'] ?>" name="modalidad" selected disabled><?= $data['mm'] ?></option>
               <?php while($modalidad = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
               <option value="<?= $modalidad['id'] ?>" name="modalidad" ><?= $modalidad['modalidad'] ?></option>
               <?php } ?>
