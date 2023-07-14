@@ -2,10 +2,12 @@
 
 require_once('bd/conexion.php');
 
-$consulta = $pdo->prepare("SELECT cursos.id, cursos.nombre, cursos.logo_curso, capacitadores.nombre AS profe, modalidades.modalidad, niveles_cursos.carga_horaria, niveles_cursos.nivel, niveles_cursos.carga_horaria 
-from cursos INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id 
+$consulta = $pdo->prepare("SELECT cursos.id, cursos.nombre, cursos.logo_curso, capacitadores.nombre AS profe, modalidades.modalidad, niveles_cursos.carga_horaria, niveles_cursos.nivel, niveles_cursos.carga_horaria, id_capacitador, id_modalidad
+from cursos 
+INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id 
 INNER JOIN capacitadores ON cursos.id_capacitador = capacitadores.id
 INNER JOIN modalidades ON cursos.id_modalidad = modalidades.id ORDER BY id");
+
 $consulta -> execute();
 
 ?>

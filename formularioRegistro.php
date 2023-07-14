@@ -20,6 +20,8 @@ $datos1->bindParam(':nombre', $nombre);
 $datos1->bindParam(':apellido', $apellido);
 $datos1->bindParam(':email', $email);
 
+
+
 // -------------- afiliados -------------------------
 
 $telefono = $_POST['telefono'];
@@ -29,7 +31,7 @@ $direccion = $_POST['direccion'];
 $codigo_postal = $_POST['codigo_postal'];
 $provincia = $_POST['provincia'];
 
-$datos2 = $pdo->prepare('INSERT INTO afiliados (telefono, dni, fecha_nacimiento, direccion, codigo_postal, id_provincia) VALUES (:telefono, :dni, :fecha_nacimiento, :direccion, :codigo_postal, :provincia)');
+$datos2 = $pdo->prepare("INSERT INTO afiliados (telefono, dni, fecha_nacimiento, direccion, codigo_postal, id_provincia, id_usuario) VALUES (:telefono, :dni, :fecha_nacimiento, :direccion, :codigo_postal, :provincia, :id_usuario)");
 
 $datos2->bindParam(':telefono', $telefono);
 $datos2->bindParam(':dni', $dni);
@@ -37,14 +39,17 @@ $datos2->bindParam(':fecha_nacimiento', $fecha_nacimiento);
 $datos2->bindParam(':direccion', $direccion);
 $datos2->bindParam(':codigo_postal', $codigo_postal);
 $datos2->bindParam(':provincia', $provincia);
+$datos2->bindParam('id_usuario', $last_id);
 
 if ($_POST['condicion']) {
-  if (isset($_POST['condicion']) && $_POST['condicion'] == '1')
+  $condicion = $_POST['condicion'];
+  if (isset($condicion) == 1);
   $datos1->execute();
+  $last_id = $pdo->lastInsertId();
   $datos2->execute();
 
 } else {
-    header('location: formularioRegistro.php');
+    header('location: .php');
   }
 }
 
@@ -98,7 +103,7 @@ if ($_POST['condicion']) {
           <?=$dniError?>
         </div>
         <div class="user-input-box">
-          <input type="date" id="fechaInicio" name="fecha_nacimiento" value=" " placeholder="* Ingrese fecha de nacimiento" />
+          <input type="date" id="fechaInicio" name="fecha_nacimiento" value="" placeholder="* Ingrese fecha de nacimiento" />
           <?=$fecha_nacimientoError?>
         </div>
         <div class="user-input-box">
