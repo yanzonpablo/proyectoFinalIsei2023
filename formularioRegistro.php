@@ -47,11 +47,15 @@ if ($_POST['condicion']) {
   $datos1->execute();
   $last_id = $pdo->lastInsertId();
   $datos2->execute();
+  
+  header('location: modalRegistro.php');
 
 } else {
-    header('location: .php');
+
+
+
   }
-}
+} 
 
 ?>
 
