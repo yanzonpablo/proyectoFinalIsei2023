@@ -5,7 +5,7 @@ require_once('bd/conexion.php');
 try {
 
 $consulta = $pdo->prepare("SELECT usuarios.id, usuarios.nombre, apellido, email, telefono, dni, direccion, afiliados.id_usuario,
-IF(afiliados.afiliado_activo = 0, 'PASIVO', 'ACTIVO') AS estado
+IF(afiliados.id_estado = 0, 'PASIVO', 'ACTIVO') AS estado
 FROM usuarios
 INNER JOIN afiliados ON usuarios.id = afiliados.id_usuario
 WHERE usuarios.id = afiliados.id_usuario");
@@ -40,7 +40,7 @@ $consulta -> execute();
 			<p>ABM USUARIOS</p>
 		</div>
 			<div class="contenedor">
-			<a href="formularioCamara.php" class="btnAlta">ALTA USUARIO</a>
+			<a href="formularioRegistro.php" class="btnAlta">ALTA USUARIO</a>
 		<table border="1">
 			<thead>
 				<tr>
@@ -64,7 +64,7 @@ $consulta -> execute();
 					<td class="telefono" data-label="Teléfono"><?= $datos['telefono']?></td>
 					<td class="dni" data-label="D.N.I."><?= $datos['dni']?></td>
 					<td class="direccion" data-label="Dirección"><?= $datos['direccion']?></td>
-					<td class="editar"><a href="<?= 'editUsuario.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
+					<td class="editar"><a href="<?= 'editRegistro.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
 					<td class="borrar"><a onclick="return confirmaUsuario()" href="<?= 'deleteUsuarios.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 					<td class="estado" data-label="Estado"><?= $datos['estado']?></td>
 				</tr>

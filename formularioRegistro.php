@@ -20,8 +20,6 @@ $datos1->bindParam(':nombre', $nombre);
 $datos1->bindParam(':apellido', $apellido);
 $datos1->bindParam(':email', $email);
 
-
-
 // -------------- afiliados -------------------------
 
 $telefono = $_POST['telefono'];
@@ -39,7 +37,7 @@ $datos2->bindParam(':fecha_nacimiento', $fecha_nacimiento);
 $datos2->bindParam(':direccion', $direccion);
 $datos2->bindParam(':codigo_postal', $codigo_postal);
 $datos2->bindParam(':provincia', $provincia);
-$datos2->bindParam('id_usuario', $last_id);
+$datos2->bindParam(':id_usuario', $last_id);
 
 if ($_POST['condicion']) {
   $condicion = $_POST['condicion'];
@@ -50,12 +48,13 @@ if ($_POST['condicion']) {
   
   header('location: modalRegistro.php');
 
-} else {
-
-
-
-  }
+  } 
 } 
+
+if (isset($_POST['cancelar'])) {
+
+  header('location: index.php');
+}
 
 ?>
 

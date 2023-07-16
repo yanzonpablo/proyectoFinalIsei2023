@@ -169,9 +169,6 @@ if (isset($_POST['aceptar'])) {
               <?= $fecha_finError?>
             </div>
 
-
-
-
             <div class="user-input-box">
               <select name="carga_horaria" id="carga_horaria" class="style-select">
                 <option value="<?= $data['ncsi'] ?>" name="carga_horaria" selected disabled><?= $data['ncch'] ?></option>
@@ -182,11 +179,6 @@ if (isset($_POST['aceptar'])) {
             </select>
             <?= $carga_horariaError?>
           </div>
-
-
-
-
-
 
           <div class="user-input-box">
           <select name="capacitador" id="capacitador" class="style-select">

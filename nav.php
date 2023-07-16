@@ -30,6 +30,9 @@
                                         <a href="dash.php">Dashboard</a>
                                     </li>
                                     <li class="dropdown-link">
+                                        <a href="abmUsuarios.php">A.B.M. Usuarios</a>
+                                    </li>
+                                    <li class="dropdown-link">
                                         <a href="">Panel de control<i class="fas fa-caret-down"></i></a>
                                         <div class="dropdown second">
                                             <ul>
