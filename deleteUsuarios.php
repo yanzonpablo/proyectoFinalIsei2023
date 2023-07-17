@@ -1,5 +1,4 @@
 <?php
-
 require_once('bd/conexion.php');
 
 if(isset($_GET['id'])) {
@@ -8,13 +7,15 @@ if(isset($_GET['id'])) {
 
     try {
         
-        $consulta = $pdo->prepare("UPDATE afiliados SET afiliado_activo = 0 WHERE id = $id");
-
+        $consulta = $pdo->query("UPDATE afiliados SET afiliados.id_estado = 0 
+        WHERE afiliados.id_usuario = $id");
+        
         $consulta->execute();
 
         } catch(PDOException $e) {
     
-        echo $e->getMessage();
+            echo $e->getMessage();
+
         }
 
         header('location: abmUsuarios.php');

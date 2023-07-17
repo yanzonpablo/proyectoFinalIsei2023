@@ -5,7 +5,7 @@ require_once('bd/conexion.php');
 try {
 
 $consulta = $pdo->prepare("SELECT usuarios.id, usuarios.nombre, apellido, email, telefono, dni, direccion, afiliados.id_usuario,
-IF(afiliados.afiliado_activo = 0, 'PASIVO', 'ACTIVO') AS estado
+IF(afiliados.id_estado = 0, 'PASIVO', 'ACTIVO') AS estado
 FROM usuarios
 INNER JOIN afiliados ON usuarios.id = afiliados.id_usuario
 WHERE usuarios.id = afiliados.id_usuario");
