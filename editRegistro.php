@@ -63,7 +63,7 @@ $codigo_postal = $_POST['codigo_postal'];
 $provincia = $_POST['provincia'];
 // $estado = $_POST['estados_usuarios'];
 
-$datos2 = $pdo->prepare("UPDATE afiliados SET telefono = :telefono, dni = :dni, fecha_nacimiento = :fecha_nacimiento, direccion = :direccion, codigo_postal = :codigo_postal, id_provincia = :provincia, ");
+$datos2 = $pdo->prepare("UPDATE afiliados SET telefono = :telefono, dni = :dni, fecha_nacimiento = :fecha_nacimiento, direccion = :direccion, codigo_postal = :codigo_postal, id_provincia = :provincia, WHERE id = $id");
 // estados_usuarios = :estados_usuarios
 
 $datos2->bindParam(':telefono', $telefono);
