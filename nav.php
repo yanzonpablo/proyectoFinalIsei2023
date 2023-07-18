@@ -23,30 +23,30 @@
                     <ul>
                         <!-- -----------------boton temp-------------------------- -->
                         <li class="nav-link" style="--i: .85s">
-                            <a href="#">Pantallas<i class="fas fa-caret-down"></i></a>
+                            <a href="#">Panel de control<i class="fas fa-caret-down"></i></a>
                             <div class="dropdown">
                                 <ul>
                                     <li class="dropdown-link">
                                         <a href="dash.php">Dashboard</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="abmUsuarios.php">A.B.M. Usuarios</a>
+                                        <a href="newsletter.php">Newsletters</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="">Panel de control<i class="fas fa-caret-down"></i></a>
+                                        <a href="">A.B.Ms.<i class="fas fa-caret-down"></i></a>
                                         <div class="dropdown second">
                                             <ul>
                                                 <li class="dropdown-link">
                                                     <a href="abmCamaras.php">A.B.M. Cámaras</a>
                                                 </li>
                                                 <li class="dropdown-link">
-                                                    <a href="abmCapacitadores.php">A.B.M. Docente</a>
-                                                </li>
-                                                <li class="dropdown-link">
                                                     <a href="abmCursos.php">A.B.M Cursos</a>
                                                 </li>
                                                 <li class="dropdown-link">
-                                                    <a href="newsletter.php">Newsletters</a>
+                                                    <a href="abmCapacitadores.php">A.B.M. DocenteS</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="abmUsuarios.php">A.B.M. Usuarios</a>
                                                 </li>
                                                 <div class="arrow"></div>
                                             </ul>

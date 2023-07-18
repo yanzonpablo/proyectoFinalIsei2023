@@ -163,7 +163,7 @@ if (isset($_POST['cancelar'])) {
         </div>
         <div class="user-input-box">
           <select name="provincia" id="provincia" class="style-select">
-            <option value="<?= $info['pciaId'] ?>" name="provincia" selected disabled><?= $info['pciaNom'] ?></option>
+            <option value="<?= $info['pciaId'] ?>" name="provincia" hidden><?= $info['pciaNom'] ?></option>
             <?php while($provincias = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $provincias['id'] ?>" name="provincia" ><?= $provincias['nombre'] ?></option>
             <?php } ?>
@@ -173,7 +173,7 @@ if (isset($_POST['cancelar'])) {
 
             <div class="user-input-box">
           <select name="id_estado" id="id_estado" class="style-select">
-            <option value="<?= $info['valor'] ?>" name="id_estado" selected disabled><?= $info['estado'] ?></option>
+            <option value="<?= $info['valor'] ?>" name="id_estado" hidden><?= $info['estado'] ?></option>
             <?php while($estados = $estado->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $estados['valor'] ?>" name="id_estado" ><?= $estados['estado'] ?></option>
             <?php } ?>
@@ -183,7 +183,7 @@ if (isset($_POST['cancelar'])) {
 
             <div class="user-input-box">
           <select name="roles_usuarios" id="roles_usuarios" class="style-select">
-            <option value="<?= $info['rolId'] ?>" name="roles_usuarios" selected disabled><?= $info['roles'] ?></option>
+            <option value="<?= $info['rolId'] ?>" name="roles_usuarios" hidden><?= $info['roles'] ?></option>
             <?php while($rol = $roles->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $rol['id'] ?>" name="roles_usuarios" ><?= $rol['roles'] ?></option>
             <?php } ?>

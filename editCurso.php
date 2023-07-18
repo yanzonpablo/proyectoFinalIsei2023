@@ -148,7 +148,7 @@ if (isset($_POST['aceptar'])) {
 
         <div class="user-input-box">
           <select name="nivel_curso" id="nivel_curso" class="style-select">
-            <option name="nivel_curso" value="<?= $data['ncid'] ?>" selected disabled><?= $data['ncnc'] ?></option>
+            <option name="nivel_curso" value="<?= $data['ncid'] ?>" hidden><?= $data['ncnc'] ?></option>
             <?php
             while($nivel = $niveles->fetch(PDO::FETCH_ASSOC)){ ?>
             <option value="<?= $nivel['id'] ?>" name="nivel_curso" ><?= $nivel['nivel'] ?></option>
@@ -171,7 +171,7 @@ if (isset($_POST['aceptar'])) {
 
             <div class="user-input-box">
               <select name="carga_horaria" id="carga_horaria" class="style-select">
-                <option value="<?= $data['ncsi'] ?>" name="carga_horaria" selected disabled><?= $data['ncch'] ?></option>
+                <option value="<?= $data['ncsi'] ?>" name="carga_horaria" hidden><?= $data['ncch'] ?></option>
                 <?php
             while($hs = $carga->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $hs['sub_indice'] ?>" name="carga_horaria"><?= $hs['carga_horaria'] ?></option>
@@ -182,7 +182,7 @@ if (isset($_POST['aceptar'])) {
 
           <div class="user-input-box">
           <select name="capacitador" id="capacitador" class="style-select">
-            <option name="capacitador" value="<?= $data['cid'] ?>" selected disabled><?= $data['cn'] ?> <?= $data['ca'] ?></option>
+            <option name="capacitador" value="<?= $data['cid'] ?>" hidden><?= $data['cn'] ?> <?= $data['ca'] ?></option>
             <?php while($capacitador = $instructor->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $capacitador['id'] ?>" name="capacitador" ><?= $capacitador['nombre'] ?> <?= $capacitador['apellido'] ?></option>
             <?php } ?>
@@ -198,7 +198,7 @@ if (isset($_POST['aceptar'])) {
 
           <div class="user-input-box">
             <select name="modalidad" id="modalidad" class="style-select">
-              <option value="<?= $data['mi'] ?>" name="modalidad" selected disabled><?= $data['mm'] ?></option>
+              <option value="<?= $data['mi'] ?>" name="modalidad" hidden><?= $data['mm'] ?></option>
               <?php while($modalidad = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
               <option value="<?= $modalidad['id'] ?>" name="modalidad" ><?= $modalidad['modalidad'] ?></option>
               <?php } ?>
