@@ -4,9 +4,10 @@ require_once('bd/conexion.php');
 
 try {
 
-$consulta = $pdo->prepare("SELECT usuarios.id, usuarios.nombre, apellido, email, telefono, dni, direccion, afiliados.id_usuario,
+$consulta = $pdo->prepare("SELECT usuarios.id, usuarios.nombre, apellido, email, telefono, dni, direccion, afiliados.id_usuario, roles_usuarios.roles AS rol,
 IF(afiliados.id_estado = 0, 'PASIVO', 'ACTIVO') AS estado
 FROM usuarios
+INNER JOIN roles_usuarios ON usuarios.rol_usuario = roles_usuarios.id
 INNER JOIN afiliados ON usuarios.id = afiliados.id_usuario
 WHERE usuarios.id = afiliados.id_usuario");
 
@@ -49,7 +50,7 @@ $consulta -> execute();
 					<th class="email">E-mail</th>
 					<th class="telefono">Teléfono</th>
 					<th class="dni">D.N.I.</th>
-					<th class="telefono">Dirección</th>
+					<th class="rol">Rol</th>
 					<th class="editar">Modificar</th>
 					<th class="borrar" style="font-size: 16px">Borrar</th>
 					<th class="estado">Estado</th>
@@ -63,7 +64,7 @@ $consulta -> execute();
 					<td class="email" data-label="E-mail"><?= $datos['email']?></td>
 					<td class="telefono" data-label="Teléfono"><?= $datos['telefono']?></td>
 					<td class="dni" data-label="D.N.I."><?= $datos['dni']?></td>
-					<td class="direccion" data-label="Dirección"><?= $datos['direccion']?></td>
+					<td class="rol" data-label="Rol"><?= $datos['rol']?></td>
 					<td class="editar"><a href="<?= 'editRegistro.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
 					<td class="borrar"><a onclick="return confirmaUsuario()" href="<?= 'deleteUsuarios.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 					<td class="estado" data-label="Estado"><?= $datos['estado']?></td>

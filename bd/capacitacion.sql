@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2023 a las 02:19:24
+-- Tiempo de generación: 18-07-2023 a las 03:52:40
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -46,7 +46,7 @@ CREATE TABLE `afiliados` (
 
 INSERT INTO `afiliados` (`id`, `telefono`, `dni`, `fecha_nacimiento`, `direccion`, `codigo_postal`, `id_provincia`, `fecha_alta`, `id_usuario`, `id_estado`) VALUES
 (33, '2345235', 2354235, '2022-12-12', 'sdfgasdfg  3456', 23545, 22, '2023-07-17', 36, 1),
-(34, '43563456', 12351345, '2000-11-11', 'asedfgas 345', 3455, 8, '2023-07-17', 37, 0);
+(34, '43563456', 12351345, '2000-11-11', 'asedfgas 345', 3455, 8, '2023-07-17', 37, 1);
 
 -- --------------------------------------------------------
 
@@ -389,8 +389,8 @@ CREATE TABLE `roles_usuarios` (
 --
 
 INSERT INTO `roles_usuarios` (`id`, `roles`) VALUES
-(1, 'Administrador'),
-(2, 'Suscriptor');
+(1, 'Suscriptor'),
+(2, 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -413,7 +413,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `fecha_alta`, `rol_usuario`) VALUES
-(36, 'pablo1', 'pablo1', 'asdgasdg@asdf.com', NULL, '2023-07-17', 1),
+(36, 'pablo1', 'pablo1', 'asdgasdg@asdf.com', NULL, '2023-07-17', 2),
 (37, 'asdfasdf', 'asdfasdf', 'asdf@asdfg.com', NULL, '2023-07-17', 1);
 
 --
