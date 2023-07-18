@@ -55,11 +55,15 @@ if (isset($_POST['aceptar'])) {
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
-$datos1 = $pdo->prepare("UPDATE usuarios SET nombre = :nombre, apellido = :apellido, email = :email");
+$roles_usuarios = $_POST['roles_usuarios'];
+
+$datos1 = $pdo->prepare("UPDATE usuarios SET nombre = :nombre, apellido = :apellido, email = :email, rol_usuario = :rol_usuario WHERE id = $id");
 
 $datos1->bindParam(':nombre', $nombre);
 $datos1->bindParam(':apellido', $apellido);
 $datos1->bindParam(':email', $email);
+$datos1->bindParam(':rol_usuario', $roles_usuarios);
+
 // -------------- afiliados -------------------------
 
 $telefono = $_POST['telefono'];
@@ -68,10 +72,9 @@ $fecha_nacimiento = date('y-m-d',strtotime($_POST['fecha_nacimiento']));
 $direccion = $_POST['direccion'];
 $codigo_postal = $_POST['codigo_postal'];
 $provincia = $_POST['provincia'];
-// $estado = $_POST['estados_usuarios'];
+$id_estado = $_POST['id_estado'];
 
-$datos2 = $pdo->prepare("UPDATE afiliados SET telefono = :telefono, dni = :dni, fecha_nacimiento = :fecha_nacimiento, direccion = :direccion, codigo_postal = :codigo_postal, id_provincia = :provincia, WHERE id = $id");
-// estados_usuarios = :estados_usuarios
+$datos2 = $pdo->prepare("UPDATE afiliados SET telefono = :telefono, dni = :dni, fecha_nacimiento = :fecha_nacimiento, direccion = :direccion, codigo_postal = :codigo_postal, id_provincia = :provincia, id_estado = :id_estado WHERE $id = afiliados.id_usuario");
 
 $datos2->bindParam(':telefono', $telefono);
 $datos2->bindParam(':dni', $dni);
@@ -79,7 +82,7 @@ $datos2->bindParam(':fecha_nacimiento', $fecha_nacimiento);
 $datos2->bindParam(':direccion', $direccion);
 $datos2->bindParam(':codigo_postal', $codigo_postal);
 $datos2->bindParam(':provincia', $provincia);
-// $datos2->bindParam(':afiliado_activo', $estado);
+$datos2->bindParam(':id_estado', $id_estado);
 
 $datos1->execute();
 // $last_id = $pdo->lastInsertId();
@@ -160,7 +163,7 @@ if (isset($_POST['cancelar'])) {
         </div>
         <div class="user-input-box">
           <select name="provincia" id="provincia" class="style-select">
-            <option value="<?= $info['pciaId'] ?>" selected disabled><?= $info['pciaNom'] ?></option>
+            <option value="<?= $info['pciaId'] ?>" name="provincia" selected disabled><?= $info['pciaNom'] ?></option>
             <?php while($provincias = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $provincias['id'] ?>" name="provincia" ><?= $provincias['nombre'] ?></option>
             <?php } ?>
@@ -169,10 +172,10 @@ if (isset($_POST['cancelar'])) {
             </div>
 
             <div class="user-input-box">
-          <select name="estados_usuarios" id="estados_usuarios" class="style-select">
-            <option value="<?= $info['valor'] ?>" selected disabled><?= $info['estado'] ?></option>
+          <select name="id_estado" id="id_estado" class="style-select">
+            <option value="<?= $info['valor'] ?>" name="id_estado" selected disabled><?= $info['estado'] ?></option>
             <?php while($estados = $estado->fetch(PDO::FETCH_ASSOC)) { ?>
-            <option value="<?= $estados['valor'] ?>" name="estados_usuarios" ><?= $estados['estado'] ?></option>
+            <option value="<?= $estados['valor'] ?>" name="id_estado" ><?= $estados['estado'] ?></option>
             <?php } ?>
           </select>
           <?= $provinciaError?>
@@ -180,7 +183,7 @@ if (isset($_POST['cancelar'])) {
 
             <div class="user-input-box">
           <select name="roles_usuarios" id="roles_usuarios" class="style-select">
-            <option value="<?= $info['rol_usuario'] ?>" selected disabled><?= $info['roles'] ?></option>
+            <option value="<?= $info['rolId'] ?>" name="roles_usuarios" selected disabled><?= $info['roles'] ?></option>
             <?php while($rol = $roles->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $rol['id'] ?>" name="roles_usuarios" ><?= $rol['roles'] ?></option>
             <?php } ?>
