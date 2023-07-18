@@ -11,6 +11,7 @@ $codigoPostalError = '';
 $ciudadError = '';
 $provinciaError = '';
 $condicionError = '';
+$estados_usuariosError = '';
 //-----------Al inicio es $error = false ------no hay error
 $error = false; 
 ?>

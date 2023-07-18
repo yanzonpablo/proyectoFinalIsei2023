@@ -13,6 +13,11 @@ require_once('bd/conexion.php');
 $estado = $pdo->query("SELECT * FROM estados_usuarios");
 ?>
 
+<?php
+require_once('bd/conexion.php');
+$roles = $pdo->query("SELECT * FROM roles_usuarios");
+?>
+
 
 <?php
 require_once('bd/conexion.php');
@@ -23,11 +28,13 @@ if(isset($_GET['id'])) {
 
     try {
 
-  $resultado = $pdo->prepare("SELECT usuarios.id as usuId, usuarios.nombre, usuarios.apellido, usuarios.email, 
+  $resultado = $pdo->prepare("SELECT usuarios.id as usuId, usuarios.nombre, usuarios.apellido, usuarios.email,usuarios.rol_usuario,
   afiliados.telefono, afiliados.dni, afiliados.fecha_nacimiento, afiliados.direccion, afiliados.codigo_postal, afiliados.id_provincia, 
+  roles_usuarios.id AS rolId, roles_usuarios.roles AS roles,
   estados_usuarios.estado, estados_usuarios.valor AS valor,
   provincias.id AS pciaId, provincias.nombre AS pciaNom
   FROM usuarios
+  INNER JOIN roles_usuarios ON usuarios.rol_usuario = roles_usuarios.id
   INNER JOIN afiliados ON usuarios.id = afiliados.id_usuario
   INNER JOIN provincias ON afiliados.id_provincia = provincias.id 
   INNER JOIN estados_usuarios ON afiliados.id_estado = estados_usuarios.valor WHERE usuarios.id = $id");
@@ -166,6 +173,16 @@ if (isset($_POST['cancelar'])) {
             <option value="<?= $info['valor'] ?>" selected disabled><?= $info['estado'] ?></option>
             <?php while($estados = $estado->fetch(PDO::FETCH_ASSOC)) { ?>
             <option value="<?= $estados['valor'] ?>" name="estados_usuarios" ><?= $estados['estado'] ?></option>
+            <?php } ?>
+          </select>
+          <?= $provinciaError?>
+            </div>
+
+            <div class="user-input-box">
+          <select name="roles_usuarios" id="roles_usuarios" class="style-select">
+            <option value="<?= $info['rol_usuario'] ?>" selected disabled><?= $info['roles'] ?></option>
+            <?php while($rol = $roles->fetch(PDO::FETCH_ASSOC)) { ?>
+            <option value="<?= $rol['id'] ?>" name="roles_usuarios" ><?= $rol['roles'] ?></option>
             <?php } ?>
           </select>
           <?= $provinciaError?>

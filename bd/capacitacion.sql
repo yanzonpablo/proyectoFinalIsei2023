@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2023 a las 23:35:12
+-- Tiempo de generación: 18-07-2023 a las 02:19:24
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -37,15 +37,16 @@ CREATE TABLE `afiliados` (
   `id_provincia` int(2) NOT NULL,
   `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
   `id_usuario` int(10) NOT NULL,
-  `afiliado_activo` int(1) NOT NULL DEFAULT 1
+  `id_estado` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `afiliados`
 --
 
-INSERT INTO `afiliados` (`id`, `telefono`, `dni`, `fecha_nacimiento`, `direccion`, `codigo_postal`, `id_provincia`, `fecha_alta`, `id_usuario`, `afiliado_activo`) VALUES
-(17, '3453453', 0, '1970-01-01', 'asdfasdfas werqwe', 234234, 1, '2023-07-05', 0, 1);
+INSERT INTO `afiliados` (`id`, `telefono`, `dni`, `fecha_nacimiento`, `direccion`, `codigo_postal`, `id_provincia`, `fecha_alta`, `id_usuario`, `id_estado`) VALUES
+(33, '2345235', 2354235, '2022-12-12', 'sdfgasdfg  3456', 23545, 22, '2023-07-17', 36, 1),
+(34, '43563456', 12351345, '2000-11-11', 'asedfgas 345', 3455, 8, '2023-07-17', 37, 0);
 
 -- --------------------------------------------------------
 
@@ -233,6 +234,26 @@ CREATE TABLE `entidades` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `estados_usuarios`
+--
+
+CREATE TABLE `estados_usuarios` (
+  `id` int(10) NOT NULL,
+  `estado` varchar(10) NOT NULL,
+  `valor` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `estados_usuarios`
+--
+
+INSERT INTO `estados_usuarios` (`id`, `estado`, `valor`) VALUES
+(1, 'Activo', 1),
+(2, 'Pasivo', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `inscripciones`
 --
 
@@ -355,6 +376,25 @@ INSERT INTO `provincias` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `roles_usuarios`
+--
+
+CREATE TABLE `roles_usuarios` (
+  `id` int(10) NOT NULL,
+  `roles` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `roles_usuarios`
+--
+
+INSERT INTO `roles_usuarios` (`id`, `roles`) VALUES
+(1, 'Administrador'),
+(2, 'Suscriptor');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -373,8 +413,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `fecha_alta`, `rol_usuario`) VALUES
-(16, 'asdfasdf', 'asdfasdf', 'asedfasdf@asdf.com', NULL, '2023-07-05', 1),
-(17, 'FECHACO', 'Ortize', 'asdfasfd@asdfasef.com', NULL, '2023-07-12', 1);
+(36, 'pablo1', 'pablo1', 'asdgasdg@asdf.com', NULL, '2023-07-17', 1),
+(37, 'asdfasdf', 'asdfasdf', 'asdf@asdfg.com', NULL, '2023-07-17', 1);
 
 --
 -- Índices para tablas volcadas
@@ -386,7 +426,7 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `fecha_
 ALTER TABLE `afiliados`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_provincia` (`id_provincia`),
-  ADD KEY `afiliado_activo` (`afiliado_activo`);
+  ADD KEY `afiliado_activo` (`id_estado`);
 
 --
 -- Indices de la tabla `camaras`
@@ -434,6 +474,12 @@ ALTER TABLE `entidades`
   ADD KEY `id_afiliado` (`id_afiliado`);
 
 --
+-- Indices de la tabla `estados_usuarios`
+--
+ALTER TABLE `estados_usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
@@ -465,6 +511,12 @@ ALTER TABLE `provincias`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `roles_usuarios`
+--
+ALTER TABLE `roles_usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -478,7 +530,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `afiliados`
 --
 ALTER TABLE `afiliados`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `camaras`
@@ -517,6 +569,12 @@ ALTER TABLE `entidades`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `estados_usuarios`
+--
+ALTER TABLE `estados_usuarios`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
@@ -547,10 +605,16 @@ ALTER TABLE `provincias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
+-- AUTO_INCREMENT de la tabla `roles_usuarios`
+--
+ALTER TABLE `roles_usuarios`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
