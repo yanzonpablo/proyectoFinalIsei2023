@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2023 a las 03:52:40
+-- Tiempo de generación: 19-07-2023 a las 23:27:44
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -45,8 +45,9 @@ CREATE TABLE `afiliados` (
 --
 
 INSERT INTO `afiliados` (`id`, `telefono`, `dni`, `fecha_nacimiento`, `direccion`, `codigo_postal`, `id_provincia`, `fecha_alta`, `id_usuario`, `id_estado`) VALUES
-(33, '2345235', 2354235, '2022-12-12', 'sdfgasdfg  3456', 23545, 22, '2023-07-17', 36, 1),
-(34, '43563456', 12351345, '2000-11-11', 'asedfgas 345', 3455, 8, '2023-07-17', 37, 1);
+(33, '43563456', 12351345, '2000-11-11', 'asedfgas 345', 3455, 3, '2023-07-17', 36, 1),
+(34, '435634563', 123513452, '2000-11-11', 'asedfgas 3454', 3455, 1, '2023-07-17', 37, 0),
+(35, '123123', 123541345, '2023-12-12', 'sdfgadrtg 34', 2134, 5, '2023-07-18', 38, 1);
 
 -- --------------------------------------------------------
 
@@ -413,8 +414,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `fecha_alta`, `rol_usuario`) VALUES
-(36, 'pablo1', 'pablo1', 'asdgasdg@asdf.com', NULL, '2023-07-17', 2),
-(37, 'asdfasdf', 'asdfasdf', 'asdf@asdfg.com', NULL, '2023-07-17', 1);
+(36, 'Fernando', 'Montengro', 'asdgasdg@asdf.com', '12312345', '2023-07-17', 2),
+(37, 'pablo22', 'yan12', 'asdgasdg@asdf.com3', '34534534', '2023-07-17', 1),
+(38, 'juan', 'pedro', 'asdasd@asdd.com', '11111111', '2023-07-18', 2);
 
 --
 -- Índices para tablas volcadas
@@ -530,7 +532,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `afiliados`
 --
 ALTER TABLE `afiliados`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `camaras`
@@ -614,7 +616,7 @@ ALTER TABLE `roles_usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

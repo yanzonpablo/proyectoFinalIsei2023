@@ -30,7 +30,7 @@ if(isset($_GET['id'])) {
 
   $resultado = $pdo->prepare("SELECT usuarios.id as usuId, usuarios.nombre, usuarios.apellido, usuarios.email,usuarios.rol_usuario,
   afiliados.telefono, afiliados.dni, afiliados.fecha_nacimiento, afiliados.direccion, afiliados.codigo_postal, afiliados.id_provincia, 
-  roles_usuarios.id AS rolId, roles_usuarios.roles AS roles,
+  roles_usuarios.id AS rolId, roles_usuarios.roles AS roles, usuarios.password,
   estados_usuarios.estado, estados_usuarios.valor AS valor,
   provincias.id AS pciaId, provincias.nombre AS pciaNom
   FROM usuarios
@@ -190,6 +190,12 @@ if (isset($_POST['cancelar'])) {
           </select>
           <?= $provinciaError?>
             </div>
+
+            <div class="user-input-box">
+          <input type="text" id="password" name="password" value="<?= $info['password'] ?>" placeholder="Contraseña" />
+          <?=$codigoPostalError?>
+        </div>
+
       </div>
 
       <?php } ?>
