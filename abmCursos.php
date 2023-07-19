@@ -11,7 +11,41 @@ INNER JOIN modalidades ON cursos.id_modalidad = modalidades.id ORDER BY id");
 $consulta -> execute();
 
 ?>
+<?php
+require_once('bd/conexion.php');
 
+if (isset( $_POST['input-buscador'])) {
+
+	$palabra = $_POST['input-buscador'];
+
+	try {
+
+	$bus = $pdo->prepare("SELECT cursos.id, cursos.nombre, cursos.logo_curso, capacitadores.nombre AS profe, modalidades.modalidad, niveles_cursos.carga_horaria, niveles_cursos.nivel, niveles_cursos.carga_horaria
+	from cursos 
+	INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id 
+	INNER JOIN capacitadores ON cursos.id_capacitador = capacitadores.id
+	INNER JOIN modalidades ON cursos.id_modalidad = modalidades.id 
+	WHERE LOWER(cursos.nombre) LIKE LOWER('%$palabra%')");
+
+	$bus->execute();
+
+	} catch(PDOException $e) {
+
+	echo $e->getMessage();
+	} 
+	} else {
+
+	$bus = $pdo->prepare('SELECT cursos.id, cursos.nombre, cursos.logo_curso, capacitadores.nombre AS profe, modalidades.modalidad, niveles_cursos.carga_horaria, niveles_cursos.nivel, niveles_cursos.carga_horaria, id_capacitador, id_modalidad
+	from cursos 
+	INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id 
+	INNER JOIN capacitadores ON cursos.id_capacitador = capacitadores.id
+	INNER JOIN modalidades ON cursos.id_modalidad = modalidades.id ORDER BY id');
+
+	$bus->execute();
+
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,11 +67,17 @@ $consulta -> execute();
 		<div class="cont_title">
 			<p>ABM CURSOS</p>
 		</div>
-			<div class="contenedor">
+		<div class="contenedor">
 			<a href="formularioCurso.php" class="btnAlta">ALTA CURSOS</a>
-		<table border="1">
-			<thead>
-				<tr>
+			<table border="1">
+				<thead>
+					<tr>
+					<form action="" method="POST">
+						<div class="header-content">
+							<input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar curso">
+
+						</div>
+					</form>
 					<th class="id">Id</th>
 					<th class="imagen">Imagen</th>
 					<th class="nombre">Nombre de Curso</th>
@@ -50,8 +90,9 @@ $consulta -> execute();
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
 				<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
+					<?php while($datos = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
+					<tr>
 					<td class="id" data-label="id"><?= $datos['id'] ?></td>
 					<td class="imagen"><img width="30%" src="images/cursos/<?= $datos['logo_curso'] ?>" alt=""></td>
 					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?></td>
@@ -62,6 +103,7 @@ $consulta -> execute();
 					<td class="editar"><a href="<?= 'editCurso.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
 					<td class="borrar"><a onclick="return confirmaCurso()" href="<?= 'deleteCursos.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
+				<?php } ?>
 				<?php } ?>
 			</tbody>
 		</table>
