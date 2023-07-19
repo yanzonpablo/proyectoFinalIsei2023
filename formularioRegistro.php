@@ -13,12 +13,15 @@ if (isset($_POST['aceptar'])) {
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
+$password = substr(MD5(rand(5, 100)), 0, 8);
+// substr -> Devuelve parte de una cadena
 
-$datos1 = $pdo->prepare('INSERT INTO usuarios (nombre, apellido, email) VALUES (:nombre, :apellido, :email)');
+$datos1 = $pdo->prepare('INSERT INTO usuarios (nombre, apellido, email, password) VALUES (:nombre, :apellido, :email, :password)');
 
 $datos1->bindParam(':nombre', $nombre);
 $datos1->bindParam(':apellido', $apellido);
 $datos1->bindParam(':email', $email);
+$datos1->bindParam(':password', $password);
 
 // -------------- afiliados -------------------------
 
