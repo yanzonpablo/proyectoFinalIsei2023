@@ -177,7 +177,8 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
     
     <div class="user-input-box2">
       <label for="descripcion">Ingrese descripción:</label>
-      <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="<?= $res['descripcion'] ?>" class="textareaCurso"><?= $res['descripcion'] ?> </textarea>
+      <textarea type="text" id="descripcion" maxlength="1000" rows="10"  name="descripcion" value="<?= $res['descripcion'] ?>" class="textareaCurso"><?= $res['descripcion'] ?> </textarea>
+      <div id="contador">0/1000</div>
       <?=$descripcionError?>
     </div>
     <?php } ?>
@@ -192,6 +193,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
           </form>
   </div>
 </section>
+<script src="js/contador.js"></script>
 </body>
 
 </html>

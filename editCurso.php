@@ -210,7 +210,8 @@ if (isset($_POST['aceptar'])) {
 
           <div class="user-input-box2">
             <label for="descripcion">Ingrese descripción:</label>
-            <textarea type="text" id="descripcion" rows="10"  name="descripcion" value="<?= $data['descripcion'] ?>" class="textareaCurso"><?= $data['descripcion'] ?> </textarea>
+            <textarea type="text" maxlength="1000" id="descripcion" rows="10"  name="descripcion" value="<?= $data['descripcion'] ?>" class="textareaCurso"><?= $data['descripcion'] ?> </textarea>
+             <div id="contador">0/1000</div>
             <?=$descripcionError?>
           </div>
           <?php } ?>
@@ -227,6 +228,7 @@ if (isset($_POST['aceptar'])) {
 </section>
 <script src="js/fechaInicio.js"></script>
 <script src="js/fechaFin.js"></script>
+<script src="js/contador.js"></script>
 </body>
 
 </html>
