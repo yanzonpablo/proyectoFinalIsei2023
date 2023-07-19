@@ -63,14 +63,14 @@ if (isset( $_POST['input-buscador'])) {
 				<tr>
 				<form action="" method="POST">
 						<div class="header-content">
-							<input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar curso">
+							<input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar capacitador">
 						</div>
 					</form>
-					<th class="Id">Id</th>
-					<th class="Imagen">Imagen</th>
-					<th class="NombreApellido">Nombre y apellido</th>
-					<th class="Borrar">Modificar</th>
-					<th class="Editar">Borrar</th>
+					<th class="id">Id</th>
+					<th class="imagen">Imagen</th>
+					<th class="nombreApellido">Nombre y apellido</th>
+					<th class="borrar">Modificar</th>
+					<th class="editar">Borrar</th>
 				</tr>
 			</thead>
 			<tbody>

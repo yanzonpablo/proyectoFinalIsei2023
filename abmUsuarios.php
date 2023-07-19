@@ -84,7 +84,7 @@ if (isset( $_POST['input-buscador'])) {
 				<tr>
 				<form action="" method="POST">
 						<div class="header-content">
-							<input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar curso">
+							<input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar usuario">
 						</div>
 					</form>
 					<th class="Id">Id</th>

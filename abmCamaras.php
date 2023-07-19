@@ -69,15 +69,15 @@ if (isset( $_POST['input-buscador'])) {
 				<tr>
 				<form action="" method="POST">
 						<div class="header-content">
-							<input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar curso">
+							<input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar cámara">
 						</div>
 					</form>
-					<th class="Id">Id</th>
-					<th class="Imagen">Imagen</th>
-					<th class="Nombre">Nombre</th>
-					<th class="Descripción">Nombre</th>
-					<th class="Borrar">Modificar</th>
-					<th class="Editar">Borrar</th>
+					<th class="id">Id</th>
+					<th class="imagen">Imagen</th>
+					<th class="nombre">Nombre</th>
+					<th class="descripción">Descripción</th>
+					<th class="borrar">Modificar</th>
+					<th class="editar">Borrar</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -87,7 +87,7 @@ if (isset( $_POST['input-buscador'])) {
 					<td class="id" data-label="id"><?= $datos['id'] ?></td>
 					<td class="imagen" ><img width="20%" src="images/logosCamaras/<?= $datos['logo_camara'] ?>" alt=""></td>
 					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?></td>
-					<td class="descripcion" data-label="descripcion"><?= $datos['descripcion']?></td>
+					<td class="descripcion" data-label="Descripcion"><?= $datos['descripcion']?></td>
 					<td class="Editar"><a href="<?= 'editCamara.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
 					<td class="Borrar"><a onclick="return confirmaCamara()" href="<?= 'deleteCamaras.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
