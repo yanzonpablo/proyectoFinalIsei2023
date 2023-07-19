@@ -159,4 +159,7 @@ table th {
 	table thead {
 		display: none;
 	}
+	.header-content {
+		justify-content: center;	
+	}
 }
