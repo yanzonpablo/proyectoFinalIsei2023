@@ -33,7 +33,7 @@
                                         <a href="newsletter.php">Newsletters</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="">A.B.Ms.<i class="fas fa-caret-down"></i></a>
+                                        <a href="">A.B.M.<i class="fas fa-caret-down"></i></a>
                                         <div class="dropdown second">
                                             <ul>
                                                 <li class="dropdown-link">
@@ -43,7 +43,7 @@
                                                     <a href="abmCursos.php">A.B.M Cursos</a>
                                                 </li>
                                                 <li class="dropdown-link">
-                                                    <a href="abmCapacitadores.php">A.B.M. DocenteS</a>
+                                                    <a href="abmCapacitadores.php">A.B.M. Docentes</a>
                                                 </li>
                                                 <li class="dropdown-link">
                                                     <a href="abmUsuarios.php">A.B.M. Usuarios</a>
