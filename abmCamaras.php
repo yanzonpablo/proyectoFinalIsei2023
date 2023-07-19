@@ -7,11 +7,38 @@ try {
 $consulta = $pdo->prepare('SELECT id, logo_camara, nombre, descripcion FROM camaras ORDER BY id');
 
 $consulta -> execute();
-  
-  } catch(PDOException $e) {
 
-    echo $e->getMessage();
-  }
+	} catch(PDOException $e) {
+
+	echo $e->getMessage();
+	}
+?>
+
+<?php
+require_once('bd/conexion.php');
+
+if (isset( $_POST['input-buscador'])) {
+
+	$palabra = $_POST['input-buscador'];
+
+	try {
+
+	$bus = $pdo->prepare("SELECT id, logo_camara, nombre, descripcion FROM camaras WHERE LOWER(camaras.nombre) LIKE LOWER('%$palabra%') ORDER BY id");
+
+	$bus->execute();
+
+	} catch(PDOException $e) {
+
+	echo $e->getMessage();
+	} 
+	} else {
+
+	$bus = $pdo->prepare("SELECT id, logo_camara, nombre, descripcion FROM camaras ORDER BY id");
+
+	$bus->execute();
+
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +67,11 @@ $consulta -> execute();
 		<table border="1">
 			<thead>
 				<tr>
+				<form action="" method="POST">
+						<div class="header-content">
+							<input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar curso">
+						</div>
+					</form>
 					<th class="Id">Id</th>
 					<th class="Imagen">Imagen</th>
 					<th class="Nombre">Nombre</th>
@@ -51,6 +83,7 @@ $consulta -> execute();
 			<tbody>
 				<tr>
 				<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
+					<?php while ($datos = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
 					<td class="id" data-label="id"><?= $datos['id'] ?></td>
 					<td class="imagen" ><img width="20%" src="images/logosCamaras/<?= $datos['logo_camara'] ?>" alt=""></td>
 					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?></td>
@@ -58,6 +91,7 @@ $consulta -> execute();
 					<td class="Editar"><a href="<?= 'editCamara.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
 					<td class="Borrar"><a onclick="return confirmaCamara()" href="<?= 'deleteCamaras.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
+				<?php } ?>
 				<?php } ?>
 			</tbody>
 		</table>

@@ -8,7 +8,6 @@ $consulta -> execute();
 
 ?>
 
-
 <?php
 require_once('bd/conexion.php');
 
@@ -35,13 +34,6 @@ if (isset( $_POST['input-buscador'])) {
 	}
 
 ?>
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="es">
