@@ -8,6 +8,41 @@ $consulta -> execute();
 
 ?>
 
+
+<?php
+require_once('bd/conexion.php');
+
+if (isset( $_POST['input-buscador'])) {
+
+	$palabra = $_POST['input-buscador'];
+
+	try {
+
+	$bus = $pdo->prepare("SELECT id, imagen, nombre, apellido FROM capacitadores WHERE LOWER(capacitadores.nombre) LIKE LOWER('%$palabra%') ORDER BY id");
+
+	$bus->execute();
+
+	} catch(PDOException $e) {
+
+	echo $e->getMessage();
+	} 
+	} else {
+
+	$bus = $pdo->prepare("SELECT id, imagen, nombre, apellido FROM capacitadores ORDER BY id");
+
+	$bus->execute();
+
+	}
+
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -34,6 +69,11 @@ $consulta -> execute();
 		<table border="1">
 			<thead>
 				<tr>
+				<form action="" method="POST">
+						<div class="header-content">
+							<input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar curso">
+						</div>
+					</form>
 					<th class="Id">Id</th>
 					<th class="Imagen">Imagen</th>
 					<th class="NombreApellido">Nombre y apellido</th>
@@ -44,12 +84,14 @@ $consulta -> execute();
 			<tbody>
 				<tr>
 				<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
+					<?php while ($datos = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
 					<td class="id" data-label="id"><?= $datos['id'] ?></td>
 					<td class="imagen" ><img width="20%" src="images/capacitadores/<?= $datos['imagen'] ?>" alt=""></td>
 					<td class="nombreApellido" data-label="Nombre y Apellido"><?= $datos['nombre'].' '.$datos['apellido'] ?></td>
 					<td class="Editar"><a href="<?= 'editCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
 					<td class="Borrar"><a onclick="return confirmaCapacitador()" href="<?= 'deleteCapacitadores.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
+				<?php } ?>
 				<?php } ?>
 			</tbody>
 		</table>
