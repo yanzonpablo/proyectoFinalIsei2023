@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2023 a las 23:27:44
+-- Tiempo de generación: 20-07-2023 a las 03:03:18
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -260,8 +260,9 @@ INSERT INTO `estados_usuarios` (`id`, `estado`, `valor`) VALUES
 
 CREATE TABLE `inscripciones` (
   `id` int(10) NOT NULL,
-  `fecha_inscripcion` date NOT NULL,
-  `id_usuario` int(10) NOT NULL
+  `fecha_inscripcion` date NOT NULL DEFAULT current_timestamp(),
+  `id_usuario` int(10) NOT NULL,
+  `id_curso` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
