@@ -3,15 +3,49 @@ require_once('bd/conexion.php');
 
 $id = $_GET['id'];
 
-$consulta = $pdo->prepare("SELECT entidades.fecha_alta, CONCAT(usuarios.nombre,' ',usuarios.apellido) AS nombre, 
+$consulta = $pdo->prepare("SELECT entidades.fecha_alta, usuarios.nombre AS nombre ,usuarios.apellido AS apellido, 
 cursos.nombre AS curso, cursos.fecha_inicio, cursos.fecha_fin
 from entidades 
 INNER JOIN usuarios ON entidades.id_usuario = usuarios.id
 INNER JOIN cursos ON entidades.id_curso = cursos.id
-WHERE entidades.id_curso = $id ORDER BY nombre");
+WHERE entidades.id_curso = $id ORDER BY entidades.fecha_alta");
 
 $consulta -> execute();
 
+?>
+
+<?php
+require_once('bd/conexion.php');
+
+if (isset( $_POST['input-buscador'])) {
+
+	$palabra = $_POST['input-buscador'];
+	try {
+	$bus = $pdo->prepare("SELECT entidades.fecha_alta, usuarios.nombre AS nombre ,usuarios.apellido AS apellido, 
+	cursos.nombre AS curso, cursos.fecha_inicio, cursos.fecha_fin
+	from entidades 
+	INNER JOIN usuarios ON entidades.id_usuario = usuarios.id
+	INNER JOIN cursos ON entidades.id_curso = cursos.id
+	WHERE (LOWER(usuarios.nombre) LIKE LOWER('%$palabra%') OR LOWER(usuarios.apellido) LIKE LOWER('%$palabra%')) AND entidades.id_curso = $id ");
+
+	$bus->execute();
+
+} catch(PDOException $e) {
+
+	echo $e->getMessage();
+	} 
+
+} else {
+
+	$bus = $pdo->prepare("SELECT entidades.fecha_alta, usuarios.nombre AS nombre ,usuarios.apellido AS apellido,  
+	cursos.nombre AS curso, cursos.fecha_inicio, cursos.fecha_fin
+	from entidades 
+	INNER JOIN usuarios ON entidades.id_usuario = usuarios.id
+	INNER JOIN cursos ON entidades.id_curso = cursos.id
+	WHERE entidades.id_curso = $id ");
+
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,9 +89,9 @@ $consulta -> execute();
 			</thead>
 			<tbody>
 				<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
-
+					<?php while ($datos = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
 					<tr>
-					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?></td>
+					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?> <?= $datos['apellido'] ?></td>
 					<td class="modalidad" data-label="Fecha Insc."><?= $datos['fecha_alta'] ?></td>
 					<td class="curso" data-label="Curso"><?= $datos['curso'] ?></td>
 					<td class="curso" data-label="fecha inicio"><?= $datos['fecha_inicio'] ?></td>
@@ -65,7 +99,7 @@ $consulta -> execute();
 					<td class="borrar"><a onclick="return confirmaCurso()" href=""><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
 				<?php } ?>
-
+				<?php } ?>
 			</tbody>
 		</table>
 	</div>
