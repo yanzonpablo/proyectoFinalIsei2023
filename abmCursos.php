@@ -85,6 +85,7 @@ if (isset( $_POST['input-buscador'])) {
 					<th class="horas">Carga horaria</th>
 					<th class="capacitador">Capacitador</th>
 					<th class="nivel">Nivel</th>
+					<th class="inscriptos">Inscriptos</th>
 					<th class="editar">Modificar</th>
 					<th class="borrar" style="font-size: 16px">Borrar</th>
 				</tr>
@@ -94,12 +95,13 @@ if (isset( $_POST['input-buscador'])) {
 					<?php while($datos = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
 					<tr>
 					<td class="id" data-label="id"><?= $datos['id'] ?></td>
-					<td class="imagen"><img width="30%" src="images/cursos/<?= $datos['logo_curso'] ?>" alt=""></td>
+					<td class="imagen"><img width="40%" src="images/cursos/<?= $datos['logo_curso'] ?>" alt=""></td>
 					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?></td>
 					<td class="modalidad" data-label="Modalidad"><?= $datos['modalidad'] ?></td>
 					<td class="horas" data-label="Carga Horaria"><?= $datos['carga_horaria'] ?></td>
 					<td class="capacitador" data-label="Capacitador"><?= $datos['profe'] ?></td>
 					<td class="nivel" data-label="Nivel"><?= $datos['nivel'] ?></td>
+					<td class="inscriptos" data-label="Inscriptos"><a class="inscriptos" href="<?= 'inscriptos.php?id='.$datos['id'] ?>">VER</a></td>
 					<td class="editar"><a href="<?= 'editCurso.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
 					<td class="borrar"><a onclick="return confirmaCurso()" href="<?= 'deleteCursos.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>

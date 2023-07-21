@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-07-2023 a las 03:03:18
+-- Tiempo de generación: 21-07-2023 a las 03:36:21
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -227,10 +227,17 @@ CREATE TABLE `cursos_ofrecidos` (
 
 CREATE TABLE `entidades` (
   `id` int(10) NOT NULL,
-  `fecha_alta` date NOT NULL,
+  `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
   `id_curso` int(10) NOT NULL,
-  `id_afiliado` int(10) NOT NULL
+  `id_usuario` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `entidades`
+--
+
+INSERT INTO `entidades` (`id`, `fecha_alta`, `id_curso`, `id_usuario`) VALUES
+(1, '2023-07-20', 17, 36);
 
 -- --------------------------------------------------------
 
@@ -474,7 +481,7 @@ ALTER TABLE `cursos_ofrecidos`
 ALTER TABLE `entidades`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_curso` (`id_curso`),
-  ADD KEY `id_afiliado` (`id_afiliado`);
+  ADD KEY `id_afiliado` (`id_usuario`);
 
 --
 -- Indices de la tabla `estados_usuarios`
@@ -569,7 +576,7 @@ ALTER TABLE `cursos_ofrecidos`
 -- AUTO_INCREMENT de la tabla `entidades`
 --
 ALTER TABLE `entidades`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `estados_usuarios`

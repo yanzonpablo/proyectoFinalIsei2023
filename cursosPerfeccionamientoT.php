@@ -48,7 +48,7 @@ if (isset( $_POST['input-buscador'])) {
   <form action="" method="POST">
   <div class="header-content">
       <input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar curso">
-    <button type="text" id="buscador" name="buscador" class="buscador"><i class="fas fa-search"></i></button>
+    
   </div>
 </form>
     <main>
