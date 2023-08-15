@@ -36,6 +36,7 @@ if (isset( $_POST['buscador'])) {
 	INNER JOIN usuarios ON inscripciones.id_usuario = usuarios.id
 	INNER JOIN cursos ON inscripciones.id_curso = cursos.id");
 
+	$bus->execute();
 }
 ?>
 
