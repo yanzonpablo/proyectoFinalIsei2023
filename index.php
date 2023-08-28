@@ -182,10 +182,7 @@
                             </span>
                         </h3>
                         <p class="preguntas_show">
-                            1.1 Verificar objetivos, temario y metodología en la web del curso de su interés.
-                            1.2 Enviar el formulario de preinscripción ingresando en la web.
-                            1.3 Dentro de las 48 a 72 hs. Recibirá un e-mail "CONFIRMANDO LA INCRIPCION" en la casilla
-                            de correo electrónico que usted registró.
+                            Hacer click en el botón <strong>INGRESAR</strong>, luego loguearse y a continuación seleccione el curso de su interes. Luego recibirá en su  correo electrónico la confirmación de inscripción al curso.
                         </p>
 
                     </div>
