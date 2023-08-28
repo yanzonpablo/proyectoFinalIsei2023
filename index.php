@@ -195,14 +195,7 @@
                                 <img src="images/arrow.svg" alt="Arrow icon" class="preguntas">
                             </span>
                         </h3>
-                        <p class="preguntas_show">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet
-                            neque
-                            modi, officia ipsum, saepe vitae soluta magni quidem maiores consectetur incidunt mollitia
-                            porro
-                            magnam excepturi fuga nisi? Hic saepe repellendus deserunt iure repellat sequi, fugiat
-                            molestias, maiores temporibus nihil similique laudantium aspernatur, totam dicta culpa.
-                            Labore
-                            porro ut tenetur?</p>
+                        <p class="preguntas_show">Al momento de la inscripción a un curso le llegará de forma inmediata un correo electrónico con el link de acceso a dicho curso.</p>
                     </div>
                 </article>
 
@@ -213,14 +206,7 @@
                                 <img src="images/arrow.svg" alt="Arrow icon" class="preguntas">
                             </span>
                         </h3>
-                        <p class="preguntas_show">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet
-                            neque
-                            modi, officia ipsum, saepe vitae soluta magni quidem maiores consectetur incidunt mollitia
-                            porro
-                            magnam excepturi fuga nisi? Hic saepe repellendus deserunt iure repellat sequi, fugiat
-                            molestias, maiores temporibus nihil similique laudantium aspernatur, totam dicta culpa.
-                            Labore
-                            porro ut tenetur?</p>
+                        <p class="preguntas_show">Los cursos On-line comienzan a las 19:30 Hs., salvo excepciones.</p>
                     </div>
                 </article>
                 <article class="preguntas_padding">
@@ -230,14 +216,7 @@
                                 <img src="images/arrow.svg" alt="Arrow icon" class="preguntas">
                             </span>
                         </h3>
-                        <p class="preguntas_show">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet
-                            neque
-                            modi, officia ipsum, saepe vitae soluta magni quidem maiores consectetur incidunt mollitia
-                            porro
-                            magnam excepturi fuga nisi? Hic saepe repellendus deserunt iure repellat sequi, fugiat
-                            molestias, maiores temporibus nihil similique laudantium aspernatur, totam dicta culpa.
-                            Labore
-                            porro ut tenetur?</p>
+                        <p class="preguntas_show">Se sigue un temario preestablecido, el mismo se puede ver ingresando a la web.</p>
                     </div>
                 </article>
 
@@ -248,14 +227,7 @@
                                 <img src="images/arrow.svg" alt="Arrow icon" class="preguntas">
                             </span>
                         </h3>
-                        <p class="preguntas_show">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet
-                            neque
-                            modi, officia ipsum, saepe vitae soluta magni quidem maiores consectetur incidunt mollitia
-                            porro
-                            magnam excepturi fuga nisi? Hic saepe repellendus deserunt iure repellat sequi, fugiat
-                            molestias, maiores temporibus nihil similique laudantium aspernatur, totam dicta culpa.
-                            Labore
-                            porro ut tenetur?</p>
+                        <p class="preguntas_show">Las inscripciones están habilitadas hasta 48 Hs. antes del comienzo del curso.</p>
                     </div>
                 </article>
                 <article class="preguntas_padding">
@@ -265,14 +237,7 @@
                                 <img src="images/arrow.svg" alt="Arrow icon" class="preguntas">
                             </span>
                         </h3>
-                        <p class="preguntas_show">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet
-                            neque
-                            modi, officia ipsum, saepe vitae soluta magni quidem maiores consectetur incidunt mollitia
-                            porro
-                            magnam excepturi fuga nisi? Hic saepe repellendus deserunt iure repellat sequi, fugiat
-                            molestias, maiores temporibus nihil similique laudantium aspernatur, totam dicta culpa.
-                            Labore
-                            porro ut tenetur?</p>
+                        <p class="preguntas_show">Se entrega un certificado de asistencia al curso.</p>
                     </div>
                 </article>
                 <!-- ---------------PREGUNTAS FRECUENTES FIN-------------- -->
