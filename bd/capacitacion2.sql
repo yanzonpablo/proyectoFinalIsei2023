@@ -31,11 +31,11 @@ CREATE TABLE `afiliados` (
   `id` int(10) NOT NULL,
   `telefono` varchar(12) NOT NULL,
   `dni` int(10) NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
+  `fecha_nacimiento` datetime NOT NULL,
   `direccion` varchar(120) NOT NULL,
   `codigo_postal` int(10) NOT NULL,
   `id_provincia` int(2) NOT NULL,
-  `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
+  `fecha_alta` datetime NOT NULL DEFAULT current_timestamp(),
   `id_usuario` int(10) NOT NULL,
   `id_estado` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -117,8 +117,8 @@ CREATE TABLE `capacitadores` (
   `especialidad` varchar(255) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
   `provincia` varchar(60) NOT NULL,
-  `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
-  `fecha_baja` date NOT NULL
+  `fecha_alta` datetime NOT NULL DEFAULT current_timestamp(),
+  `fecha_baja` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -162,8 +162,8 @@ CREATE TABLE `cursos` (
   `descripcion` varchar(1000) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `logo_curso` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `carga_horaria` int(10) NOT NULL,
-  `fecha_inicio` date NOT NULL,
-  `fecha_fin` date NOT NULL,
+  `fecha_inicio` datetime NOT NULL,
+  `fecha_fin` datetime NOT NULL,
   `id_capacitador` int(10) NOT NULL,
   `id_modalidad` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -227,7 +227,7 @@ CREATE TABLE `cursos_ofrecidos` (
 
 CREATE TABLE `entidades` (
   `id` int(10) NOT NULL,
-  `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
+  `fecha_alta` datetime NOT NULL DEFAULT current_timestamp(),
   `id_curso` int(10) NOT NULL,
   `id_usuario` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -268,7 +268,7 @@ INSERT INTO `estados_usuarios` (`id`, `estado`, `valor`) VALUES
 
 CREATE TABLE `inscripciones` (
   `id` int(10) NOT NULL,
-  `fecha_inscripcion` date NOT NULL DEFAULT current_timestamp(),
+  `fecha_inscripcion` datetime NOT NULL DEFAULT current_timestamp(),
   `id_usuario` int(10) NOT NULL,
   `id_curso` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -310,7 +310,7 @@ CREATE TABLE `newsletters` (
   `id` int(10) NOT NULL,
   `email` varchar(120) NOT NULL,
   `baja` int(1) NOT NULL,
-  `fecha_alta` date NOT NULL DEFAULT current_timestamp()
+  `fecha_alta` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -421,7 +421,7 @@ CREATE TABLE `usuarios` (
   `apellido` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(20) DEFAULT NULL,
-  `fecha_alta` date NOT NULL DEFAULT current_timestamp(),
+  `fecha_alta` datetime NOT NULL DEFAULT current_timestamp(),
   `rol_usuario` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 

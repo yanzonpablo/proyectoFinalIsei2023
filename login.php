@@ -19,7 +19,7 @@
                 <img src="images/logo.png" alt="logo-faatra">
             </div>
             <p class="title">Login</p>
-            <form action="" method="POST" class="form">
+            <form action="login.php" method="POST" class="form">
                 <input type="text" class="inputUser" placeholder="Nombre de usuario">
                 <input type="password" class="inputUser" placeholder="Contraseña">
                 <div class="boxCheck">
@@ -36,6 +36,9 @@
             </div>
         </div>
     </section>
+    <?php if(!empty($message)): ?>
+      <p> <?= $message ?></p>
+    <?php endif; ?>
 </body>
 
 </html>
