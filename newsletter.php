@@ -34,10 +34,10 @@ $consulta -> execute();
 
 <body>
 		<?php require_once("navAdmin.php") ?>
+		<div class="contenedor">
 		<div class="cont_title">
 			<p>E-MAILS ASOCIADOS A NEWSLETTERS</p>
 		</div>
-	<div class="contenedor">
 	<a href="" class="btnDescarga" id="download_xls" download="filename.xls">DESCARGAR LISTA</a>
 		<table border="1" id="datatable" >
 			<thead>
