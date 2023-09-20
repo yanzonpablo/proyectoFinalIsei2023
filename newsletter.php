@@ -33,7 +33,7 @@ $consulta -> execute();
 </head>
 
 <body>
-		<?php require_once("nav.php") ?>
+		<?php require_once("navAdmin.php") ?>
 		<div class="cont_title">
 			<p>E-MAILS ASOCIADOS A NEWSLETTERS</p>
 		</div>

@@ -58,7 +58,7 @@ if (isset( $_POST['input-buscador'])) {
 </head>
 </body>
 <body>
-		<?php require_once("nav.php") ?>
+		<?php require_once("navAdmin.php") ?>
 		<div class="cont_title">
 			<p>ABM CAMARAS</p>
 		</div>

@@ -21,48 +21,9 @@
             <div class="nav-btn">
                 <div class="nav-links">
                     <ul>
-                        <!-- -----------------boton temp-------------------------- -->
-                        <li class="nav-link" style="--i: .85s">
-                            <a href="#">Panel de control<i class="fas fa-caret-down"></i></a>
-                            <div class="dropdown">
-                                <ul>
-                                    <li class="dropdown-link">
-                                        <a href="dash.php">Dashboard</a>
-                                    </li>
-                                    <li class="dropdown-link">
-                                        <a href="newsletter.php">Newsletters</a>
-                                    </li>
-                                    <li class="dropdown-link">
-                                        <a href="">A.B.M.<i class="fas fa-caret-down"></i></a>
-                                        <div class="dropdown second">
-                                            <ul>
-                                                <li class="dropdown-link">
-                                                    <a href="abmCamaras.php">A.B.M. Cámaras</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="abmCursos.php">A.B.M Cursos</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="abmCapacitadores.php">A.B.M. Docentes</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="abmUsuarios.php">A.B.M. Usuarios</a>
-                                                </li>
-                                                <div class="arrow"></div>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <div class="arrow"></div>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <!-- -----------------boton temp-------------------------- -->  
-
                         <li class="nav-link" style="--i: .6s">
                             <a href="index.php">Inicio</a>
                         </li>
-                        
                         <li class="nav-link" style="--i: .85s">
                             <a href="#">Cursos<i class="fas fa-caret-down"></i></a>
                             <div class="dropdown">
@@ -79,100 +40,17 @@
                                     <li class="dropdown-link">
                                         <a href="charlasPresentacionTecnica.php">Charlas Técnicas y Presentaciones Comerciales</a>
                                     </li>
-                                    <!-- <li class="dropdown-link">
-                                        <a href="#">Link 3<i class="fas fa-caret-down"></i></a>
-                                        <div class="dropdown second">
-                                            <ul>
-                                                <li class="dropdown-link">
-                                                    <a href="#">Link 1</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="#">Link 2</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="#">Link 3</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="#">More<i class="fas fa-caret-down"></i></a>
-                                                    <div class="dropdown second">
-                                                        <ul>
-                                                            <li class="dropdown-link">
-                                                                <a href="#">Link 1</a>
-                                                            </li>
-                                                            <li class="dropdown-link">
-                                                                <a href="#">Link 2</a>
-                                                            </li>
-                                                            <li class="dropdown-link">
-                                                                <a href="#">Link 3</a>
-                                                            </li>
-                                                            <div class="arrow"></div>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <div class="arrow"></div>
-                                            </ul>
-                                        </div>
-                                    </li> -->
                                     <div class="arrow"></div>
                                 </ul>
                             </div>
                         </li>
                         <li class="nav-link" style="--i: 1.1s">
                             <a href="capacitadores.php">Capacitadores</a>
-                            <!-- <div class="dropdown">
-                                <ul>
-                                    <li class="dropdown-link">
-                                        <a href="#">Link 1</a>
-                                    </li>
-                                    <li class="dropdown-link">
-                                        <a href="#">Link 2</a>
-                                    </li>
-                                    <li class="dropdown-link">
-                                        <a href="#">Como funciona<i class="fas fa-caret-down"></i></a>
-                                        <div class="dropdown second">
-                                            <ul>
-                                                <li class="dropdown-link">
-                                                    <a href="#">Link 1</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="#">Link 2</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="#">Link 3</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="#">More<i class="fas fa-caret-down"></i></a>
-                                                    <div class="dropdown second">
-                                                        <ul>
-                                                            <li class="dropdown-link">
-                                                                <a href="#">Link 1</a>
-                                                            </li>
-                                                            <li class="dropdown-link">
-                                                                <a href="#">Link 2</a>
-                                                            </li>
-                                                            <li class="dropdown-link">
-                                                                <a href="#">Link 3</a>
-                                                            </li>
-                                                            <div class="arrow"></div>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <div class="arrow"></div>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="dropdown-link">
-                                        <a href="#">Link 4</a>
-                                    </li>
-                                    <div class="arrow"></div>
-                                </ul>
-                            </div> -->
                         </li>
                         <li class="nav-link" style="--i: 1.35s">
                             <a href="contacto.php">Contacto</a>
                         </li>
                     </ul>
-                    
                     </div>
                         <div class="buttons" style="--i: 1.8s">
                             <a href="formularioRegistro.php" class="btn btnRegistrese transparent">Registrarse</a>

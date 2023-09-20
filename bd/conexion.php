@@ -2,7 +2,7 @@
 
 $dsn = "mysql:host=localhost;dbname=capacitacion;charset=UTF8";
 $usuario = "root";
-$contrasenia = "";
+$contrasenia = "d79f2f87";
 
 try {
 $bd = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
