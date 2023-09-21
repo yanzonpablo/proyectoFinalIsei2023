@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -35,6 +39,7 @@
                 referentes en sus rubros. Comenzá a perfeccionar hoy tu trabajo de mañana.</p>
             <a href="#listaCursos" class="btn-curso">VER CURSOS AQUÍ</a>
         </div>
+        <?php var_dump($_SESSION["rol_usuario"]); ?>
         <!-- <div class="separacion" id="listaCursos"></div> -->
         <div class="iconospantalla">
             <div class="publi-fila">

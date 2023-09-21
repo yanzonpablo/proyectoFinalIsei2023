@@ -22,7 +22,7 @@
                 <div class="nav-links">
                     <ul>
                         <li class="nav-link" style="--i: .6s">
-                            <a href="index.php">Inicio</a>
+                            <a href="logout.php">Inicio</a>
                         </li>
                         <li class="nav-link" style="--i: .85s">
                             <a href="#">Cursos<i class="fas fa-caret-down"></i></a>

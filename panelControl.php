@@ -1,10 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION[1])) {
+if (!isset($_SESSION['rol_usuario']) === 2) {
 	header("Location: index.php");
-exit();
-}
+} 
 ?>
 
 <!DOCTYPE html>
