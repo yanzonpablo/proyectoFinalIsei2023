@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+?>
+
+<?php
 require_once('bd/conexion.php');
 
 if (isset( $_POST['input-buscador'])) {

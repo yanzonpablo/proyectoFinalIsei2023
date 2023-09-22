@@ -3,27 +3,26 @@ session_start();
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Conexión a la base de datos
+    
     $pdo = new PDO("mysql:host=localhost;dbname=capacitacion", "root", "d79f2f87");
 
-    // credenciales ingresadas por el usuario
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    // Consulta SQL 
+    // SQL 
     $query = "SELECT * FROM usuarios WHERE email = :username AND password = :password";
     $statement = $pdo->prepare($query);
     $statement->bindParam(":username", $username);
     $statement->bindParam(":password", $password);
     $statement->execute();
 
-    // Comprobar si las credenciales son válidas
+    // Comprobar credenciales
     if ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $_SESSION["nombre"] = $row["nombre"];
         $_SESSION["rol_usuario"] = $row["rol_usuario"];
 
-        if ($row["rol_usuario"] == 2) {
-            header("Location: panelControl.php"); // Redirigir a la página principal
+        if ($row["rol_usuario"] === 2) {
+            header("ocation: panelControl.php");
         } else {
             header("location: index.php");
         }

@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['rol_usuario']) == 2) {
+	header("Location: index.php");
+} 
+?>
+
+<?php
 
 require_once('bd/conexion.php');
 

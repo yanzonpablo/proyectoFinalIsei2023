@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['rol_usuario']) === 2) {
-	header("Location: index.php");
+if ($_SESSION['rol_usuario'] != 2) {
+	header("location: index.php");
 } 
 ?>
 
