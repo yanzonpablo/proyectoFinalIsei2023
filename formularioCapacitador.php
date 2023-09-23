@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if ($_SESSION['rol_usuario'] != 2) {
+	header("location: index.php");
+} 
+?>
+
+<?php
 require_once ('varErrorCapacitador.php');
 require_once ('bd/conexion.php');
 

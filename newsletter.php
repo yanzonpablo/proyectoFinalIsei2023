@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['rol_usuario']) == 2) {
-	header("Location: index.php");
-} 
+if ($_SESSION['rol_usuario'] != 2) {
+	header("location: index.php");
+}
 ?>
 
 <?php
@@ -11,10 +11,9 @@ if (!isset($_SESSION['rol_usuario']) == 2) {
 require_once('bd/conexion.php');
 
 try {
-$consulta = $pdo->prepare('SELECT * FROM newsletters');
+	$consulta = $pdo->prepare('SELECT * FROM newsletters');
 
-$consulta -> execute();
-
+	$consulta->execute();
 } catch (PDOException $e) {
 
 	echo $e->getMessage();
@@ -41,13 +40,15 @@ $consulta -> execute();
 </head>
 
 <body>
-		<?php require_once("navAdmin.php") ?>
-		<div class="contenedor">
+	<?php require_once("navAdmin.php") ?>
+	<div class="contenedor">
 		<div class="cont_title">
 			<p>E-MAILS ASOCIADOS A NEWSLETTERS</p>
 		</div>
-	<a href="" class="btnDescarga" id="download_xls" download="filename.xls">DESCARGAR LISTA</a>
-		<table border="1" id="datatable" >
+		<div>
+			<a href="" class="btnDescarga" id="download_xls" download="filename.xls">DESCARGAR LISTA</a>
+		</div>
+		<table border="1" id="datatable">
 			<thead>
 				<tr>
 					<th>Correo Electrónica</th>
@@ -56,11 +57,11 @@ $consulta -> execute();
 			</thead>
 			<tbody>
 				<tr>
-				<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
-					<td data-label="E-mail:"><?= $datos['email'] ?></td>
-					<td data-label="Fecha Alta:"><?= $datos['fecha_alta'] ?></td>
+					<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
+						<td data-label="E-mail:"><?= $datos['email'] ?></td>
+						<td data-label="Fecha Alta:"><?= $datos['fecha_alta'] ?></td>
 				</tr>
-				<?php } ?>
+			<?php } ?>
 			</tbody>
 		</table>
 	</div>

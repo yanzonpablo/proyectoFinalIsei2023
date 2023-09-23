@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["rol_usuario"] = $row["rol_usuario"];
 
         if ($row["rol_usuario"] === 2) {
-            header("ocation: panelControl.php");
+            header("location: panelControl.php");
         } else {
             header("location: index.php");
         }
