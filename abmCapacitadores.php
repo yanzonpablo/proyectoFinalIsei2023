@@ -35,7 +35,7 @@ if (isset( $_POST['input-buscador'])) {
 	} 
 	} else {
 
-	$bus = $pdo->prepare("SELECT id, imagen, nombre, apellido FROM capacitadores ORDER BY id");
+	$bus = $pdo->prepare("SELECT id, imagen, nombre, apellido, telefono, email FROM capacitadores ORDER BY id");
 
 	$bus->execute();
 
@@ -77,6 +77,8 @@ if (isset( $_POST['input-buscador'])) {
 					<th class="id">Id</th>
 					<th class="imagen">Imagen</th>
 					<th class="nombreApellido">Nombre y apellido</th>
+					<th class="telefono">Teléfono</th>
+					<th class="email">E-mail</th>
 					<th class="modificar">Modificar</th>
 					<th class="editar">Borrar</th>
 				</tr>
@@ -88,6 +90,8 @@ if (isset( $_POST['input-buscador'])) {
 					<td class="id" data-label="id"><?= $datos['id'] ?></td>
 					<td class="imagen" ><img width="20%" src="images/capacitadores/<?= $datos['imagen'] ?>" alt=""></td>
 					<td class="nombreApellido" data-label="Nombre y Apellido"><?= $datos['nombre'].' '.$datos['apellido'] ?></td>
+					<td class="telefono" data-label="Teléfono"><?= $datos['telefono'] ?></td>
+					<td class="email" data-label="email"><?= $datos['email'] ?></td>
 					<td class="Editar"><a href="<?= 'editCapacitador.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
 					<td class="Borrar"><a onclick="return confirmaCapacitador()" href="<?= 'deleteCapacitadores.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>

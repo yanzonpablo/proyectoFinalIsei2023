@@ -108,9 +108,11 @@ table td, table th {
 	padding: 10px;
 }
 .id {
-	width: 10%;
+	width: 5%;
 }
-
+.horas {
+	width: 12%;
+}
 table th {
 	text-transform: uppercase;
 	font-family: 18px;

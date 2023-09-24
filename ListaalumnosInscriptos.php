@@ -18,7 +18,7 @@ INNER JOIN modalidades ON cursos.id_modalidad = modalidades.id ORDER BY id");
 $consulta -> execute();
 
 ?>
-<?php
+<!-- <?php
 require_once('bd/conexion.php');
 
 if (isset( $_POST['input-buscador'])) {
@@ -52,7 +52,7 @@ if (isset( $_POST['input-buscador'])) {
 
 	}
 
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -72,10 +72,10 @@ if (isset( $_POST['input-buscador'])) {
 <body>
 		<?php require_once("navAdmin.php") ?>
 		<div class="cont_title">
-			<p>ABM CURSOS</p>
+			<p>Alumnos Inscriptos por curso</p>
 		</div>
 		<div class="contenedor">
-			<a href="formularioCurso.php" class="btnAlta">ALTA CURSOS</a>
+			<a href="formularioCurso.php" class="btnAlta">Exportar alumnos inscriptos p/curso</a>
 			<table border="1">
 				<thead>
 					<tr>
@@ -86,14 +86,11 @@ if (isset( $_POST['input-buscador'])) {
 						</div>
 					</form>
 					<th class="id">Id</th>
-					<th class="nombre">Nombre de Curso</th>
+					<th class="nombreApellido">Nombre y apellido</th>
 					<th class="modalidad">Modalidad</th>
 					<th class="horas">C/horaria</th>
-					<th class="capacitador">Capacitador</th>
+					<th class="capacitador">Curso</th>
 					<th class="nivel">Nivel</th>
-					<th class="inscriptos">Inscriptos</th>
-					<th class="editar">Modificar</th>
-					<th class="borrar" style="font-size: 16px">Borrar</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -104,11 +101,8 @@ if (isset( $_POST['input-buscador'])) {
 					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?></td>
 					<td class="modalidad" data-label="Modalidad"><?= $datos['modalidad'] ?></td>
 					<td class="horas" data-label="Carga Horaria"><?= $datos['carga_horaria'] ?></td>
-					<td class="capacitador" data-label="Capacitador"><?= $datos['profe'] ?></td>
+					<td class="capacitador" data-label="Curso"><?= $datos[''] ?></td>
 					<td class="nivel" data-label="Nivel"><?= $datos['nivel'] ?></td>
-					<td class="inscriptos" data-label="Inscriptos"><a class="inscriptos" href="<?= 'inscriptos.php?id='.$datos['id'] ?>">VER</a></td>
-					<td class="editar"><a href="<?= 'editCurso.php?id='.$datos['id'] ?>"><i class="fas fa-user-edit edit"></i></a></td>
-					<td class="borrar"><a onclick="return confirmaCurso()" href="<?= 'deleteCursos.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
 				<?php } ?>
 				<?php } ?>
