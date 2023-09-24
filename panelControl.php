@@ -1,14 +1,11 @@
 <?php
 session_start();
-
 if ($_SESSION['rol_usuario'] != 2) {
 	header("location: index.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 	<title>Panel de control</title>
 	<meta charset="utf-8" />
@@ -28,17 +25,6 @@ if ($_SESSION['rol_usuario'] != 2) {
 
 <body>
 	<?php require_once("navAdmin.php") ?>
-	<?php
-	echo "<pre>";
-	echo "id: ".$_SESSION['id'];
-	echo "</pre>";
-	echo "<pre>";
-	echo "Nombre: ".$_SESSION['nombre'];
-	echo "</pre>";
-	echo "<pre>";
-	echo "Rol: ".$_SESSION['rol_usuario'];
-	echo "</pre>";
-	?>
 </body>
 
 </html>

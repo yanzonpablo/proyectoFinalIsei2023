@@ -1,29 +1,21 @@
 <?php
 session_start();
-
 if ($_SESSION['rol_usuario'] != 2) {
 	header("location: index.php");
 }
 ?>
-
 <?php
-
 require_once('bd/conexion.php');
 
 try {
 	$consulta = $pdo->prepare('SELECT * FROM newsletters');
-
 	$consulta->execute();
 } catch (PDOException $e) {
-
 	echo $e->getMessage();
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 	<title>Listado Newsletter</title>
 	<meta charset="utf-8" />

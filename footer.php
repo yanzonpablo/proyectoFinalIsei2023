@@ -9,7 +9,6 @@ if (isset($_POST['submit'])) {
         $query->bindParam(':email', $email);
 
         $query->execute();
-        $pdo-> null;
 }
 ?>
 <footer class="footer">
@@ -31,13 +30,12 @@ if (isset($_POST['submit'])) {
                 <li><i class="fab fa-linkedin"><a href="https://linkedin.com/in/faatra-argentina-1616b51a5/" target="_blank" rel="noopener noreferrer"> Linkedin</a></i> 
             </ul>
         </div>
-        <form class="footer-item newsletter" method="POST">
+        <form action="" class="footer-item newsletter" method="POST">
             <h2 class="footer-title"> Newsletter </h2>
             <ul class="news-input">
                 <li>Reciba todas las novedades</li>
                 <input type="email" class="input-news"  placeholder="Ingrese e-mail" name="email">
                 <button type="submit" value="suscribirse" name="submit" class="btnNews">Suscribirse
             </ul>
-</form>
         </form>
     </footer>
