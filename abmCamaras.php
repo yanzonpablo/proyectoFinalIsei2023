@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 
 if ($_SESSION['rol_usuario'] != 2) {

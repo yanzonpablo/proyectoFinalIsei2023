@@ -63,7 +63,7 @@ $consulta->execute();
 	echo "<pre>";
 	echo "id: ".$_SESSION['id'];
 	echo "</pre>";
-	echo "<pre>";
+
 
 	?>
             <form action="" method="POST" class="btn-reg">
