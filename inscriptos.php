@@ -15,7 +15,7 @@ $consulta = $pdo->prepare("SELECT inscripciones.id, inscripciones.fecha_inscripc
 cursos.nombre AS curso, cursos.fecha_inicio, cursos.fecha_fin
 from inscripciones 
 INNER JOIN usuarios ON inscripciones.id_usuario = usuarios.id
-INNER JOIN cursos ON inscripciones.id_curso = cursos.id");
+INNER JOIN cursos ON inscripciones.id_curso = $id");
 
 $consulta->execute();
 
