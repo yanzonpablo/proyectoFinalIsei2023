@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Comprobar credenciales
     if ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $_SESSION["id"] = $row["id"];
         $_SESSION["nombre"] = $row["nombre"];
         $_SESSION["rol_usuario"] = $row["rol_usuario"];
 

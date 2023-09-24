@@ -17,28 +17,29 @@
 	font-size: 26px;
 	font-weight: 600;
 	background-color: #027fb5;;
-	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	padding: 5px;
-	margin: 20px 10px 10px 10px;
+	margin: 20px 0px 20px 0px;
 }
 .contenedor {
 	display: flex;
+	margin: auto;
 	flex-wrap: wrap;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	max-width: 1200px;
 }
 .btnDescarga {
-
-	background-color: #029ee0;
+	background-color: #04aef7;
 	width: 200px;
 	border: none;
 	color: white;
 	font-weight: 500;
-	padding: 15px 12px;
+	padding: 5px 5px;
 	text-decoration: none;
 	font-size: 16px;
 	border-radius: 5px;
-	margin: 20px  0 20px 0;
 	text-align: center;
 }
 .btnDescarga:hover {
@@ -49,7 +50,7 @@ table {
 	max-width: 1200px;
 	border: 1px solid #ccc; 
 	width: 100%;
-	margin: 0;
+	margin: 20px;
 	padding: 0;
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -112,5 +113,9 @@ table th {
 
 	table thead {
 		display: none;
+	}
+	.cont_title p {
+		display: flex;
+		flex-wrap: wrap;
 	}
 }

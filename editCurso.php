@@ -141,7 +141,7 @@ if (isset($_POST['aceptar'])) {
 </head>
 
 <body>
-  <?php require_once ('nav.php') ?>
+<?php require_once("navAdmin.php") ?>
   <section>
   <div class="container">
     <h1 class="form-title">EDICION REGISTRO CURSOS</h1>

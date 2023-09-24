@@ -81,7 +81,7 @@ if (isset($_POST['cancelar'])) {
 </head>
 
 <body>
-  <?php require_once ('nav.php') ?>
+<?php require_once("navAdmin.php") ?>
   <section>
   <div class="container">
     <h1 class="form-title">FORMULARIO DE REGISTRO</h1>

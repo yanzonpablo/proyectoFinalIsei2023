@@ -111,7 +111,7 @@ $consulta = $pdo->query("SELECT id, nombre FROM provincias order by nombre ASC")
 </head>
 
 <body>
-  <?php require_once ('nav.php') ?>
+<?php require_once("navAdmin.php") ?>
   <section>
   <div class="container">
     <h1 class="form-title">REGISTRO CAPACITADOR</h1>

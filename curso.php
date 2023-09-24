@@ -2,30 +2,23 @@
 <?php
 session_start();
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["registro"])) {
-//   // Conexión a la base de datos
-//   $pdo = new PDO("mysql:host=localhost;dbname=capacitacion", "root", "d79f2f87");
-//     // Verificar si el usuario está autenticado
-//     if (!isset($_SESSION["id"])) {
-//         // El usuario no ha iniciado sesión, puedes redirigirlo a la página de inicio de sesión o mostrar un mensaje de error.
-//         echo "Debes iniciar sesión para registrarte en el curso.";
-//     } else {
-//         // Capturar el id del usuario autenticado desde la sesión
-//         $id_usuario = $_SESSION["id"];
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["registro"])) {
+  // Conexión a la bd
+  $pdo = new PDO("mysql:host=localhost;dbname=capacitacion", "root", "d79f2f87");
+    // Verificar si el usuario está autenticado
+    if (!isset($_SESSION["id"])) {
+        header ('location: login.php');
+    } else {
+        // Capturar id del usuario y curso
+        $id_usuario = $_SESSION["id"];
+        $id_curso = $_GET['id'];
 
-//         // Insertar el registro en la tabla de inscripciones
-//         $sql = "INSERT INTO inscripciones (id_usuario, id_curso) VALUES (:id_usuario, :id_curso)";
-//         $statement = $pdo->prepare($sql);
-//         $statement->bindParam(":id_usuario", $id_usuario);
-//         $statement->bindParam(":id_curso", $id);
-
-//         if ($statement->execute()) {
-//             echo "Te has registrado en el curso con éxito.";
-//         } else {
-//             echo "Error al registrarte en el curso.";
-//         }
-//     }
-// }
+        $sql = $pdo->prepare("INSERT INTO inscripciones (id_usuario, id_curso) VALUES (:id_usuario, :id_curso)");
+        $sql->bindParam(":id_usuario", $id_usuario);
+        $sql->bindParam(":id_curso", $id_curso);
+        $sql->execute();
+    }
+}
 ?>
 
 <?php
@@ -66,6 +59,13 @@ $consulta->execute();
         </div>
         <p class="fin">Fecha de finalización: <?= $datos['fecha_fin'] ?></p>
             <?php } ?>
+            <?php
+	echo "<pre>";
+	echo "id: ".$_SESSION['id'];
+	echo "</pre>";
+	echo "<pre>";
+
+	?>
             <form action="" method="POST" class="btn-reg">
             <button type="submit" value="registro" name="registro" class="registro">Registrate</button>
             </form>

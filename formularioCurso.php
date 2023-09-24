@@ -123,7 +123,7 @@ if (isset($_POST['registrar'])) {
 </head>
 
 <body>
-  <?php require_once ('nav.php') ?>
+<?php require_once("navAdmin.php") ?>
   <section>
   <div class="container">
     <h1 class="form-title">REGISTRO DE CURSOS</h1>

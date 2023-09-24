@@ -128,7 +128,7 @@ if (isset($_POST['cancelar'])) {
 </head>
 
 <body>
-<?php require_once ('nav.php') ?>
+<?php require_once("navAdmin.php") ?>
 <main>
 <section>
     <div class="container">

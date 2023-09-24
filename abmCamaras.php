@@ -83,7 +83,7 @@ if (isset( $_POST['input-buscador'])) {
 					<th class="imagen">Imagen</th>
 					<th class="nombre">Nombre</th>
 					<th class="descripción">Descripción</th>
-					<th class="borrar">Modificar</th>
+					<th class="modificar">Modificar</th>
 					<th class="editar">Borrar</th>
 				</tr>
 			</thead>

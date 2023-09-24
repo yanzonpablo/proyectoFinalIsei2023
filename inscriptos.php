@@ -65,7 +65,7 @@ if (isset( $_POST['buscador'])) {
 </head>
 </body>
 <body>
-		<?php require_once("nav.php") ?>
+<?php require_once("navAdmin.php") ?>
 		<div class="cont_title">
 			<p>LISTA DE INSCRIPTOS</p>
 		</div>
