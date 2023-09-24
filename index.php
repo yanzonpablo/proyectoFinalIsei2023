@@ -26,7 +26,35 @@ session_start();
 </head>
 
 <body>
-<?php include_once "nav.php" ?>
+<?php
+$rol = isset($_SESSION['rol_usuario']) ? $_SESSION['rol_usuario'] : '';
+
+if ($rol == '') {
+    $rol = '0';
+}
+
+switch ($rol) {
+    case '0':
+        include_once "nav.php"; 
+        break;
+    case '1':
+        include_once "navUsuario.php"; 
+        break;
+    case '2':
+        include_once "navAdmin.php"; 
+        break;
+    default:
+        include_once "nav.php"; 
+        break;
+}
+?>
+<!-- if ($rol == '0') {
+    include_once "nav.php"; 
+} elseif ($rol == '1') {
+    include_once "navUsuario.php"; 
+} else {
+    include_once "navAdmin.php"; 
+} -->
     <main>
         <?php require_once('slider.php') ?>
         <!-- <div class="img-content">
@@ -39,7 +67,6 @@ session_start();
                 referentes en sus rubros. Comenzá a perfeccionar hoy tu trabajo de mañana.</p>
             <a href="#listaCursos" class="btn-curso">VER CURSOS AQUÍ</a>
         </div>
-        <?php var_dump($_SESSION["rol_usuario"]); ?>
         <!-- <div class="separacion" id="listaCursos"></div> -->
         <div class="iconospantalla">
             <div class="publi-fila">
@@ -55,7 +82,6 @@ session_start();
                         </div>
                     </div>
                 </article>
-
                 <article>
                     <div class="publi-container">
                         <div class="publi-item">
@@ -68,7 +94,6 @@ session_start();
                         </div>
                     </div>
                 </article>
-
                 <article>
                     <div class="publi-container">
                         <div class="publi-item">
@@ -95,7 +120,6 @@ session_start();
                         </div>
                     </div>
                 </article>
-
                 <article>
                     <div class="publi-container">
                         <div class="publi-item">
@@ -108,7 +132,6 @@ session_start();
                         </div>
                     </div>
                 </article>
-
                 <article>
                     <div class="publi-container">
                         <div class="publi-item">
@@ -175,10 +198,8 @@ session_start();
             <p class="preguntas_paragraph">En las siguientes secciones podrás encontrar información sobre nuestros
                 cursos. Para ello hemos reunido una selección de las preguntas más frecuentes que recibimos por parte de
                 los interesados a lo largo de nuestra experiencia en la formación.
-
             </p>
             <section class="preguntas_container">
-
                 <article class="preguntas_padding">
                     <div class="preguntas_answer">
                         <h3 class="preguntas_title">¿Cuales son los pasos para inscribirme?
@@ -189,10 +210,8 @@ session_start();
                         <p class="preguntas_show">
                             Hacer click en el botón <strong>INGRESAR</strong>, luego loguearse y a continuación seleccione el curso de su interes. Luego recibirá en su  correo electrónico la confirmación de inscripción al curso.
                         </p>
-
                     </div>
                 </article>
-
                 <article class="preguntas_padding">
                     <div class="preguntas_answer">
                         <h3 class="preguntas_title">Estoy inscripto en un curso. ¿Cuándo y cómo accedo?
@@ -203,7 +222,6 @@ session_start();
                         <p class="preguntas_show">Al momento de la inscripción a un curso le llegará de forma inmediata un correo electrónico con el link de acceso a dicho curso.</p>
                     </div>
                 </article>
-
                 <article class="preguntas_padding">
                     <div class="preguntas_answer">
                         <h3 class="preguntas_title">¿En qué horarios se cursa? ¿Hay horarios fijos?
@@ -224,7 +242,6 @@ session_start();
                         <p class="preguntas_show">Se sigue un temario preestablecido, el mismo se puede ver ingresando a la web.</p>
                     </div>
                 </article>
-
                 <article class="preguntas_padding">
                     <div class="preguntas_answer">
                         <h3 class="preguntas_title">¿Hasta cuándo tengo tiempo de inscribirme en un curso?
@@ -250,5 +267,4 @@ session_start();
     </main>
 <?php include_once "footer.php" ?>
 </body>
-
 </html>
