@@ -1,5 +1,6 @@
 <?php
 require_once ('bd/conexion.php');
+
 if (isset($_POST['email'])) {
     
     $email = $_POST['email'];

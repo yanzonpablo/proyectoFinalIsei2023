@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <link rel="shortcut icon" href="images/logoCapacitacion.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="css/error404.css"/>
     <title>Error 404</title>
 </head>
-
 <body>
     <main>
         <div class="contenedor">

@@ -13,7 +13,7 @@ require_once('bd/conexion.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
     <title>CAMARAS</title>
-    <link rel="stylesheet" href="css/modalRegistro.css">
+    <link rel="stylesheet" href="css/modalInscripcionCurso.css">
 </head>
 
 <body>
@@ -22,10 +22,10 @@ require_once('bd/conexion.php');
         <div class="modalContainer">
             <img src="images/check.png" class="modalImg">
             <h3 class="modalTitle">GRACIAS POR REGISTRARSE...!!!</h3>
-            <p class="modalDescripcion">En momentos enviaremos las credenciales de acceso al e-mail registrado.</p>
-            <a href="#" class="modalClose">Cerrar</a>
+            <p class="modalDescripcion">En breve enviaremos un e-mail con información para acceder al curso.</p>
+            <a href="index.php" class="modalClose">Cerrar</a>
         </div>
     </section>
-    <script src="js/modalRegistro.js"></script>
+    <script src="js/modalInscripcionCurso.js"></script>
 </body>
 </html>

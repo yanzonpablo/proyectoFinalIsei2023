@@ -10,6 +10,7 @@ require_once('bd/conexion.php');
 try {
 	$consulta = $pdo->prepare("SELECT email, fecha_alta FROM newsletters ORDER BY fecha_alta");
 	$consulta->execute();
+	
 } catch (PDOException $e) {
 	echo $e->getMessage();
 }

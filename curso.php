@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["registro"])) {
     $sql->bindParam(":id_usuario", $id_usuario);
     $sql->bindParam(":id_curso", $id_curso);
     $sql->execute();
+    header('location: modalinscripcionCurso.php');
   }
 }
 ?>
