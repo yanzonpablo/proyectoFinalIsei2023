@@ -211,11 +211,22 @@ CREATE TABLE IF NOT EXISTS `inscripciones` (
   `id_curso` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
 
 -- Volcando datos para la tabla capacitacion.inscripciones: ~0 rows (aproximadamente)
 REPLACE INTO `inscripciones` (`id`, `fecha_inscripcion`, `id_usuario`, `id_curso`) VALUES
-	(1, '2023-09-24 17:25:38', 39, 44);
+	(1, '2023-09-24 17:25:38', 39, 44),
+	(2, '2023-09-24 20:49:15', 37, 44),
+	(3, '2023-09-24 21:23:32', 37, 45),
+	(4, '2023-09-24 21:34:27', 37, 42),
+	(5, '2023-09-24 23:54:38', 37, 18),
+	(6, '2023-09-24 23:54:39', 37, 18),
+	(7, '2023-09-25 00:01:52', 37, 25),
+	(8, '2023-09-25 01:05:10', 36, 19),
+	(9, '2023-09-25 01:07:41', 37, 19),
+	(10, '2023-09-25 01:09:54', 37, 19),
+	(11, '2023-09-25 01:10:03', 37, 25),
+	(12, '2023-09-25 01:10:11', 37, 30);
 
 -- Volcando estructura para tabla capacitacion.modalidades
 CREATE TABLE IF NOT EXISTS `modalidades` (
@@ -234,10 +245,10 @@ REPLACE INTO `modalidades` (`id`, `modalidad`) VALUES
 CREATE TABLE IF NOT EXISTS `newsletters` (
   `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(120) NOT NULL,
-  `baja` int NOT NULL,
+  `baja` int NOT NULL DEFAULT '0',
   `fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 
 -- Volcando datos para la tabla capacitacion.newsletters: ~5 rows (aproximadamente)
 REPLACE INTO `newsletters` (`id`, `email`, `baja`, `fecha_alta`) VALUES
@@ -245,7 +256,14 @@ REPLACE INTO `newsletters` (`id`, `email`, `baja`, `fecha_alta`) VALUES
 	(4, 'asdf@asdf.com', 0, '2023-06-28 00:00:00'),
 	(5, 'amasancarlos@hotmail.com', 0, '2023-06-28 00:00:00'),
 	(6, 'asdfasfd@asdfasef.com', 0, '2023-06-28 00:00:00'),
-	(7, 'gerencia@fechaco.org', 0, '2023-06-28 00:00:00');
+	(7, 'gerencia@fechaco.org', 0, '2023-06-28 00:00:00'),
+	(8, 'suscribirse', 0, '2023-09-25 01:44:33'),
+	(9, 'suscribirse', 0, '2023-09-25 01:44:48'),
+	(10, '', 0, '2023-09-25 01:45:43'),
+	(11, '', 0, '2023-09-25 01:46:42'),
+	(12, 'apa@apa.com', 0, '2023-09-25 01:47:58'),
+	(13, 'frefre@frefre.com', 0, '2023-09-25 01:49:27'),
+	(14, 'jua@jua.com', 0, '2023-09-25 01:49:42');
 
 -- Volcando estructura para tabla capacitacion.niveles_cursos
 CREATE TABLE IF NOT EXISTS `niveles_cursos` (
