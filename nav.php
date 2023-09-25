@@ -25,7 +25,7 @@
                             <a href="index.php">Inicio</a>
                         </li>
                         <li class="nav-link" style="--i: .85s">
-                            <a href="#">Cursos<i class="fas fa-caret-down"></i></a>
+                            <a href="">Cursos<i class="fas fa-caret-down"></i></a>
                             <div class="dropdown">
                                 <ul>
                                     <li class="dropdown-link">

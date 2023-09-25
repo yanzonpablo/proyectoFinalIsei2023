@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,9 +12,28 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+<?php
+$rol = isset($_SESSION['rol_usuario']) ? $_SESSION['rol_usuario'] : '';
 
-      <?php require_once('nav.php') ?>
+if ($rol == '') {
+    $rol = '0';
+}
 
+switch ($rol) {
+    case '0':
+        include_once "nav.php"; 
+        break;
+    case '1':
+        include_once "navUsuario.php"; 
+        break;
+    case '2':
+        include_once "navAdmin.php"; 
+        break;
+    default:
+        include_once "nav.php"; 
+        break;
+}
+?>
 <div class="linea"></div>
   <section id="contact">
       <div class="contact">

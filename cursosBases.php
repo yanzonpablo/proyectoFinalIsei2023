@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <?php
@@ -47,9 +46,28 @@ if (isset( $_POST['input-buscador'])) {
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+<?php
+$rol = isset($_SESSION['rol_usuario']) ? $_SESSION['rol_usuario'] : '';
 
-    <?php require_once "nav.php" ?>
+if ($rol == '') {
+    $rol = '0';
+}
 
+switch ($rol) {
+    case '0':
+        include_once "nav.php"; 
+        break;
+    case '1':
+        include_once "navUsuario.php"; 
+        break;
+    case '2':
+        include_once "navAdmin.php"; 
+        break;
+    default:
+        include_once "nav.php"; 
+        break;
+}
+?>
   <form action="" method="POST">
   <div class="header-content">
       <input type="text" class="input-buscador" id="input-buscador" name="input-buscador" placeholder="Buscar curso">

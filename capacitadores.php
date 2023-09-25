@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 require_once('bd/conexion.php');
 
 if (isset( $_POST['input-buscador'])) {
@@ -43,7 +46,28 @@ if (isset( $_POST['input-buscador'])) {
 </head>
 <body>
 
-    <?php require_once "nav.php" ?>
+<?php
+$rol = isset($_SESSION['rol_usuario']) ? $_SESSION['rol_usuario'] : '';
+
+if ($rol == '') {
+    $rol = '0';
+}
+
+switch ($rol) {
+    case '0':
+        include_once "nav.php"; 
+        break;
+    case '1':
+        include_once "navUsuario.php"; 
+        break;
+    case '2':
+        include_once "navAdmin.php"; 
+        break;
+    default:
+        include_once "nav.php"; 
+        break;
+}
+?>
 
   <form action="" method="POST">
   <div class="header-content">
