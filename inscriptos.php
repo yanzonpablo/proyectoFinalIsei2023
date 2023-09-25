@@ -9,19 +9,25 @@ if ($_SESSION['rol_usuario'] != 2) {
 <?php
 require_once('bd/conexion.php');
 
-$id = $_GET['id'];
+try {
 
-$consulta = $pdo->prepare("SELECT inscripciones.id, inscripciones.fecha_inscripcion, usuarios.nombre AS nombre, usuarios.apellido AS apellido,  
-cursos.nombre AS curso, cursos.fecha_inicio, cursos.fecha_fin
-from inscripciones 
-INNER JOIN usuarios ON inscripciones.id_usuario = usuarios.id
-INNER JOIN cursos ON inscripciones.id_curso = $id");
+$consulta = $pdo->prepare("SELECT usuarios.nombre, usuarios.apellido,
+cursos.nombre, cursos.fecha_inicio, cursos.fecha_fin, 
+niveles_cursos.nivel
+FROM usuarios
+INNER JOIN inscripciones ON inscripciones.id_usuario = usuarios.id
+INNER JOIN cursos ON inscripciones.id_curso = cursos.id
+INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id");
 
 $consulta->execute();
 
+} catch (PDOException $e) {
+
+	echo $e->getMessage();
+}
 ?>
 
-<?php
+<!-- <?php
 
 if (isset( $_POST['buscador'])) {
 
@@ -46,7 +52,7 @@ if (isset( $_POST['buscador'])) {
 
 	$bus->execute();
 }
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="es">
@@ -78,29 +84,28 @@ if (isset( $_POST['buscador'])) {
 							<input type="text" class="input-buscador" id="input-buscador" name="buscador" placeholder="Buscar inscripto">
 						</div>
 					</form>
-					<th class="Id">Id</th>
+					<th class="horas">Curso</th>
 					<th class="nombre">Nombre y Apellido</th>
 					<th class="modalidad">Fecha Insc.</th>
-					<th class="horas">Curso</th>
+					<th class="horas">Nivel</th>
 					<th class="horas">Fecha Inicio</th>
 					<th class="horas">Fecha Fin</th>
-					<th class="borrar" style="font-size: 16px">Borrar</th>
+					
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-						<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
-							<?php while ($datos = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
-					<td class="id" data-label="Id"><?= $datos['id'] ?></td>
+					<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
+						<?php while ($datos = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
+					<td class="curso" data-label="Curso"><?= $datos['curso'] ?></td>
 					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?> <?= $datos['apellido'] ?></td>
 					<td class="modalidad" data-label="Fecha Insc."><?= $datos['fecha_inscripcion'] ?></td>
-					<td class="curso" data-label="Curso"><?= $datos['curso'] ?></td>
+					<td class="curso" data-label="Nivel"><?= $datos['nivel'] ?></td>
 					<td class="curso" data-label="Fecha inicio"><?= $datos['fecha_inicio'] ?></td>
 					<td class="curso" data-label="Fecha Fin"><?= $datos['fecha_fin'] ?></td>
-					<td class="borrar"><a onclick="return confirmaInscripto()" href="<?= 'deleteInscripto.php?id='.$datos['id'] ?>"><i class="fas fa-trash-alt  borrar "></i></a></td>
 				</tr>
-				<?php } ?>
-				<?php } ?>
+					<?php } ?>
+						<?php } ?>
 			</tbody>
 		</table>
 	</div>

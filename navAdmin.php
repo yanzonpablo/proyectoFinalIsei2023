@@ -25,6 +25,9 @@
                             <a href="#">Dashboard<i class="fas fa-caret-down"></i></a>
                             <div class="dropdown">
                                 <ul>
+                                <li class="dropdown-link">
+                                        <a href="inscriptos.php">Inscriptos</a>
+                                    </li>
                                     <li class="dropdown-link">
                                         <a href="newsletter.php">Newsletters</a>
                                     </li>

@@ -82,7 +82,7 @@ switch ($rol) {
       <p class="fin">Fecha de finalización: <?= $datos['fecha_fin'] ?></p>
     <?php } ?>
     <form action="" method="POST" class="btn-reg">
-      <button type="submit" value="registro" name="registro" class="registro">Registrate</button>
+      <button type="submit" value="registro" name="registro" class="registro">INSCRIBITE</button>
     </form>
     <div class="caja">
       <div class="cursosrelacionados">
