@@ -6,14 +6,8 @@ if ($_SESSION['rol_usuario'] != 2) {
 ?>
 <?php
 require_once('bd/conexion.php');
-
-try {
 	$consulta = $pdo->prepare("SELECT email, fecha_alta FROM newsletters ORDER BY fecha_alta");
 	$consulta->execute();
-	
-} catch (PDOException $e) {
-	echo $e->getMessage();
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -59,7 +53,5 @@ try {
 		</table>
 	</div>
 </body>
-
 <script src="js/descargaExcel.js"></script>
-
 </html>

@@ -2,14 +2,15 @@
 require_once ('bd/conexion.php');
 
 if (isset($_POST['email'])) {
-    
-    $email = $_POST['email'];
+    $email = $_POST['correo'];
+    try {
+        $query = $pdo->prepare("INSERT INTO newsletters (email) VALUES (:email)");
+            $query->bindParam(':email', $email);
+            $query->execute();
+    } catch (PDOException $e) {
 
-    $query = $pdo->prepare("INSERT INTO newsletters (email) VALUES (:email)");
-        
-        $query->bindParam(':email', $email);
-
-        $query->execute();
+        echo $e->getMessage();
+      }
 }
 ?>
 <footer class="footer">
@@ -35,8 +36,8 @@ if (isset($_POST['email'])) {
             <h2 class="footer-title"> Newsletter </h2>
             <ul class="news-input">
                 <li>Reciba todas las novedades</li>
-                <input type="email" class="input-news" placeholder="Ingrese e-mail" name="email">
-                <button type="submit" value="suscribirse" name="email" class="btnNews">Suscribirse
+                <input type="email" class="input-news" placeholder="Ingrese e-mail" name="correo">
+                <button type="submit" value="" name="email" class="btnNews">Suscribirse
             </ul>
         </form>
     </footer>
