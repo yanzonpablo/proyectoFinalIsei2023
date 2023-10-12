@@ -69,3 +69,9 @@ El sistema consiste en una aplicación Web que le permite a sus Administradores 
 <h3 align="center"> Diagrama Relacional </h3>
 
 <p align="center" width=100%><img src="bd/mkBd.png" alt="home-Web" width="90%"/></p>
+
+
+## Estructura de clases:
+<h3 align="center"> Diagrama de clases </h3>
+
+<p align="center" width=100%><img src="bd/diagramaDeClases.png" alt="home-Web" width="90%"/></p>
