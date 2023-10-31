@@ -1,58 +1,51 @@
 <?php
 session_start();
-
 if ($_SESSION['rol_usuario'] != 2) {
 	header("location: index.php");
-} 
-?>
-
-<?php
-require_once('bd/conexion.php');
-
-try {
-
-$consulta = $pdo->prepare("SELECT usuarios.nombre, usuarios.apellido,
-cursos.nombre, cursos.fecha_inicio, cursos.fecha_fin, 
-niveles_cursos.nivel
-FROM usuarios
-INNER JOIN inscripciones ON inscripciones.id_usuario = usuarios.id
-INNER JOIN cursos ON inscripciones.id_curso = cursos.id
-INNER JOIN niveles_cursos ON cursos.nivel_curso = niveles_cursos.id");
-
-$consulta->execute();
-
-} catch (PDOException $e) {
-
-	echo $e->getMessage();
 }
 ?>
-
-<!-- <?php
-
-if (isset( $_POST['buscador'])) {
-
-	$palabra = $_POST['buscador'];
-
-	$bus = $pdo->prepare("SELECT inscripciones.id, inscripciones.fecha_inscripcion, usuarios.nombre AS nombre, usuarios.apellido AS apellido, 
+<?php
+require_once('bd/conexion.php');
+try {
+	$consulta = $pdo->prepare("SELECT inscripciones.id, inscripciones.fecha_inscripcion, usuarios.nombre AS nombre, usuarios.apellido AS apellido,  
 	cursos.nombre AS curso, cursos.fecha_inicio, cursos.fecha_fin
 	from inscripciones 
 	INNER JOIN usuarios ON inscripciones.id_usuario = usuarios.id
 	INNER JOIN cursos ON inscripciones.id_curso = cursos.id
-	WHERE LOWER(usuarios.nombre) LIKE LOWER('%$palabra%') AND LOWER(usuarios.apellido) LIKE LOWER('%$palabra%')");
+	ORDER BY curso ASC");
 
-	$bus->execute();
+	$consulta->execute();
+} catch (PDOException $e) {
+	echo $e->getMessage();
+}
+?>
+<?php
 
-	} else {
+if (isset($_POST['buscador'])) {
+
+	$palabra = $_POST['buscador'];
 
 	$bus = $pdo->prepare("SELECT inscripciones.id, inscripciones.fecha_inscripcion, usuarios.nombre AS nombre, usuarios.apellido AS apellido,  
 	cursos.nombre AS curso, cursos.fecha_inicio, cursos.fecha_fin
 	from inscripciones 
 	INNER JOIN usuarios ON inscripciones.id_usuario = usuarios.id
-	INNER JOIN cursos ON inscripciones.id_curso = cursos.id");
+	INNER JOIN cursos ON inscripciones.id_curso = cursos.id
+	WHERE (LOWER(usuarios.nombre) LIKE LOWER('%$palabra%') or LOWER(usuarios.apellido) LIKE LOWER('%$palabra%')) OR LOWER(cursos.nombre) LIKE LOWER('%$palabra%')");
+
+	$bus->execute();
+
+} else {
+
+	$bus = $pdo->prepare("SELECT inscripciones.id, inscripciones.fecha_inscripcion, usuarios.nombre AS nombre, usuarios.apellido AS apellido,  
+	cursos.nombre AS curso, cursos.fecha_inicio, cursos.fecha_fin
+	from inscripciones 
+	INNER JOIN usuarios ON inscripciones.id_usuario = usuarios.id
+	INNER JOIN cursos ON inscripciones.id_curso = cursos.id
+	ORDER BY curso ASC");
 
 	$bus->execute();
 }
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -70,45 +63,45 @@ if (isset( $_POST['buscador'])) {
 	<link rel="stylesheet" type="text/css" href="css/inscriptos.css">
 </head>
 </body>
+
 <body>
-<?php require_once("navAdmin.php") ?>
-		<div class="cont_title">
-			<p>LISTA DE INSCRIPTOS</p>
-		</div>
-		<div class="contenedor">
-			<table border="1">
-				<thead>
-					<tr>
+	<?php require_once("navAdmin.php") ?>
+	<div class="cont_title">
+		<p>LISTA DE INSCRIPTOS</p>
+	</div>
+	<div class="contenedor">
+		<table border="1">
+			<thead>
+				<tr>
 					<form action="" method="POST">
 						<div class="header-content">
 							<input type="text" class="input-buscador" id="input-buscador" name="buscador" placeholder="Buscar inscripto">
 						</div>
 					</form>
-					<th class="horas">Curso</th>
+					<th class="curso">Curso</th>
 					<th class="nombre">Nombre y Apellido</th>
-					<th class="modalidad">Fecha Insc.</th>
-					<th class="horas">Nivel</th>
-					<th class="horas">Fecha Inicio</th>
-					<th class="horas">Fecha Fin</th>
-					
+					<th class="f_inscribe">Fecha Insc.</th>
+					<th class="f_inicio">Fecha Inicio</th>
+					<th class="f_fin">Fecha Fin</th>
+
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<?php while ($datos = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
 						<?php while ($datos = $bus->fetch(PDO::FETCH_ASSOC)) { ?>
-					<td class="curso" data-label="Curso"><?= $datos['curso'] ?></td>
-					<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?> <?= $datos['apellido'] ?></td>
-					<td class="modalidad" data-label="Fecha Insc."><?= $datos['fecha_inscripcion'] ?></td>
-					<td class="curso" data-label="Nivel"><?= $datos['nivel'] ?></td>
-					<td class="curso" data-label="Fecha inicio"><?= $datos['fecha_inicio'] ?></td>
-					<td class="curso" data-label="Fecha Fin"><?= $datos['fecha_fin'] ?></td>
+							<td class="curso" data-label="Curso"><?= $datos['curso'] ?></td>
+							<td class="nombre" data-label="Nombre"><?= $datos['nombre'] ?> <?= $datos['apellido'] ?></td>
+							<td class="f_inscribe" data-label="Fecha Insc."><?= $datos['fecha_inscripcion'] ?></td>
+							<td class="f_inicio" data-label="Fecha inicio"><?= $datos['fecha_inicio'] ?></td>
+							<td class="f_fin" data-label="Fecha Fin"><?= $datos['fecha_fin'] ?></td>
 				</tr>
-					<?php } ?>
-						<?php } ?>
+			<?php } ?>
+		<?php } ?>
 			</tbody>
 		</table>
 	</div>
 </body>
 <script src="js/confirmaInscripto.js"></script>
+
 </html>
