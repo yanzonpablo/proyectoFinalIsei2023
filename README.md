@@ -1,7 +1,7 @@
 <h1 align="center"> Proyecto Final Desarrolo de Sistemas Web 
 </h1>
 
-## Sistema de capacitación
+## Resumen ejecutivo - Sistema de capacitación
 
 Sistema de publicación de presentaciones comerciales, charlas técnicas, cursos base y de perfeccionamiento dirigido a público relacionado al mundo de la reparación del automotor. 
 A su ves es una herramienta que permite administrar inscripciones sobre las publicaciones mensionadas.
