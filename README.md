@@ -4,7 +4,7 @@
 ## Resumen ejecutivo - Sistema de capacitación
 
 Sistema de publicación de presentaciones comerciales, charlas técnicas, cursos base y de perfeccionamiento dirigido a público relacionado al mundo de la reparación del automotor. 
-A su ves es una herramienta que permite administrar inscripciones sobre las publicaciones mensionadas.
+A su vez es una herramienta que permite administrar inscripciones sobre las publicaciones mencionadas.
 
 El sistema consiste en una aplicación Web que le permite a sus Administradores (quienes se autentican con usuario y contraseña) dar de alta y baja eventos, capacitadores, gestionar su inscripción y confeccionar los certificados de asistencia para su envío luego del evento o cuando el participante lo solicite. Para esto, dispondrá de formularios que pueden personalizarse, lo que permitirá definir aspectos como información general del evento, disertantes, modalidades de cursado, entre otros datos.  
 

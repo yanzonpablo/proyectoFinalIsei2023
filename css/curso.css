@@ -10,6 +10,7 @@
     margin-bottom: 10px;
     color: #001a49;
 }
+
 .btn-reg {
     text-align: center;
 }
@@ -32,11 +33,11 @@
 }
 /*contenido*/
 .container {
-    max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
+    max-width: 1200px;
     margin-top: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 .columna1 {
     width: 100%;
@@ -50,6 +51,11 @@
     height: 85%;
     width: 20%;
     border-radius: 50%;
+}
+img {
+    display: block;
+    border-radius: 50%;
+    padding: 0 10px;
 }
 
 .parrafo-especialidad{
