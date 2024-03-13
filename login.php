@@ -4,7 +4,7 @@ $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $pdo = new PDO("mysql:host=localhost;dbname=capacitacion", "root", "d79f2f87");
+    $pdo = new PDO("mysql:host=localhost;dbname=capacitacion", "root", "");
 
     $username = $_POST["username"];
     $password = $_POST["password"];
